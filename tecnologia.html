@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo está hecha AIDA — Arquitectura y stack</title>
+  <meta name="description" content="La parte técnica de AIDA: arquitectura modular orientada a servicios, modelos de lenguaje, voz y visión, análisis de sentimiento, almacenamiento y decisiones de diseño." />
+  <meta name="theme-color" content="#196F77" />
+  <link rel="canonical" href="https://aida-chatbot.github.io/WebAIDA/tecnologia.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="AIDA" />
+  <meta property="og:url" content="https://aida-chatbot.github.io/WebAIDA/tecnologia.html" />
+  <meta property="og:title" content="Cómo está hecha AIDA — Arquitectura y stack" />
+  <meta property="og:description" content="Arquitectura modular, modelos de lenguaje, voz y visión, análisis de sentimiento y las decisiones de diseño detrás del asistente." />
+  <meta property="og:image" content="https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg" />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/favicon-256.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-text-size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 8 6l5 12"/><path d="M4.6 14.5h6.8"/><path d="M15 18l3.5-8 3.5 8"/><path d="M16.1 15.6h4.8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2.5 7 8.4 5.6a2 2 0 0 0 2.2 0L21.5 7"/></symbol>
+</svg>
+
+<!-- ===================== NAV ========================= -->
+<header class="nav is-scrolled" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="index.html" aria-label="AIDA — volver al inicio">
+      <img src="assets/aida-mark.png" alt="" width="42" height="42" />
+      <span class="brand__text">
+        <span class="brand__name">AIDA</span>
+        <span class="brand__tag">Asistente Digital</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a class="nav__link" href="index.html#que-es">Qué es</a>
+      <a class="nav__link" href="index.html#funciones">Funciones</a>
+      <a class="nav__link is-active" href="tecnologia.html">Tecnología</a>
+      <a class="nav__link" href="index.html#equipo">Equipo</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="a11y-toggle" id="text-size" type="button" aria-pressed="false"
+              title="Agrandar el texto de toda la página">
+        <svg aria-hidden="true"><use href="#i-text-size"/></svg>
+        <span>Texto grande</span>
+        <span class="sr-only">Activar o desactivar el modo de texto grande</span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="index.html#lista-de-espera">Anotarme</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ENCABEZADO ================== -->
+<div class="page-hero">
+  <div class="container">
+    <a href="index.html" class="member__link" style="margin-bottom:var(--sp-3)">
+      <svg aria-hidden="true"><use href="#i-back"/></svg> Volver al inicio
+    </a>
+    <h1>Cómo está hecha AIDA</h1>
+    <p style="max-width:62ch">
+      Esta página es la versión técnica del proyecto: arquitectura, modelos y las decisiones
+      que tomamos por el camino. Si lo que buscabas es qué hace AIDA y cómo se usa, con la
+      <a href="index.html" style="color:var(--c-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">página principal</a>
+      alcanza y sobra.
+    </p>
+    <p style="margin-top:var(--sp-3)">
+      <span class="pill pill--gold">Trabajo final del Samsung Innovation Campus 2025</span>
+    </p>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= ARQUITECTURA ================== -->
+  <section class="section" aria-labelledby="arq-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Arquitectura</p>
+        <h2 id="arq-title" class="section-title">Un núcleo delgado y servicios independientes</h2>
+        <p class="section-desc">
+          AIDA no es un único script grande. El núcleo recibe el mensaje, decide de qué se trata
+          y lo deriva al servicio que corresponde. Cada servicio se puede mejorar, reemplazar o
+          apagar sin tocar el resto.
+        </p>
+      </div>
+
+      <div class="diagram" style="margin-top:var(--sp-6)">
+        <h3>Cómo viaja un mensaje</h3>
+        <p>Del chat de la persona al servicio correspondiente, y de vuelta — en un solo recorrido.</p>
+        <div class="diagram__scroll">
+          <svg viewBox="0 0 900 380" role="img" aria-label="Diagrama: el mensaje de la persona entra por el chat, el núcleo de AIDA clasifica la intención y la deriva al servicio de voz, visión, conversación, emociones o alertas; el perfil y las sesiones se guardan en Firestore y la respuesta vuelve al chat.">
+            <defs>
+              <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1FA6A0"/><stop offset="100%" stop-color="#1E6E96"/>
+              </linearGradient>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#8FA3A9"/>
+              </marker>
+            </defs>
+
+            <rect x="10" y="130" width="160" height="120" rx="18" fill="#E4F4F4" stroke="#C6E8E8"/>
+            <text x="90" y="167" text-anchor="middle" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#14343E">Persona usuaria</text>
+            <text x="90" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">texto · audio · foto</text>
+            <text x="90" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">desde su chat</text>
+            <text x="90" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">Telegram</text>
+
+            <rect x="235" y="95" width="200" height="190" rx="20" fill="url(#dg)"/>
+            <text x="335" y="132" text-anchor="middle" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#fff">Núcleo AIDA</text>
+            <rect x="255" y="148" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Clasificador de intención</text>
+            <rect x="255" y="190" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Perfil y memoria</text>
+            <rect x="255" y="232" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Base de conocimiento</text>
+
+            <g font-family="Inter, sans-serif" font-size="12.5" fill="#14343E">
+              <rect x="510" y="20"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="48">🎙️ Voz — Whisper / Edge TTS</text>
+              <rect x="510" y="80"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="108">👁️ Visión — Llama 4 Scout</text>
+              <rect x="510" y="140" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="168">💬 Diálogo — Llama 3.3</text>
+              <rect x="510" y="200" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="228">❤️ Emociones — RoBERTuito</text>
+              <rect x="510" y="260" width="200" height="46" rx="12" fill="#FDF2DC" stroke="#F2B84D"/>
+              <text x="530" y="288">🔔 Alertas al contacto</text>
+            </g>
+
+            <rect x="235" y="310" width="200" height="52" rx="14" fill="#fff" stroke="#DCE7E8"/>
+            <text x="335" y="335" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#14343E">Firestore</text>
+            <text x="335" y="352" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">perfiles y sesiones</text>
+
+            <g stroke="#8FA3A9" stroke-width="1.8" fill="none" marker-end="url(#arrow)">
+              <path d="M172 178 H 231"/>
+              <path d="M437 190 C 470 190, 470 43,  506 43"/>
+              <path d="M437 190 C 470 190, 470 103, 506 103"/>
+              <path d="M437 190 H 506"/>
+              <path d="M437 190 C 470 190, 470 223, 506 223"/>
+              <path d="M437 190 C 470 190, 470 283, 506 283"/>
+              <path d="M335 289 V 306"/>
+            </g>
+            <path d="M231 205 H 190 C 176 205, 172 212, 172 222" stroke="#F2B84D" stroke-width="1.8" fill="none" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+            <text x="196" y="255" font-family="Inter, sans-serif" font-size="11" fill="#DA9E2E">respuesta</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STACK ===================== -->
+  <section class="section section--alt" aria-labelledby="stack-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Stack</p>
+        <h2 id="stack-title" class="section-title">Qué usa cada pieza</h2>
+        <p class="section-desc">
+          Python en el núcleo y modelos alojados para todo lo pesado: el objetivo era que el
+          asistente respondiera rápido sin necesitar una máquina potente detrás.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Bot framework</p><p class="tech-item__name">pyTelegramBotAPI</p><p class="tech-item__desc">Handlers separados por tipo de mensaje: texto, voz, imagen y comandos.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Conversación</p><p class="tech-item__name">Llama 3.3 70B vía Groq</p><p class="tech-item__desc">Modelo principal para entender intenciones complejas y sostener el diálogo.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Clasificación</p><p class="tech-item__name">Llama 3.1 8B Instant</p><p class="tech-item__desc">Modelo liviano y barato dedicado solo a decidir qué servicio atiende el mensaje.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Voz a texto</p><p class="tech-item__name">openai-whisper</p><p class="tech-item__desc">Transcripción de notas de voz, con buen desempeño en acentos regionales.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Texto a voz</p><p class="tech-item__name">edge-tts</p><p class="tech-item__desc">Síntesis natural y multiidioma, con varias voces para elegir. Requiere FFmpeg.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Visión</p><p class="tech-item__name">Llama 4 Scout</p><p class="tech-item__desc">Descripción de imágenes, OCR y detección de phishing en capturas de pantalla.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Sentimiento</p><p class="tech-item__name">pysentimiento · RoBERTuito</p><p class="tech-item__desc">Modelo entrenado en español rioplatense, no una traducción de uno en inglés.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Audio</p><p class="tech-item__name">pydub</p><p class="tech-item__desc">Conversión de los formatos de audio que entrega la API de mensajería.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Idioma</p><p class="tech-item__name">langdetect</p><p class="tech-item__desc">Detección del idioma del mensaje para decidir si hace falta traducir la respuesta.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Datos</p><p class="tech-item__name">firebase-admin · Firestore</p><p class="tech-item__desc">Perfiles y sesiones en la nube, con un archivo JSON local como respaldo.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Alertas</p><p class="tech-item__name">Webhook de Make.com</p><p class="tech-item__desc">Disparo del correo al contacto de confianza sin montar un servidor de mail.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Configuración</p><p class="tech-item__name">python-dotenv</p><p class="tech-item__desc">Todas las claves y modelos salen de variables de entorno, nunca del código.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== DECISIONES =================== -->
+  <section class="section" aria-labelledby="dec-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Decisiones de diseño</p>
+        <h2 id="dec-title" class="section-title">Por qué está hecho así</h2>
+        <p class="section-desc">
+          Casi todas las decisiones salieron de la misma pregunta: ¿esto hace que a una persona
+          de 75 años le resulte más fácil, o solo hace que el proyecto se vea mejor?
+        </p>
+      </div>
+
+      <div class="grid-cards">
+        <article class="f-card">
+          <h3>Vivir dentro de una app que ya usan</h3>
+          <p>Una app propia habría significado enseñar a instalarla, actualizarla y entrar. Meterse en un chat que la persona ya tiene abierto elimina toda esa barrera de una sola vez.</p>
+        </article>
+        <article class="f-card">
+          <h3>Base de conocimiento antes que el modelo</h3>
+          <p>Las preguntas más frecuentes se responden desde un dataset local. Es instantáneo, no falla si se cae la API y garantiza que la respuesta a «¿cómo agrando la letra?» sea siempre la buena.</p>
+        </article>
+        <article class="f-card">
+          <h3>Dos modelos, no uno</h3>
+          <p>Clasificar la intención con un modelo chico y responder con uno grande abarata cada mensaje y baja la latencia. Lo que se nota del otro lado es que AIDA contesta rápido.</p>
+        </article>
+        <article class="f-card">
+          <h3>El sentimiento cambia el tono, no la respuesta</h3>
+          <p>Si el análisis detecta frustración o tristeza, se ajusta cómo se dice la respuesta, no qué se responde. La idea es acompañar, no cambiar la información según el humor.</p>
+        </article>
+        <article class="f-card">
+          <h3>Servicios reemplazables</h3>
+          <p>Cada capacidad vive en su propio módulo con una interfaz mínima. Cambiar el proveedor de voz o el modelo de visión es tocar un archivo, no reescribir el bot.</p>
+        </article>
+        <article class="f-card">
+          <h3>Respaldo local siempre</h3>
+          <p>Si no hay credenciales de Firebase, los perfiles se guardan en un JSON local. El asistente arranca igual, y eso hace que probar y desarrollar no dependa de la nube.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== LIMITACIONES ================= -->
+  <section class="section section--alt" aria-labelledby="lim-title">
+    <div class="container container--narrow">
+      <article class="prose" style="padding-block:0">
+        <p class="eyebrow">Honestidad técnica</p>
+        <h2 id="lim-title" class="section-title">Limitaciones conocidas</h2>
+        <ul>
+          <li>Los modelos de lenguaje se equivocan. Las respuestas de AIDA son orientativas y así se comunican.</li>
+          <li>La detección de fraudes ayuda a sospechar, pero no reemplaza verificar por un canal oficial.</li>
+          <li>La transcripción de voz pierde precisión con ruido de fondo o audios muy largos.</li>
+          <li>El análisis de sentimiento trabaja sobre el texto: no detecta el tono real de la voz.</li>
+          <li>El asistente depende de servicios externos; si alguno se cae, esa capacidad queda fuera hasta que vuelva.</li>
+        </ul>
+
+        <div class="prose__note">
+          <p>
+            <strong>El repositorio del bot es privado</strong> por ahora, así que no hay código
+            público para revisar. Si te interesa el detalle de la implementación o querés
+            conversar sobre el proyecto, escribinos y con gusto lo charlamos.
+          </p>
+        </div>
+
+        <p style="margin-top:var(--sp-4)">
+          <a class="btn btn--dark" href="mailto:aidaassistantbot@gmail.com">
+            <svg aria-hidden="true"><use href="#i-mail"/></svg>
+            aidaassistantbot@gmail.com
+          </a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="footer__brand" href="index.html">
+          <img src="assets/aida-mark.png" alt="" width="40" height="40" loading="lazy" />
+          <span>AIDA</span>
+        </a>
+        <p class="footer__about">
+          Asistente Digital Unificado: un acompañante tecnológico paciente, claro y seguro
+          para personas mayores.
+        </p>
+        <p class="footer__award">🏆 1.º puesto — Samsung Innovation Campus Argentina 2025</p>
+      </div>
+
+      <nav aria-labelledby="f-producto">
+        <h3 id="f-producto">El proyecto</h3>
+        <ul>
+          <li><a href="index.html#que-es">Qué es AIDA</a></li>
+          <li><a href="index.html#funciones">Funciones</a></li>
+          <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+          <li><a href="index.html#estado">Estado del proyecto</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-mas">
+        <h3 id="f-mas">Más</h3>
+        <ul>
+          <li><a href="index.html#premio">El premio</a></li>
+          <li><a href="tecnologia.html">Tecnología</a></li>
+          <li><a href="index.html#equipo">Equipo</a></li>
+          <li><a href="index.html#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-contacto">
+        <h3 id="f-contacto">Contacto</h3>
+        <ul>
+          <li><a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a></li>
+          <li><a href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener noreferrer">Video de presentación</a></li>
+          <li><a href="privacidad.html">Privacidad y términos</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> AIDA. Hecho en Argentina con paciencia.</p>
+      <p>Samsung, Telegram y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/main.js" defer></script>
+</body>
+</html>

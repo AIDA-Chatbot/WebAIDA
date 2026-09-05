@@ -818,14 +818,25 @@ p { text-wrap: pretty; }
 
 .f-card h3 { font-size: var(--text-lg); margin-bottom: .4rem; }
 .f-card p { font-size: var(--text-sm); color: var(--c-muted); }
-.f-card__meta {
-  display: inline-flex; align-items: center; gap: .4rem;
-  margin-top: var(--sp-2);
-  font-size: .75rem; font-weight: 600; letter-spacing: .04em;
-  color: var(--c-teal-600);
-  background: var(--c-teal-50);
-  border-radius: var(--r-pill); padding: .25rem .7rem;
+/* Invitación a la página técnica, en la home. */
+.tech-teaser {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  box-shadow: var(--sh-sm);
 }
+.tech-teaser__icon {
+  display: grid; place-items: center; flex: none;
+  width: 68px; height: 68px; border-radius: 22px;
+  background: var(--g-brand); color: var(--c-white);
+  box-shadow: 0 10px 26px rgba(25,111,119,.25);
+}
+.tech-teaser__icon svg { width: 32px; height: 32px; }
 
 /* ---------- 13. Pasos ------------------------------------- */
 .steps {
@@ -938,6 +949,7 @@ p { text-wrap: pretty; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--sp-2); margin-top: var(--sp-6);
 }
+.tech-item p { margin: 0; }
 .tech-item {
   display: flex; gap: .85rem;
   background: var(--c-white);
@@ -1293,6 +1305,8 @@ p { text-wrap: pretty; }
   .award__inner, .split { grid-template-columns: 1fr; }
   .award__media { order: -1; }
   .award__ribbon { left: 50%; transform: translateX(-50%) rotate(-3deg); }
+
+  .tech-teaser { grid-template-columns: 1fr; }
 
   .steps { grid-template-columns: repeat(2, 1fr); row-gap: var(--sp-6); }
   .steps::before { display: none; }

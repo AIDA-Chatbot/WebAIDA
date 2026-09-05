@@ -6,6 +6,7 @@ que acompaña a personas mayores en el uso de la tecnología.
 > 🏆 AIDA fue el **proyecto campeón del Capstone Project del Samsung Innovation Campus
 > Argentina 2025**, en la edición especializada en Inteligencia Artificial.
 
+En línea: **https://aida-chatbot.github.io/WebAIDA/**
 Se publica automáticamente en GitHub Pages con cada push a `main`.
 
 ## Estructura
@@ -13,6 +14,7 @@ Se publica automáticamente en GitHub Pages con cada push a `main`.
 ```
 WebAIDA/
 ├── index.html                  # Página principal (una sola página, con anclas)
+├── tecnologia.html             # Detalle técnico (arquitectura, stack, decisiones)
 ├── privacidad.html             # Política de privacidad y términos
 ├── 404.html                    # Página de error
 ├── robots.txt · sitemap.xml    # SEO básico
@@ -21,6 +23,7 @@ WebAIDA/
 │   ├── aida-wave.png           # Pingüino saludando — hero y CTA
 │   ├── aida-penguin.png        # Pingüino parado, alta resolución
 │   ├── aida-ganadores.jpg      # Banner del premio
+│   ├── equipo-*.png            # Los tres integrantes en versión pingüino
 │   ├── aida-logo.jpg           # Logotipo horizontal original
 │   ├── og-image.jpg            # Imagen para compartir en redes (1200×630)
 │   └── favicon.ico · favicon-32.png · favicon-256.png
@@ -43,11 +46,15 @@ recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
 | `#como-funciona` | Los 4 pasos para empezar |
 | `#para-quien` | Personas mayores / familias y cuidadores |
 | `#video` | Video de presentación (se carga recién al hacer clic) |
-| `#tecnologia` | Stack y diagrama del recorrido de un mensaje |
+| `#tecnologia` | Invitación a la página técnica (el detalle vive en `tecnologia.html`) |
 | `#estado` | Qué está listo, qué está en curso y qué viene |
 | `#equipo` | Integrantes y agradecimientos |
 | `#preguntas` | Preguntas frecuentes |
 | `#lista-de-espera` | Formulario de la lista de espera |
+
+La página principal está escrita para cualquier persona: no nombra modelos ni tecnologías.
+Todo el detalle técnico (arquitectura, stack, decisiones de diseño y limitaciones conocidas)
+vive en [`tecnologia.html`](tecnologia.html), para quien lo busque.
 
 ## Accesibilidad
 
@@ -108,4 +115,8 @@ La paleta se muestreó del arte original del isotipo y respeta el
 - [Renata Berho](https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/)
 - [Milagros Argañin](https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/)
 
+Los tres trabajamos en todo el proyecto, sin roles separados.
+
 Contacto: **aidaassistantbot@gmail.com** · [Video de presentación](https://youtu.be/Sl-CFzgz-u0)
+
+> El repositorio del bot es privado, así que el sitio no enlaza a código fuente.

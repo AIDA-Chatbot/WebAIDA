@@ -78,7 +78,6 @@
   <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.1v13.8c0 .8.9 1.3 1.5.8l10.2-6.9a1 1 0 0 0 0-1.6L9.5 4.3A1 1 0 0 0 8 5.1z"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
-  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C17.6 5 18.6 5.3 18.6 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2.5 7 8.4 5.6a2 2 0 0 0 2.2 0L21.5 7"/></symbol>
   <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><polyline points="21 3 21 8 16 8"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><polyline points="3 21 3 16 8 16"/></symbol>
   <symbol id="i-text-size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 8 6l5 12"/><path d="M4.6 14.5h6.8"/><path d="M15 18l3.5-8 3.5 8"/><path d="M16.1 15.6h4.8"/></symbol>
@@ -108,7 +107,7 @@
       <a class="nav__link" href="#premio">El premio</a>
       <a class="nav__link" href="#que-es">Qué es</a>
       <a class="nav__link" href="#funciones">Funciones</a>
-      <a class="nav__link" href="#tecnologia">Tecnología</a>
+      <a class="nav__link" href="tecnologia.html">Tecnología</a>
       <a class="nav__link" href="#equipo">Equipo</a>
     </nav>
 
@@ -135,7 +134,7 @@
         <li><a class="nav__link" href="#funciones">Funciones</a></li>
         <li><a class="nav__link" href="#como-funciona">Cómo funciona</a></li>
         <li><a class="nav__link" href="#video">Video</a></li>
-        <li><a class="nav__link" href="#tecnologia">Tecnología</a></li>
+        <li><a class="nav__link" href="tecnologia.html">Tecnología</a></li>
         <li><a class="nav__link" href="#estado">Estado del proyecto</a></li>
         <li><a class="nav__link" href="#equipo">Equipo</a></li>
         <li><a class="nav__link" href="#preguntas">Preguntas frecuentes</a></li>
@@ -348,63 +347,54 @@
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-chat"/></svg></span>
           <h3>Conversación natural</h3>
           <p>Preguntá como le preguntarías a una persona. AIDA entiende el contexto, recuerda de qué venían hablando y responde sin vueltas.</p>
-          <span class="f-card__meta">Llama 3.3 · Groq</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
           <h3>Escucha y responde en audio</h3>
           <p>Mandá una nota de voz y AIDA la entiende. Si preferís escuchar en lugar de leer, te contesta con su propia voz, y podés elegir cuál.</p>
-          <span class="f-card__meta">Whisper + Edge TTS</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-image"/></svg></span>
           <h3>Análisis de imágenes</h3>
           <p>Sacá una foto o mandá una captura. AIDA describe lo que ve, lee el texto que aparece y lo explica en palabras simples.</p>
-          <span class="f-card__meta">Llama 4 Scout</span>
         </article>
 
         <article class="f-card f-card--gold">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
           <h3>Detección de fraudes</h3>
           <p>¿Un mensaje raro, un premio inesperado, alguien que pide un código? Mandáselo a AIDA y te dice si parece legítimo o si es una trampa.</p>
-          <span class="f-card__meta">Lectura de capturas + análisis</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
           <h3>Empatía activa</h3>
           <p>Un modelo entrenado en español rioplatense detecta enojo, frustración o tristeza en los mensajes, y AIDA ajusta su tono para acompañar.</p>
-          <span class="f-card__meta">RoBERTuito · Pysentimiento</span>
         </article>
 
         <article class="f-card f-card--gold">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-bell"/></svg></span>
           <h3>Alertas a un contacto</h3>
           <p>Ante señales de riesgo, AIDA puede enviar automáticamente un aviso por correo a un familiar o contacto de confianza previamente configurado.</p>
-          <span class="f-card__meta">Aviso por correo</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-user"/></svg></span>
           <h3>Perfil personalizado</h3>
           <p>La primera vez, unas pocas preguntas ayudan a AIDA a conocer el nivel de autonomía, los intereses y el entorno de cada persona.</p>
-          <span class="f-card__meta">Onboarding guiado</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-book"/></svg></span>
           <h3>Base de conocimiento</h3>
           <p>Más de 35 preguntas frecuentes sobre tecnología cotidiana ya resueltas: se responden al instante, sin depender de la conexión con el modelo.</p>
-          <span class="f-card__meta">Respuestas inmediatas</span>
         </article>
 
         <article class="f-card">
           <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-globe"/></svg></span>
           <h3>Multiidioma</h3>
           <p>Si alguien escribe en otro idioma, AIDA lo detecta y le responde en ese mismo idioma. No hay nada que configurar.</p>
-          <span class="f-card__meta">Detección automática</span>
         </article>
 
       </div>
@@ -507,92 +497,27 @@
     </div>
   </section>
 
-  <!-- =================== TECNOLOGÍA ================== -->
+  <!-- ============== TECNOLOGÍA (resumen) ============= -->
   <section class="section section--tint" id="tecnologia" aria-labelledby="tec-title">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Tecnología</p>
-        <h2 id="tec-title" class="section-title">Qué hay adentro</h2>
-        <p class="section-desc">
-          AIDA es un sistema modular: cada capacidad vive en su propio servicio, así se puede mejorar
-          o reemplazar una pieza sin tocar el resto.
-        </p>
-      </div>
-
-      <div class="tech-grid stagger">
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Conversación</p><p class="tech-item__name">Llama 3.3 70B vía Groq</p><p class="tech-item__desc">Inferencia de alta velocidad para entender intenciones y responder con naturalidad.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Clasificación</p><p class="tech-item__name">Llama 3.1 8B Instant</p><p class="tech-item__desc">Modelo liviano que decide, en milisegundos, qué servicio tiene que atender cada mensaje.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Voz a texto</p><p class="tech-item__name">OpenAI Whisper</p><p class="tech-item__desc">Transcripción de notas de voz, con buen desempeño en acentos regionales.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Texto a voz</p><p class="tech-item__name">Microsoft Edge TTS</p><p class="tech-item__desc">Síntesis de voz natural y multiidioma, con varias voces para elegir.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Visión</p><p class="tech-item__name">Llama 4 Scout</p><p class="tech-item__desc">Descripción de imágenes, lectura de texto y detección de contenido fraudulento.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Emociones</p><p class="tech-item__name">RoBERTuito · Pysentimiento</p><p class="tech-item__desc">Análisis de sentimiento entrenado en español rioplatense.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Datos</p><p class="tech-item__name">Firebase Firestore</p><p class="tech-item__desc">Perfiles y sesiones en la nube, con acceso restringido al equipo. Respaldo local si no hay conexión.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Núcleo</p><p class="tech-item__name">Python · pyTelegramBotAPI</p><p class="tech-item__desc">Arquitectura modular orientada a servicios, con handlers separados por tipo de mensaje.</p></div></div>
-      </div>
-
-      <div class="diagram reveal">
-        <h3>Cómo viaja un mensaje</h3>
-        <p>Del chat de la persona al servicio correspondiente, y de vuelta — en un solo recorrido.</p>
-        <div class="diagram__scroll">
-          <svg viewBox="0 0 900 380" role="img" aria-label="Diagrama: el mensaje de la persona entra por el chat, el núcleo de AIDA clasifica la intención y la deriva al servicio de voz, visión, conversación, emociones o alertas; el perfil y las sesiones se guardan en Firestore y la respuesta vuelve al chat.">
-            <defs>
-              <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#1FA6A0"/><stop offset="100%" stop-color="#1E6E96"/>
-              </linearGradient>
-              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="#8FA3A9"/>
-              </marker>
-            </defs>
-
-            <!-- Persona -->
-            <rect x="10" y="130" width="160" height="120" rx="18" fill="#E4F4F4" stroke="#C6E8E8"/>
-            <text x="90" y="167" text-anchor="middle" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#14343E">Persona usuaria</text>
-            <text x="90" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">texto · audio · foto</text>
-            <text x="90" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">desde su chat</text>
-            <text x="90" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">Telegram</text>
-
-            <!-- Núcleo -->
-            <rect x="235" y="95" width="200" height="190" rx="20" fill="url(#dg)"/>
-            <text x="335" y="132" text-anchor="middle" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#fff">Núcleo AIDA</text>
-            <rect x="255" y="148" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
-            <text x="335" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Clasificador de intención</text>
-            <rect x="255" y="190" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
-            <text x="335" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Perfil y memoria</text>
-            <rect x="255" y="232" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
-            <text x="335" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Base de conocimiento</text>
-
-            <!-- Servicios -->
-            <g font-family="Inter, sans-serif" font-size="12.5" fill="#14343E">
-              <rect x="510" y="20"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
-              <text x="530" y="48">🎙️ Voz — Whisper / Edge TTS</text>
-              <rect x="510" y="80"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
-              <text x="530" y="108">👁️ Visión — Llama 4 Scout</text>
-              <rect x="510" y="140" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
-              <text x="530" y="168">💬 Diálogo — Llama 3.3</text>
-              <rect x="510" y="200" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
-              <text x="530" y="228">❤️ Emociones — RoBERTuito</text>
-              <rect x="510" y="260" width="200" height="46" rx="12" fill="#FDF2DC" stroke="#F2B84D"/>
-              <text x="530" y="288">🔔 Alertas al contacto</text>
-            </g>
-
-            <!-- Almacenamiento -->
-            <rect x="235" y="310" width="200" height="52" rx="14" fill="#fff" stroke="#DCE7E8"/>
-            <text x="335" y="335" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#14343E">Firestore</text>
-            <text x="335" y="352" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">perfiles y sesiones</text>
-
-            <!-- Flechas -->
-            <g stroke="#8FA3A9" stroke-width="1.8" fill="none" marker-end="url(#arrow)">
-              <path d="M172 178 H 231"/>
-              <path d="M437 190 C 470 190, 470 43,  506 43"/>
-              <path d="M437 190 C 470 190, 470 103, 506 103"/>
-              <path d="M437 190 H 506"/>
-              <path d="M437 190 C 470 190, 470 223, 506 223"/>
-              <path d="M437 190 C 470 190, 470 283, 506 283"/>
-              <path d="M335 289 V 306"/>
-            </g>
-            <path d="M231 205 H 190 C 176 205, 172 212, 172 222" stroke="#F2B84D" stroke-width="1.8" fill="none" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
-            <text x="196" y="255" font-family="Inter, sans-serif" font-size="11" fill="#DA9E2E">respuesta</text>
-          </svg>
+      <div class="tech-teaser reveal">
+        <span class="tech-teaser__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16.5 9 5 9-5"/></svg>
+        </span>
+        <div>
+          <p class="eyebrow">Para quien quiera el detalle</p>
+          <h2 id="tec-title" class="section-title">¿Cómo está hecha AIDA?</h2>
+          <p class="section-desc">
+            Adentro hay un sistema modular: cada capacidad vive en su propio servicio y se puede
+            mejorar sin tocar el resto. Contamos la arquitectura, los modelos y las decisiones de
+            diseño en una página aparte, para quien tenga ganas de meterse.
+          </p>
+          <p style="margin-top:var(--sp-3)">
+            <a class="btn btn--dark" href="tecnologia.html">
+              Ver la parte técnica
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -788,7 +713,6 @@
       <div class="cta__alt">
         <a href="mailto:aidaassistantbot@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Escribirnos</a>
         <a href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-play"/></svg>Ver el video</a>
-        <a href="https://github.com/AIDA-Chatbot" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>Ver el código</a>
       </div>
     </div>
   </section>
@@ -825,7 +749,7 @@
         <h3 id="f-mas">Más</h3>
         <ul>
           <li><a href="#premio">El premio</a></li>
-          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="tecnologia.html">Tecnología</a></li>
           <li><a href="#equipo">Equipo</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
         </ul>
@@ -835,7 +759,6 @@
         <h3 id="f-contacto">Contacto</h3>
         <ul>
           <li><a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a></li>
-          <li><a href="https://github.com/AIDA-Chatbot" target="_blank" rel="noopener noreferrer">GitHub del proyecto</a></li>
           <li><a href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener noreferrer">Video de presentación</a></li>
           <li><a href="privacidad.html">Privacidad y términos</a></li>
         </ul>
