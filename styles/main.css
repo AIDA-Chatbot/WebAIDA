@@ -305,6 +305,7 @@ p { text-wrap: pretty; }
   position: relative;
   font-size: var(--text-sm); font-weight: 500; color: var(--c-muted);
   padding: .5rem .3rem;
+  white-space: nowrap;
   transition: color 160ms var(--ease);
 }
 .nav__link::after {
@@ -1284,6 +1285,16 @@ p { text-wrap: pretty; }
 @media (max-width: 1080px) {
   .nav__links { gap: .8rem; }
   .brand__tag { display: none; }
+}
+
+/* En modo de texto grande la barra necesita más aire: pasa antes al menú. */
+@media (max-width: 1240px) {
+  html.is-large .nav__links { display: none; }
+  html.is-large .nav__burger { display: flex; }
+}
+@media (max-width: 1080px) {
+  html.is-large .a11y-toggle span:not(.sr-only) { display: none; }
+  html.is-large .a11y-toggle { padding: .5rem .6rem; }
 }
 
 @media (max-width: 960px) {
