@@ -1012,22 +1012,23 @@ p { text-wrap: pretty; }
   transition: transform 260ms var(--ease), box-shadow 260ms var(--ease);
 }
 .member:hover { transform: translateY(-5px); box-shadow: var(--sh-md); }
-.member__avatar {
-  display: grid; place-items: center;
-  width: 82px; height: 82px; margin: 0 auto var(--sp-2);
-  border-radius: 50%;
-  background: var(--g-brand); color: var(--c-white);
-  font-family: var(--font-head); font-weight: 700; font-size: var(--text-xl);
-  box-shadow: 0 10px 24px rgba(25,111,119,.25);
+/* Panel ilustrado: el pingüino entero, sin recortar, apoyado sobre el borde. */
+.member__photo {
+  display: flex; align-items: flex-end; justify-content: center;
+  height: 210px; overflow: hidden;
+  margin: calc(-1 * var(--sp-4)) calc(-1 * var(--sp-4)) var(--sp-3);
+  border-radius: calc(var(--r-lg) - 1px) calc(var(--r-lg) - 1px) 0 0;
+  background:
+    radial-gradient(72% 78% at 50% 108%, var(--c-teal-100) 0%, transparent 72%),
+    var(--c-surface);
 }
-.member h3 { font-size: var(--text-md); margin-bottom: .15rem; }
-.member__role { font-size: var(--text-xs); color: var(--c-muted); margin-bottom: var(--sp-3); }
-.member__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; margin-bottom: var(--sp-3); }
-.member__tags span {
-  font-size: .6875rem; font-weight: 600;
-  background: var(--c-surface-2); color: var(--c-muted);
-  border-radius: var(--r-pill); padding: .2rem .6rem;
+.member__photo img {
+  height: 100%; width: auto; max-width: none;
+  transition: transform 340ms var(--ease-spring);
 }
+.member:hover .member__photo img { transform: translateY(-6px) scale(1.03); }
+
+.member h3 { font-size: var(--text-md); margin-bottom: var(--sp-2); }
 .member__link {
   display: inline-flex; align-items: center; gap: .45rem;
   font-size: var(--text-xs); font-weight: 600; color: var(--c-primary);
