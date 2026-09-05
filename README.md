@@ -29,7 +29,7 @@ WebAIDA/
 │   └── favicon.ico · favicon-32.png · favicon-256.png
 ├── styles/main.css             # Sistema de diseño completo + componentes
 ├── scripts/main.js             # Interactividad, sin dependencias
-└── .github/workflows/deploy.yml
+└── .github/workflows/static.yml
 ```
 
 Los `assets/*.png` se generaron a partir del arte original de la carpeta del proyecto
@@ -82,7 +82,7 @@ var FORMSPREE_ID = 'xabcdefg';
 
 ## Deploy
 
-`.github/workflows/deploy.yml` publica el sitio en cada push a `main`.
+`.github/workflows/static.yml` publica el sitio en cada push a `main`.
 Para activarlo por primera vez: **Settings → Pages → Source: GitHub Actions**.
 
 Para verlo en local, desde esta carpeta:
