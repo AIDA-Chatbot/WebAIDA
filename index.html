@@ -3,615 +3,848 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIDA — Asistente Digital para Adultos Mayores</title>
-  <meta name="description" content="AIDA es un asistente en Telegram que acompaña a adultos mayores en el uso de la tecnología con paciencia, claridad y empatía. Anotate en la lista de espera." />
-  <meta property="og:title" content="AIDA — Asistente Digital" />
-  <meta property="og:description" content="Un acompañante tecnológico pensado para adultos mayores. Responde por voz, analiza imágenes y detecta fraudes." />
-  <meta property="og:image" content="pinguinoAIDA.jpg" />
-  <link rel="icon" type="image/x-icon" href="pinguinoAIDA.ico" />
+  <title>AIDA — Asistente digital con paciencia para personas mayores</title>
+
+  <meta name="description" content="AIDA es un asistente conversacional que acompaña a personas mayores en el uso de la tecnología: entiende audios, analiza imágenes, detecta estafas y se adapta al estado emocional. Proyecto campeón del Samsung Innovation Campus 2025." />
+  <meta name="author" content="Santiago Oroz, Renata Berho, Milagros Argañin" />
+  <meta name="theme-color" content="#196F77" />
+  <link rel="canonical" href="https://aida-chatbot.github.io/WebAIDA/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="AIDA" />
+  <meta property="og:url" content="https://aida-chatbot.github.io/WebAIDA/" />
+  <meta property="og:title" content="AIDA — Tecnología con paciencia de verdad" />
+  <meta property="og:description" content="Asistente digital para personas mayores: voz, imágenes, detección de fraudes y empatía real. Proyecto ganador del Samsung Innovation Campus 2025." />
+  <meta property="og:image" content="https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AIDA — Tecnología con paciencia de verdad. Proyecto ganador del Samsung Innovation Campus 2025." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AIDA — Tecnología con paciencia de verdad" />
+  <meta name="twitter:description" content="Asistente digital para personas mayores. Proyecto campeón del Samsung Innovation Campus 2025." />
+  <meta name="twitter:image" content="https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg" />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/favicon-256.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AIDA — Asistente Digital Unificado",
+    "applicationCategory": "CommunicationApplication",
+    "operatingSystem": "Telegram (Android, iOS, Windows, macOS, Web)",
+    "inLanguage": "es",
+    "description": "Asistente conversacional empático que acompaña a personas mayores en el uso de la tecnología: entiende mensajes de voz, analiza imágenes, detecta posibles estafas y adapta su tono al estado emocional de la persona.",
+    "url": "https://aida-chatbot.github.io/WebAIDA/",
+    "image": "https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg",
+    "author": [
+      { "@type": "Person", "name": "Santiago Oroz", "url": "https://www.linkedin.com/in/santiago-oroz/" },
+      { "@type": "Person", "name": "Renata Berho", "url": "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/" },
+      { "@type": "Person", "name": "Milagros Argañin", "url": "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/" }
+    ],
+    "award": "1° puesto — Capstone Project del Samsung Innovation Campus Argentina 2025",
+    "isAccessibleForFree": true
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ===================== NAV ===================== -->
-  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="#inicio" class="nav__logo" aria-label="Ir al inicio">
-          <img src="pinguinoAIDA.jpg" alt="" role="presentation" />
-          <span class="nav__logo-text">AIDA</span>
-        </a>
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
 
-        <ul class="nav__links" role="list">
-          <li><a href="#que-es" class="nav__link">¿Qué es AIDA?</a></li>
-          <li><a href="#funciones" class="nav__link">Funciones</a></li>
-          <li><a href="#como-funciona" class="nav__link">Cómo funciona</a></li>
-          <li><a href="#equipo" class="nav__link">Equipo</a></li>
-        </ul>
+<!-- ============ Sprite de iconos (oculto) ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 9.5 11 15 8 12"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 11v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="22"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.1v13.8c0 .8.9 1.3 1.5.8l10.2-6.9a1 1 0 0 0 0-1.6L9.5 4.3A1 1 0 0 0 8 5.1z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C17.6 5 18.6 5.3 18.6 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2.5 7 8.4 5.6a2 2 0 0 0 2.2 0L21.5 7"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><polyline points="21 3 21 8 16 8"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><polyline points="3 21 3 16 8 16"/></symbol>
+  <symbol id="i-text-size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 8 6l5 12"/><path d="M4.6 14.5h6.8"/><path d="M15 18l3.5-8 3.5 8"/><path d="M16.1 15.6h4.8"/></symbol>
+</svg>
 
-        <div class="nav__cta">
-          <a href="#lista-de-espera" class="btn btn--primary">Anotarme</a>
+<!-- ================= BARRA DE ANUNCIO ================= -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span aria-hidden="true">🏆</span>
+    <span><strong>1.º puesto</strong> — Samsung Innovation Campus Argentina 2025</span>
+    <a href="#premio">Ver la historia</a>
+  </div>
+</div>
+
+<!-- ===================== NAV ========================= -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#inicio" aria-label="AIDA — ir al inicio">
+      <img src="assets/aida-mark.png" alt="" width="42" height="42" />
+      <span class="brand__text">
+        <span class="brand__name">AIDA</span>
+        <span class="brand__tag">Asistente Digital</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a class="nav__link" href="#premio">El premio</a>
+      <a class="nav__link" href="#que-es">Qué es</a>
+      <a class="nav__link" href="#funciones">Funciones</a>
+      <a class="nav__link" href="#tecnologia">Tecnología</a>
+      <a class="nav__link" href="#equipo">Equipo</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="a11y-toggle" id="text-size" type="button" aria-pressed="false"
+              title="Agrandar el texto de toda la página">
+        <svg aria-hidden="true"><use href="#i-text-size"/></svg>
+        <span>Texto grande</span>
+        <span class="sr-only">Activar o desactivar el modo de texto grande</span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="#lista-de-espera">Anotarme</a>
+      <button class="nav__burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__drawer" id="drawer">
+    <div class="container" style="padding-inline:0">
+      <ul>
+        <li><a class="nav__link" href="#premio">El premio</a></li>
+        <li><a class="nav__link" href="#que-es">Qué es AIDA</a></li>
+        <li><a class="nav__link" href="#funciones">Funciones</a></li>
+        <li><a class="nav__link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="nav__link" href="#video">Video</a></li>
+        <li><a class="nav__link" href="#tecnologia">Tecnología</a></li>
+        <li><a class="nav__link" href="#estado">Estado del proyecto</a></li>
+        <li><a class="nav__link" href="#equipo">Equipo</a></li>
+        <li><a class="nav__link" href="#preguntas">Preguntas frecuentes</a></li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#lista-de-espera">Anotarme a la lista de espera</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ====================== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+
+      <div class="hero__copy">
+        <p class="award-badge">
+          <span class="award-badge__medal" aria-hidden="true">🏆</span>
+          Ganador del Capstone Project — Samsung Innovation Campus 2025
+        </p>
+
+        <h1 class="hero__title">Tecnología con <em>paciencia de verdad</em></h1>
+
+        <p class="hero__desc">
+          AIDA es un asistente conversacional pensado para que nadie quede afuera del mundo digital.
+          Habla claro, escucha audios, reconoce imágenes, detecta estafas y acompaña cada paso
+          sin apurar a nadie.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#lista-de-espera">
+            Quiero probar AIDA
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline" href="#video">
+            <svg aria-hidden="true"><use href="#i-play"/></svg>
+            Ver el video del proyecto
+          </a>
         </div>
 
-        <button
-          class="nav__hamburger"
-          id="hamburger"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span></span><span></span><span></span>
+        <div class="hero__trust">
+          <span class="hero__trust-label">Un proyecto formado en:</span>
+          <ul>
+            <li>Samsung Innovation Campus</li>
+            <li>Grupo Mirgor</li>
+            <li>Asociación Conciencia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="chat" id="chat" aria-label="Ejemplo de una conversación con AIDA" role="group">
+          <div class="chat__bar">
+            <img class="chat__avatar" src="assets/aida-mark.png" alt="" width="40" height="40" />
+            <div>
+              <p class="chat__name">AIDA</p>
+              <p class="chat__status"><i aria-hidden="true"></i>en línea · responde al instante</p>
+            </div>
+            <svg class="chat__bar-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>
+          </div>
+
+          <div class="chat__body" id="chat-body">
+            <div class="msg msg--out" data-msg><p>Hola AIDA, ¿me ayudás con una cosa del celular?</p><span class="msg__time">10:24</span></div>
+
+            <div class="msg msg--in" data-msg><p>¡Hola, Elena! Claro que sí. Contame tranquila, no hay apuro. 🐧</p><span class="msg__time">10:24</span></div>
+
+            <div class="msg msg--out msg--voice" data-msg>
+              <span class="msg__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+              <span class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="msg__dur">0:14</span>
+              <span class="sr-only">Nota de voz de 14 segundos enviada por la persona usuaria</span>
+            </div>
+
+            <div class="msg msg--in" data-msg><p>Escuché tu audio. Querés hacer una videollamada con tu nieta. Te lo explico en tres pasos cortos, y si querés te lo mando también en audio. 🎧</p><span class="msg__time">10:25</span></div>
+
+            <div class="msg msg--out msg--card" data-msg>
+              <div class="msg__thumb">
+                <svg aria-hidden="true"><use href="#i-image"/></svg>
+                captura-mensaje.jpg
+              </div>
+              <div class="msg__body">También me llegó esto. ¿Es de verdad?</div>
+            </div>
+
+            <div class="msg msg--in" data-msg>
+              <span class="alert-chip"><svg aria-hidden="true"><use href="#i-alert"/></svg>Ojo con este mensaje</span>
+              <p>Leí la imagen: te piden un código por SMS y un pago urgente. Es una estafa muy común. <strong>No respondas ni pagues.</strong> Si querés, aviso a Marta.</p>
+              <span class="msg__time">10:26</span>
+            </div>
+
+            <div class="typing" id="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+
+          <button class="chat__replay" id="chat-replay" type="button">
+            <svg aria-hidden="true"><use href="#i-refresh"/></svg> Ver de nuevo
+          </button>
+
+          <div class="chat__input">
+            <span class="chat__field">Escribí un mensaje o mandá un audio…</span>
+            <span class="chat__mic" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
+          </div>
+        </div>
+
+        <img class="hero__peng" src="assets/aida-wave.png" alt="" width="168" height="197" />
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="stats">
+        <li class="stat"><span class="stat__value">1.º</span><span class="stat__label">Puesto en el Capstone del SIC Argentina 2025</span></li>
+        <li class="stat"><span class="stat__value">+35</span><span class="stat__label">Respuestas listas sobre tecnología cotidiana</span></li>
+        <li class="stat"><span class="stat__value">9</span><span class="stat__label">Capacidades de inteligencia artificial integradas</span></li>
+        <li class="stat"><span class="stat__value">24/7</span><span class="stat__label">Disponible, sin turnos ni esperas</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== PREMIO ==================== -->
+  <section class="award section" id="premio" aria-labelledby="premio-title">
+    <div class="container award__inner">
+      <div class="reveal">
+        <p class="eyebrow eyebrow--light">Reconocimiento</p>
+        <h2 id="premio-title">Proyecto campeón del Samsung Innovation Campus 2025</h2>
+        <p>
+          AIDA fue elegido el gran ganador del <strong>Capstone Project</strong> en la edición del
+          Samsung Innovation Campus Argentina especializada en Inteligencia Artificial: meses de
+          formación intensiva y trabajo en equipo para transformar una idea en tecnología que funciona.
+        </p>
+        <p class="award__quote">
+          «Nos llevamos a casa no solo el primer premio, sino el orgullo de haber creado una solución
+          con impacto social real, compitiendo contra otros grandes proyectos.»
+          <br /><span style="font-style:normal;opacity:.7;font-size:.9em">— Santiago Oroz, en nombre del equipo</span>
+        </p>
+
+        <div class="award__facts">
+          <div class="award-fact"><span class="award-fact__k">Certamen</span><span class="award-fact__v">Capstone Project — SIC Argentina 2025</span></div>
+          <div class="award-fact"><span class="award-fact__k">Edición</span><span class="award-fact__v">Especializada en Inteligencia Artificial</span></div>
+          <div class="award-fact"><span class="award-fact__k">Resultado</span><span class="award-fact__v">1.º puesto entre los finalistas</span></div>
+          <div class="award-fact"><span class="award-fact__k">Premio</span><span class="award-fact__v">Un Galaxy S24 FE por integrante</span></div>
+          <div class="award-fact"><span class="award-fact__k">Organizan</span><span class="award-fact__v">Samsung Argentina, Grupo Mirgor y Asociación Conciencia</span></div>
+          <div class="award-fact"><span class="award-fact__k">Jurado</span><span class="award-fact__v">Referentes de Randstad y Streambe, entre otros</span></div>
+        </div>
+      </div>
+
+      <div class="award__media reveal">
+        <span class="award__ribbon">🏆 1.º puesto · SIC 2025</span>
+        <img src="assets/aida-ganadores.jpg" alt="Ilustración del equipo de pingüinos de AIDA celebrando el primer puesto, con la palabra GANADORES" width="1400" height="788" loading="lazy" />
+        <p class="award__caption">El equipo de AIDA, en versión pingüino, festejando el primer puesto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUÉ ES ==================== -->
+  <section class="section section--tint" id="que-es" aria-labelledby="quees-title">
+    <div class="container split">
+      <div class="split__text reveal">
+        <p class="eyebrow">¿Qué es AIDA?</p>
+        <h2 id="quees-title" class="section-title">Un acompañante tecnológico, no un manual de instrucciones</h2>
+        <p>
+          AIDA nació de una pregunta concreta: ¿cómo ayudamos a alguien que nunca usó un smartphone
+          sin que se sienta perdido, apurado ni tratado como un chico? La respuesta fue un asistente
+          con la paciencia que a veces nosotros no tenemos.
+        </p>
+        <p>
+          Funciona dentro del chat que la persona ya usa. Se maneja igual que cualquier conversación:
+          escribiendo o mandando un audio. No hay menús raros, ni apps nuevas que aprender,
+          ni pasos que memorizar.
+        </p>
+        <p>
+          Detrás hay un sistema modular de inteligencia artificial. Adelante hay una sola cosa:
+          alguien que responde bien, las veces que haga falta.
+        </p>
+      </div>
+
+      <div class="principles stagger">
+        <div class="principle">
+          <span class="principle__icon" aria-hidden="true"><svg><use href="#i-chat"/></svg></span>
+          <div><h3>Claridad</h3><p>Frases cortas, sin tecnicismos y con ejemplos. Si algo no se entendió, lo vuelve a explicar de otra manera.</p></div>
+        </div>
+        <div class="principle">
+          <span class="principle__icon" aria-hidden="true"><svg><use href="#i-clock"/></svg></span>
+          <div><h3>Paciencia</h3><p>Se puede preguntar lo mismo diez veces. AIDA responde igual de bien la décima que la primera.</p></div>
+        </div>
+        <div class="principle">
+          <span class="principle__icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
+          <div><h3>Seguridad</h3><p>Revisa mensajes sospechosos, advierte sobre fraudes y puede avisar a un contacto de confianza.</p></div>
+        </div>
+        <div class="principle">
+          <span class="principle__icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
+          <div><h3>Empatía</h3><p>Detecta frustración o tristeza en la conversación y cambia el tono para acompañar mejor.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FUNCIONES ================== -->
+  <section class="section section--alt" id="funciones" aria-labelledby="func-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">Funciones</p>
+        <h2 id="func-title" class="section-title">Qué puede hacer AIDA</h2>
+        <p class="section-desc">
+          Cada función resuelve un problema real del día a día con la tecnología. Ninguna está
+          para lucirse: todas están para que la persona pueda seguir sola.
+        </p>
+      </div>
+
+      <div class="grid-cards stagger">
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-chat"/></svg></span>
+          <h3>Conversación natural</h3>
+          <p>Preguntá como le preguntarías a una persona. AIDA entiende el contexto, recuerda de qué venían hablando y responde sin vueltas.</p>
+          <span class="f-card__meta">Llama 3.3 · Groq</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
+          <h3>Escucha y responde en audio</h3>
+          <p>Mandá una nota de voz y AIDA la entiende. Si preferís escuchar en lugar de leer, te contesta con su propia voz, y podés elegir cuál.</p>
+          <span class="f-card__meta">Whisper + Edge TTS</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-image"/></svg></span>
+          <h3>Análisis de imágenes</h3>
+          <p>Sacá una foto o mandá una captura. AIDA describe lo que ve, lee el texto que aparece y lo explica en palabras simples.</p>
+          <span class="f-card__meta">Llama 4 Scout</span>
+        </article>
+
+        <article class="f-card f-card--gold">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
+          <h3>Detección de fraudes</h3>
+          <p>¿Un mensaje raro, un premio inesperado, alguien que pide un código? Mandáselo a AIDA y te dice si parece legítimo o si es una trampa.</p>
+          <span class="f-card__meta">Lectura de capturas + análisis</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
+          <h3>Empatía activa</h3>
+          <p>Un modelo entrenado en español rioplatense detecta enojo, frustración o tristeza en los mensajes, y AIDA ajusta su tono para acompañar.</p>
+          <span class="f-card__meta">RoBERTuito · Pysentimiento</span>
+        </article>
+
+        <article class="f-card f-card--gold">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-bell"/></svg></span>
+          <h3>Alertas a un contacto</h3>
+          <p>Ante señales de riesgo, AIDA puede enviar automáticamente un aviso por correo a un familiar o contacto de confianza previamente configurado.</p>
+          <span class="f-card__meta">Aviso por correo</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-user"/></svg></span>
+          <h3>Perfil personalizado</h3>
+          <p>La primera vez, unas pocas preguntas ayudan a AIDA a conocer el nivel de autonomía, los intereses y el entorno de cada persona.</p>
+          <span class="f-card__meta">Onboarding guiado</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-book"/></svg></span>
+          <h3>Base de conocimiento</h3>
+          <p>Más de 35 preguntas frecuentes sobre tecnología cotidiana ya resueltas: se responden al instante, sin depender de la conexión con el modelo.</p>
+          <span class="f-card__meta">Respuestas inmediatas</span>
+        </article>
+
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-globe"/></svg></span>
+          <h3>Multiidioma</h3>
+          <p>Si alguien escribe en otro idioma, AIDA lo detecta y le responde en ese mismo idioma. No hay nada que configurar.</p>
+          <span class="f-card__meta">Detección automática</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== CÓMO FUNCIONA ================ -->
+  <section class="section" id="como-funciona" aria-labelledby="como-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">Cómo funciona</p>
+        <h2 id="como-title" class="section-title">Cuatro pasos para empezar</h2>
+        <p class="section-desc">
+          No hay que instalar nada especial ni crear una cuenta nueva. Con la app de mensajería
+          que la persona ya tiene, alcanza.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">1</span>
+          <h3>Abrís el chat</h3>
+          <p>Buscás a AIDA y le escribís, como a cualquier contacto. Sin registros ni formularios.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">2</span>
+          <h3>Te presentás</h3>
+          <p>AIDA hace unas preguntas breves para conocerte: cómo te llamás, qué te interesa y cómo preferís que te responda.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">3</span>
+          <h3>Preguntás lo que quieras</h3>
+          <p>Por texto, por audio o mandando una foto. Todas las veces que necesites, sin que nadie se impaciente.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">4</span>
+          <h3>AIDA se adapta a vos</h3>
+          <p>Con el tiempo recuerda tus preferencias y ajusta cómo te habla para que cada conversación sea más fácil que la anterior.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =================== PARA QUIÉN ================== -->
+  <section class="section section--alt" id="para-quien" aria-labelledby="quien-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">¿Para quién?</p>
+        <h2 id="quien-title" class="section-title">Pensado para personas, no para expertos</h2>
+      </div>
+
+      <div class="audience stagger">
+        <div class="aud-card aud-card--a">
+          <span class="aud-card__tag">Usuarios directos</span>
+          <h3>Personas mayores</h3>
+          <p>Para quienes quieren manejarse solos con la tecnología, a su ritmo, sin que nadie los apure ni los haga sentir mal por preguntar.</p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Disponible a cualquier hora, todos los días</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Se puede repetir la misma pregunta las veces que haga falta</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Acepta voz, texto e imágenes: no hay que aprender nada nuevo</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Advierte sobre estafas y mensajes engañosos</li>
+          </ul>
+        </div>
+
+        <div class="aud-card aud-card--b">
+          <span class="aud-card__tag">Entorno de apoyo</span>
+          <h3>Familias y personas cuidadoras</h3>
+          <p>Para quienes quieren que su familiar tenga respaldo tecnológico sin depender de una llamada cada vez que aparece una duda.</p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Aviso al contacto de confianza ante señales de riesgo</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Más autonomía para la persona, sin descuidar la seguridad</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Puesta en marcha simple: alcanza con la app de mensajería</li>
+            <li><svg aria-hidden="true"><use href="#i-check-circle"/></svg>Datos guardados con acceso restringido al equipo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEO ===================== -->
+  <section class="section" id="video" aria-labelledby="video-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">En movimiento</p>
+        <h2 id="video-title" class="section-title">Mirá AIDA funcionando</h2>
+        <p class="section-desc">
+          El video de presentación con el que AIDA se llevó el primer puesto: la idea, el problema
+          que resuelve y el asistente en acción.
+        </p>
+      </div>
+
+      <div class="video-wrap reveal" id="video-wrap" data-video="Sl-CFzgz-u0">
+        <img id="video-thumb" src="https://i.ytimg.com/vi/Sl-CFzgz-u0/maxresdefault.jpg"
+             alt="Miniatura del video de presentación de AIDA" width="1280" height="720" loading="lazy" />
+        <button class="video-facade" id="video-facade" type="button" aria-label="Reproducir el video de presentación de AIDA en YouTube">
+          <span class="video-facade__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="video-facade__label">Video de presentación de AIDA · Samsung Innovation Campus 2025</span>
         </button>
       </div>
     </div>
-    <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú móvil">
-      <a href="#que-es" class="nav__link">¿Qué es AIDA?</a>
-      <a href="#funciones" class="nav__link">Funciones</a>
-      <a href="#para-quien" class="nav__link">¿Para quién?</a>
-      <a href="#como-funciona" class="nav__link">Cómo funciona</a>
-      <a href="#equipo" class="nav__link">Equipo</a>
-      <a href="#lista-de-espera" class="btn btn--primary" style="width:fit-content">Anotarme</a>
-    </div>
-  </nav>
-
-  <!-- ===================== HERO ==================== -->
-  <section class="hero" id="inicio" aria-label="Inicio">
-    <div class="container">
-      <div class="hero__inner">
-
-        <div class="hero__content">
-          <div class="hero__badge">
-            <span class="hero__badge-dot" aria-hidden="true"></span>
-            Trabajo Final — Samsung Innovation Campus
-          </div>
-
-          <h1 class="hero__title">
-            Tecnología con<br/><em>paciencia de verdad</em>
-          </h1>
-
-          <p class="hero__desc">
-            AIDA es un asistente en Telegram diseñado para acompañar a adultos mayores.
-            Entiende mensajes de voz, analiza imágenes, detecta fraudes y se adapta
-            al estado emocional de cada persona.
-          </p>
-
-          <div class="hero__actions">
-            <a href="#lista-de-espera" class="btn btn--primary">
-              Quiero anotarme
-            </a>
-            <a href="#que-es" class="btn btn--ghost">
-              Conocer más
-            </a>
-          </div>
-
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <span class="hero__stat-value">+35</span>
-              <span class="hero__stat-label">Respuestas sobre<br/>tecnología cotidiana</span>
-            </div>
-            <div class="hero__stat">
-              <span class="hero__stat-value">6</span>
-              <span class="hero__stat-label">Funciones de<br/>asistencia integradas</span>
-            </div>
-            <div class="hero__stat">
-              <span class="hero__stat-value">100%</span>
-              <span class="hero__stat-label">En español,<br/>sin tecnicismos</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero__penguin-wrap">
-            <div class="hero__penguin-bg"></div>
-            <img
-              src="pinguinoAIDA.jpg"
-              alt="Pingüino mascota de AIDA saludando"
-              class="hero__penguin"
-              width="280"
-              height="280"
-            />
-          </div>
-        </div>
-
-      </div>
-    </div>
   </section>
 
-  <!-- ===================== ABOUT =================== -->
-  <section class="section about-strip" id="que-es" aria-labelledby="about-title">
+  <!-- =================== TECNOLOGÍA ================== -->
+  <section class="section section--tint" id="tecnologia" aria-labelledby="tec-title">
     <div class="container">
-      <div class="about-strip__inner">
-
-        <div class="about-strip__text reveal">
-          <span class="section-label">¿Qué es AIDA?</span>
-          <h2 id="about-title" class="section-title">
-            Un acompañante tecnológico, no un manual de instrucciones
-          </h2>
-          <p>
-            AIDA nació de una pregunta concreta: ¿cómo ayudamos a alguien que nunca usó un smartphone
-            sin que se sienta perdido o apresurado? La respuesta fue un asistente que tiene la paciencia
-            que a veces nosotros no tenemos.
-          </p>
-          <p style="margin-top:var(--sp-2)">
-            Funciona dentro de Telegram, la aplicación de mensajería, y se maneja igual que cualquier
-            chat: escribiendo o mandando mensajes de voz. No hace falta aprender nada nuevo para empezar.
-          </p>
-        </div>
-
-        <div class="about-strip__highlights stagger">
-          <div class="highlight-card">
-            <div class="highlight-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div class="highlight-card__title">Conversación natural</div>
-            <div class="highlight-card__desc">Preguntá como si hablaras con una persona. AIDA entiende el contexto.</div>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c1.1 0 2-.9 2-2H10c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-            </div>
-            <div class="highlight-card__title">Alertas de emergencia</div>
-            <div class="highlight-card__desc">Si detecta malestar, puede avisar a un familiar de confianza.</div>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-            <div class="highlight-card__title">Detector de fraudes</div>
-            <div class="highlight-card__desc">Mandá una captura y AIDA te dice si algo parece sospechoso.</div>
-          </div>
-
-          <div class="highlight-card">
-            <div class="highlight-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <div class="highlight-card__title">Adapta su tono</div>
-            <div class="highlight-card__desc">Detecta cuando la persona está frustrada y responde con más calma.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FEATURES ================= -->
-  <section class="section section--alt" id="funciones" aria-labelledby="features-title">
-    <div class="container">
-      <div class="reveal" style="text-align:center">
-        <span class="section-label">Funciones</span>
-        <h2 id="features-title" class="section-title">Qué puede hacer AIDA</h2>
-        <p class="section-desc" style="margin-inline:auto;margin-top:var(--sp-1)">
-          Cada función está pensada para resolver un problema concreto del día a día con la tecnología.
+      <div class="section-head reveal">
+        <p class="eyebrow">Tecnología</p>
+        <h2 id="tec-title" class="section-title">Qué hay adentro</h2>
+        <p class="section-desc">
+          AIDA es un sistema modular: cada capacidad vive en su propio servicio, así se puede mejorar
+          o reemplazar una pieza sin tocar el resto.
         </p>
       </div>
 
-      <div class="features__grid stagger">
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-          </div>
-          <h3 class="feature-card__title">Mensajes de voz</h3>
-          <p class="feature-card__desc">
-            Mandá un audio y AIDA lo escucha y responde. También puede contestarte con su propia voz si preferís escuchar en lugar de leer.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
-          <h3 class="feature-card__title">Análisis de imágenes</h3>
-          <p class="feature-card__desc">
-            Sacá una foto o mandá una captura de pantalla. AIDA puede leer texto, describir lo que ve y explicarlo en palabras simples.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="feature-card__title">Detección de fraudes</h3>
-          <p class="feature-card__desc">
-            ¿Recibiste un mensaje raro o una oferta sospechosa? Mandásela a AIDA y te dice si parece legítima o si es una trampa.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <h3 class="feature-card__title">Empatía activa</h3>
-          <p class="feature-card__desc">
-            AIDA monitorea el estado emocional de la conversación. Si detecta frustración o tristeza, ajusta su tono para ser más gentil.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3 class="feature-card__title">Multiidioma</h3>
-          <p class="feature-card__desc">
-            Si alguien habla en otro idioma, AIDA lo detecta y responde en ese mismo idioma sin necesidad de configurar nada.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h3 class="feature-card__title">Perfil personalizado</h3>
-          <p class="feature-card__desc">
-            La primera vez que usás AIDA, un breve cuestionario la ayuda a entender tu nivel de autonomía e intereses para adaptar sus respuestas.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================== FOR WHOM =================== -->
-  <section class="section" id="para-quien" aria-labelledby="forwhom-title">
-    <div class="container">
-      <div class="reveal" style="text-align:center">
-        <span class="section-label">¿Para quién?</span>
-        <h2 id="forwhom-title" class="section-title">Pensado para personas, no para expertos</h2>
+      <div class="tech-grid stagger">
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Conversación</p><p class="tech-item__name">Llama 3.3 70B vía Groq</p><p class="tech-item__desc">Inferencia de alta velocidad para entender intenciones y responder con naturalidad.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Clasificación</p><p class="tech-item__name">Llama 3.1 8B Instant</p><p class="tech-item__desc">Modelo liviano que decide, en milisegundos, qué servicio tiene que atender cada mensaje.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Voz a texto</p><p class="tech-item__name">OpenAI Whisper</p><p class="tech-item__desc">Transcripción de notas de voz, con buen desempeño en acentos regionales.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Texto a voz</p><p class="tech-item__name">Microsoft Edge TTS</p><p class="tech-item__desc">Síntesis de voz natural y multiidioma, con varias voces para elegir.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Visión</p><p class="tech-item__name">Llama 4 Scout</p><p class="tech-item__desc">Descripción de imágenes, lectura de texto y detección de contenido fraudulento.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Emociones</p><p class="tech-item__name">RoBERTuito · Pysentimiento</p><p class="tech-item__desc">Análisis de sentimiento entrenado en español rioplatense.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Datos</p><p class="tech-item__name">Firebase Firestore</p><p class="tech-item__desc">Perfiles y sesiones en la nube, con acceso restringido al equipo. Respaldo local si no hay conexión.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Núcleo</p><p class="tech-item__name">Python · pyTelegramBotAPI</p><p class="tech-item__desc">Arquitectura modular orientada a servicios, con handlers separados por tipo de mensaje.</p></div></div>
       </div>
 
-      <div class="for-whom__grid reveal">
+      <div class="diagram reveal">
+        <h3>Cómo viaja un mensaje</h3>
+        <p>Del chat de la persona al servicio correspondiente, y de vuelta — en un solo recorrido.</p>
+        <div class="diagram__scroll">
+          <svg viewBox="0 0 900 380" role="img" aria-label="Diagrama: el mensaje de la persona entra por el chat, el núcleo de AIDA clasifica la intención y la deriva al servicio de voz, visión, conversación, emociones o alertas; el perfil y las sesiones se guardan en Firestore y la respuesta vuelve al chat.">
+            <defs>
+              <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1FA6A0"/><stop offset="100%" stop-color="#1E6E96"/>
+              </linearGradient>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#8FA3A9"/>
+              </marker>
+            </defs>
 
-        <div class="audience-card audience-card--primary">
-          <span class="audience-card__tag">Usuarios directos</span>
-          <h3 class="audience-card__title">Adultos mayores</h3>
-          <p class="audience-card__desc">
-            Para quienes quieren aprender a usar la tecnología a su ritmo, sin que nadie los apure ni los haga sentir mal por no saber.
-          </p>
-          <ul class="audience-card__list" aria-label="Beneficios para adultos mayores">
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Disponible las 24 horas, sin hacer esperar
-            </li>
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Se puede preguntar lo mismo cuantas veces sea necesario
-            </li>
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Acepta voz y texto, sin aprender nada nuevo
-            </li>
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Protege contra estafas y mensajes engañosos
-            </li>
-          </ul>
-        </div>
+            <!-- Persona -->
+            <rect x="10" y="130" width="160" height="120" rx="18" fill="#E4F4F4" stroke="#C6E8E8"/>
+            <text x="90" y="167" text-anchor="middle" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#14343E">Persona usuaria</text>
+            <text x="90" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">texto · audio · foto</text>
+            <text x="90" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#55696F">desde su chat</text>
+            <text x="90" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">Telegram</text>
 
-        <div class="audience-card audience-card--secondary">
-          <span class="audience-card__tag">Entorno de apoyo</span>
-          <h3 class="audience-card__title">Familias y cuidadores</h3>
-          <p class="audience-card__desc">
-            Para quienes quieren que su familiar tenga apoyo tecnológico sin depender constantemente de ellos para cada pregunta.
-          </p>
-          <ul class="audience-card__list" aria-label="Beneficios para familias">
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Recibí una alerta si la persona está en apuros
-            </li>
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Fomentá la autonomía sin descuidar la seguridad
-            </li>
-            <li>
-              <svg class="audience-card__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Instalación simple: solo hace falta Telegram
-            </li>
-          </ul>
-        </div>
+            <!-- Núcleo -->
+            <rect x="235" y="95" width="200" height="190" rx="20" fill="url(#dg)"/>
+            <text x="335" y="132" text-anchor="middle" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#fff">Núcleo AIDA</text>
+            <rect x="255" y="148" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Clasificador de intención</text>
+            <rect x="255" y="190" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Perfil y memoria</text>
+            <rect x="255" y="232" width="160" height="34" rx="10" fill="rgba(255,255,255,.16)"/>
+            <text x="335" y="254" text-anchor="middle" font-family="Inter, sans-serif" font-size="12.5" fill="#fff">Base de conocimiento</text>
 
-      </div>
-    </div>
-  </section>
+            <!-- Servicios -->
+            <g font-family="Inter, sans-serif" font-size="12.5" fill="#14343E">
+              <rect x="510" y="20"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="48">🎙️ Voz — Whisper / Edge TTS</text>
+              <rect x="510" y="80"  width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="108">👁️ Visión — Llama 4 Scout</text>
+              <rect x="510" y="140" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="168">💬 Diálogo — Llama 3.3</text>
+              <rect x="510" y="200" width="200" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
+              <text x="530" y="228">❤️ Emociones — RoBERTuito</text>
+              <rect x="510" y="260" width="200" height="46" rx="12" fill="#FDF2DC" stroke="#F2B84D"/>
+              <text x="530" y="288">🔔 Alertas al contacto</text>
+            </g>
 
-  <!-- ================ HOW IT WORKS ================= -->
-  <section class="section section--alt" id="como-funciona" aria-labelledby="how-title">
-    <div class="container">
-      <div class="reveal" style="text-align:center">
-        <span class="section-label">Cómo funciona</span>
-        <h2 id="how-title" class="section-title">Cuatro pasos para empezar</h2>
-        <p class="section-desc" style="margin-inline:auto;margin-top:var(--sp-1)">
-          No hace falta instalar nada especial. Si ya tenés Telegram, en menos de dos minutos estás usando AIDA.
-        </p>
-      </div>
+            <!-- Almacenamiento -->
+            <rect x="235" y="310" width="200" height="52" rx="14" fill="#fff" stroke="#DCE7E8"/>
+            <text x="335" y="335" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#14343E">Firestore</text>
+            <text x="335" y="352" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" fill="#7A8C92">perfiles y sesiones</text>
 
-      <div class="how__steps" aria-label="Pasos para comenzar con AIDA">
-        <div class="step reveal">
-          <div class="step__number" aria-hidden="true">1</div>
-          <h3 class="step__title">Abrís el chat</h3>
-          <p class="step__desc">
-            Buscás a AIDA en Telegram y le mandás un mensaje. No necesitás cuenta ni registro previo.
-          </p>
-        </div>
-        <div class="step reveal" style="transition-delay:100ms">
-          <div class="step__number" aria-hidden="true">2</div>
-          <h3 class="step__title">Te presentás</h3>
-          <p class="step__desc">
-            AIDA te hace unas preguntas breves para conocerte: tu nombre, tus intereses y cómo preferís que te responda.
-          </p>
-        </div>
-        <div class="step reveal" style="transition-delay:200ms">
-          <div class="step__number" aria-hidden="true">3</div>
-          <h3 class="step__title">Preguntás lo que quieras</h3>
-          <p class="step__desc">
-            Por texto, por voz o mandando una foto. AIDA responde con paciencia, sin tecnicismos y las veces que necesites.
-          </p>
-        </div>
-        <div class="step reveal" style="transition-delay:300ms">
-          <div class="step__number" aria-hidden="true">4</div>
-          <h3 class="step__title">AIDA aprende de vos</h3>
-          <p class="step__desc">
-            Con el tiempo, AIDA recuerda tus preferencias y ajusta cómo se comunica para que la experiencia sea cada vez mejor.
-          </p>
+            <!-- Flechas -->
+            <g stroke="#8FA3A9" stroke-width="1.8" fill="none" marker-end="url(#arrow)">
+              <path d="M172 178 H 231"/>
+              <path d="M437 190 C 470 190, 470 43,  506 43"/>
+              <path d="M437 190 C 470 190, 470 103, 506 103"/>
+              <path d="M437 190 H 506"/>
+              <path d="M437 190 C 470 190, 470 223, 506 223"/>
+              <path d="M437 190 C 470 190, 470 283, 506 283"/>
+              <path d="M335 289 V 306"/>
+            </g>
+            <path d="M231 205 H 190 C 176 205, 172 212, 172 222" stroke="#F2B84D" stroke-width="1.8" fill="none" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+            <text x="196" y="255" font-family="Inter, sans-serif" font-size="11" fill="#DA9E2E">respuesta</text>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================== TECH STACK ================= -->
-  <section class="section" id="tecnologia" aria-labelledby="tech-title">
+  <!-- ================ ESTADO DEL PROYECTO ============ -->
+  <section class="section" id="estado" aria-labelledby="estado-title">
     <div class="container">
-      <div class="reveal">
-        <span class="section-label">Tecnología</span>
-        <h2 id="tech-title" class="section-title">Qué hay adentro</h2>
-        <p class="section-desc" style="margin-top:var(--sp-1)">
-          AIDA combina modelos de IA de alta capacidad con servicios especializados para cada función.
+      <div class="section-head reveal">
+        <p class="eyebrow">Estado del proyecto</p>
+        <h2 id="estado-title" class="section-title">En qué anda AIDA hoy</h2>
+        <p class="section-desc">
+          Preferimos contar lo que hay antes que prometer lo que falta. Este cuadro se actualiza
+          a medida que avanzamos.
         </p>
       </div>
 
-      <div class="tech__grid stagger">
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Conversación</div>
-            <div class="tech-card__name">Llama 3.3 70B vía Groq</div>
-            <div class="tech-card__desc">Inferencia de alta velocidad para entender y responder de forma natural.</div>
-          </div>
+      <div class="roadmap stagger">
+        <div class="rm-item rm-item--done">
+          <span class="rm-item__when">Listo</span>
+          <div><h3>Asistente funcionando en Telegram</h3><p>Voz, visión, análisis de sentimiento, alertas y perfiles, integrados en un mismo bot.</p></div>
+          <span class="pill pill--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Completado</span>
         </div>
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Voz a texto</div>
-            <div class="tech-card__name">OpenAI Whisper</div>
-            <div class="tech-card__desc">Transcripción precisa de mensajes de voz, incluyendo acentos regionales.</div>
-          </div>
+        <div class="rm-item rm-item--done">
+          <span class="rm-item__when">Listo</span>
+          <div><h3>1.º puesto en el Capstone del SIC 2025</h3><p>Presentación final, defensa ante el jurado y primer premio del certamen nacional.</p></div>
+          <span class="pill pill--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Completado</span>
         </div>
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Texto a voz</div>
-            <div class="tech-card__name">Microsoft Edge TTS</div>
-            <div class="tech-card__desc">Síntesis de voz natural y multiidioma con selección de voz.</div>
-          </div>
+        <div class="rm-item rm-item--now">
+          <span class="rm-item__when">En curso</span>
+          <div><h3>Versión para WhatsApp</h3><p>Llevar el mismo asistente a la app que más usan las personas mayores en Argentina.</p></div>
+          <span class="pill pill--gold">En desarrollo</span>
         </div>
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Visión e imágenes</div>
-            <div class="tech-card__name">Llama 4 Scout</div>
-            <div class="tech-card__desc">Análisis de imágenes, lectura de texto y detección de contenido fraudulento.</div>
-          </div>
+        <div class="rm-item rm-item--now">
+          <span class="rm-item__when">En curso</span>
+          <div><h3>Accesibilidad y contenidos</h3><p>Ampliar la base de conocimiento y afinar el lenguaje para que sea aún más simple.</p></div>
+          <span class="pill pill--gold">En desarrollo</span>
         </div>
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Empatía</div>
-            <div class="tech-card__name">RoBERTuito (Pysentimiento)</div>
-            <div class="tech-card__desc">Modelo entrenado en español rioplatense para detectar emociones con precisión.</div>
-          </div>
+        <div class="rm-item rm-item--next">
+          <span class="rm-item__when">Próximo</span>
+          <div><h3>Apertura del acceso público</h3><p>Todavía no hay fecha. Quienes estén en la lista de espera se enteran primero.</p></div>
+          <span class="pill pill--soft">Planificado</span>
         </div>
-
-        <div class="tech-card">
-          <div class="tech-card__dot" aria-hidden="true"></div>
-          <div>
-            <div class="tech-card__category">Base de datos</div>
-            <div class="tech-card__name">Firebase Firestore</div>
-            <div class="tech-card__desc">Almacenamiento seguro de perfiles y sesiones en la nube de Google.</div>
-          </div>
+        <div class="rm-item rm-item--next">
+          <span class="rm-item__when">Próximo</span>
+          <div><h3>Espacio para familias</h3><p>Configurar contactos de confianza y preferencias desde afuera del chat.</p></div>
+          <span class="pill pill--soft">Planificado</span>
         </div>
-
-      </div>
-
-      <div class="tech__origin reveal">
-        <svg class="tech__origin-icon" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-          <rect width="56" height="56" rx="12" fill="#E8F4F5"/>
-          <path d="M28 14L14 21v14l14 7 14-7V21L28 14z" stroke="#196F77" stroke-width="2" stroke-linejoin="round" fill="none"/>
-          <path d="M14 21l14 7 14-7" stroke="#196F77" stroke-width="2" stroke-linejoin="round"/>
-          <line x1="28" y1="28" x2="28" y2="42" stroke="#196F77" stroke-width="2"/>
-        </svg>
-        <div>
-          <div class="tech__origin-label">Origen del proyecto</div>
-          <div class="tech__origin-text">
-            AIDA fue desarrollado como Trabajo Final del <strong>Samsung Innovation Campus</strong>,
-            con mentoría del Prof. Alejandro Sosa y el apoyo de la Asociación Conciencia.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= WAITLIST ==================== -->
-  <section class="waitlist" id="lista-de-espera" aria-labelledby="waitlist-title">
-    <div class="container">
-      <div class="waitlist__inner">
-        <span class="section-label" style="color:rgba(255,255,255,0.6)">Lista de espera</span>
-        <h2 id="waitlist-title" class="waitlist__title">AIDA todavía no está disponible al público</h2>
-        <p class="waitlist__desc">
-          Estamos terminando de prepararlo. Dejá tu correo y te avisamos cuando puedas acceder.
-          Sin spam, sin frecuencia fija, solo el aviso cuando esté listo.
-        </p>
-
-        <form
-          id="waitlist-form"
-          novalidate
-          aria-label="Formulario de lista de espera"
-        >
-          <div class="waitlist__form">
-            <label for="waitlist-email" class="sr-only">Tu correo electrónico</label>
-            <input
-              type="email"
-              id="waitlist-email"
-              class="waitlist__input"
-              placeholder="tu@correo.com"
-              autocomplete="email"
-              required
-            />
-            <button type="submit" id="waitlist-btn" class="btn btn--primary">
-              Anotarme
-            </button>
-          </div>
-          <p
-            id="waitlist-error"
-            role="alert"
-            aria-live="polite"
-            hidden
-            style="color:#F2B84D;font-size:var(--text-xs);margin-top:var(--sp-2)"
-          ></p>
-        </form>
-
-        <div class="waitlist__success" id="waitlist-success" role="status" aria-live="polite">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          Te anotamos. Te avisamos cuando AIDA esté disponible.
-        </div>
-
-        <p class="waitlist__note">
-          Tu correo no se comparte con terceros. Podés darte de baja cuando quieras.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- =================== TEAM ====================== -->
-  <section class="section" id="equipo" aria-labelledby="team-title">
+  <!-- ===================== EQUIPO ==================== -->
+  <section class="section section--alt" id="equipo" aria-labelledby="equipo-title">
     <div class="container">
-      <div class="reveal" style="text-align:center">
-        <span class="section-label">Equipo</span>
-        <h2 id="team-title" class="section-title">Las personas detrás de AIDA</h2>
-        <p class="section-desc" style="margin-inline:auto;margin-top:var(--sp-1)">
-          Tres desarrolladores con un objetivo compartido: que la tecnología no deje a nadie afuera.
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">Equipo</p>
+        <h2 id="equipo-title" class="section-title">Las personas detrás de AIDA</h2>
+        <p class="section-desc">
+          Tres estudiantes del Samsung Innovation Campus con un objetivo compartido:
+          que la tecnología no deje a nadie afuera.
         </p>
+        <ul class="skills" aria-label="Áreas que cubrió el equipo">
+          <li class="pill">Python</li>
+          <li class="pill">IA conversacional</li>
+          <li class="pill">Visión por computadora</li>
+          <li class="pill">Voz</li>
+          <li class="pill">Diseño de experiencia</li>
+          <li class="pill">Investigación con usuarios</li>
+        </ul>
       </div>
 
-      <div class="team__grid stagger">
-
-        <div class="team-card">
-          <div class="team-card__avatar" aria-hidden="true">SO</div>
-          <div class="team-card__name">Santiago Oroz</div>
-          <div class="team-card__role">Desarrollo e integración</div>
-          <a
-            href="https://www.linkedin.com/in/santiago-oroz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="team-card__linkedin"
-            aria-label="Ver perfil de Santiago Oroz en LinkedIn"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
+      <div class="team stagger">
+        <div class="member">
+          <span class="member__avatar" aria-hidden="true">SO</span>
+          <h3>Santiago Oroz</h3>
+          <p class="member__role">Desarrollo e integración</p>
+          <a class="member__link" href="https://www.linkedin.com/in/santiago-oroz/" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
+            <span class="sr-only">de Santiago Oroz (se abre en una pestaña nueva)</span>
           </a>
         </div>
-
-        <div class="team-card">
-          <div class="team-card__avatar" aria-hidden="true">RB</div>
-          <div class="team-card__name">Renata Berho</div>
-          <div class="team-card__role">Desarrollo e integración</div>
-          <a
-            href="https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="team-card__linkedin"
-            aria-label="Ver perfil de Renata Berho en LinkedIn"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
+        <div class="member">
+          <span class="member__avatar" aria-hidden="true">RB</span>
+          <h3>Renata Berho</h3>
+          <p class="member__role">Desarrollo e integración</p>
+          <a class="member__link" href="https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
+            <span class="sr-only">de Renata Berho (se abre en una pestaña nueva)</span>
           </a>
         </div>
-
-        <div class="team-card">
-          <div class="team-card__avatar" aria-hidden="true">MA</div>
-          <div class="team-card__name">Milagros Argañin</div>
-          <div class="team-card__role">Desarrollo e integración</div>
-          <a
-            href="https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="team-card__linkedin"
-            aria-label="Ver perfil de Milagros Argañin en LinkedIn"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
+        <div class="member">
+          <span class="member__avatar" aria-hidden="true">MA</span>
+          <h3>Milagros Argañin</h3>
+          <p class="member__role">Desarrollo e integración</p>
+          <a class="member__link" href="https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
+            <span class="sr-only">de Milagros Argañin (se abre en una pestaña nueva)</span>
           </a>
         </div>
+      </div>
 
+      <div class="section-head reveal" style="margin-top:var(--sp-10)">
+        <p class="eyebrow">Gracias</p>
+        <h2 class="section-title">Quienes hicieron posible este proyecto</h2>
+      </div>
+      <div class="thanks stagger">
+        <div class="thanks-card"><h3>Samsung Argentina</h3><p>Por sostener un programa que forma talento joven y lo desafía con problemas reales.</p></div>
+        <div class="thanks-card"><h3>Grupo Mirgor</h3><p>Por acompañar la edición 2025 del Samsung Innovation Campus en Argentina.</p></div>
+        <div class="thanks-card"><h3>Asociación Conciencia</h3><p>Por el espacio de aprendizaje y por su compromiso con la inclusión digital.</p></div>
+        <div class="thanks-card"><h3>Prof. Alejandro Sosa</h3><p>Por la mentoría, la paciencia y las herramientas para llevar la idea a la realidad.</p></div>
+        <div class="thanks-card"><h3>El jurado del certamen</h3><p>Con referentes de Randstad y Streambe, por devoluciones que mejoraron el proyecto.</p></div>
+        <div class="thanks-card"><h3>Mentores y compañeros</h3><p>Por desafiarnos siempre a ir más allá del código.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ================== FOOTER ===================== -->
-  <footer class="footer" role="contentinfo">
+  <!-- ===================== FAQ ======================= -->
+  <section class="section" id="preguntas" aria-labelledby="faq-title">
     <div class="container">
-      <div class="footer__inner">
-        <a href="#inicio" class="footer__brand" aria-label="Volver al inicio">
-          <img src="pinguinoAIDA.jpg" alt="" role="presentation" />
-          <span class="footer__brand-text">AIDA</span>
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center">Preguntas frecuentes</p>
+        <h2 id="faq-title" class="section-title">Lo que más nos preguntan</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>¿Cuándo voy a poder usar AIDA?</summary>
+          <div class="faq__answer"><p>Todavía no está abierto al público y preferimos no dar una fecha que después no podamos cumplir. Si dejás tu correo en la lista de espera, sos de las primeras personas en enterarte.</p></div>
+        </details>
+        <details>
+          <summary>¿Hace falta saber de tecnología para usarlo?</summary>
+          <div class="faq__answer"><p>No. Si sabés mandar un mensaje o una nota de voz, sabés usar AIDA. Todo pasa dentro de un chat común y corriente, sin menús ni configuraciones.</p></div>
+        </details>
+        <details>
+          <summary>¿Cuánto va a costar?</summary>
+          <div class="faq__answer"><p>AIDA nació como un proyecto académico sin fines de lucro, dentro del Samsung Innovation Campus. Todavía estamos definiendo cómo va a ser el acceso cuando se abra al público; cuando lo sepamos, lo vas a leer acá.</p></div>
+        </details>
+        <details>
+          <summary>¿Qué pasa con mis datos y mis conversaciones?</summary>
+          <div class="faq__answer"><p>Se guardan de forma segura en Firebase (Google Cloud) y solo el equipo de AIDA puede verlos. No se venden ni se comparten con terceros, y podés pedir que los borremos cuando quieras.</p><p>Está todo detallado en la <a href="privacidad.html">política de privacidad</a>.</p></div>
+        </details>
+        <details>
+          <summary>¿AIDA reemplaza a un familiar o a un profesional?</summary>
+          <div class="faq__answer"><p>No, y no quiere hacerlo. AIDA acompaña en el uso de la tecnología y puede avisar a un contacto de confianza, pero no da diagnósticos médicos ni asesoramiento financiero. Ante una emergencia hay que llamar a los servicios de emergencia.</p></div>
+        </details>
+        <details>
+          <summary>¿En qué dispositivos funciona?</summary>
+          <div class="faq__answer"><p>En cualquier celular, tablet o computadora donde funcione Telegram: Android, iPhone, Windows, Mac o directamente desde el navegador. La versión para WhatsApp está en desarrollo.</p></div>
+        </details>
+        <details>
+          <summary>Trabajo con personas mayores, ¿podemos colaborar?</summary>
+          <div class="faq__answer"><p>Sí, nos interesa mucho. Escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a> y contanos en qué contexto trabajan.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LISTA DE ESPERA =============== -->
+  <section class="cta" id="lista-de-espera" aria-labelledby="cta-title">
+    <div class="container cta__inner">
+      <img class="cta__peng" src="assets/aida-wave.png" alt="" width="120" height="141" loading="lazy" />
+      <p class="eyebrow eyebrow--light eyebrow--center">Lista de espera</p>
+      <h2 id="cta-title">Te avisamos cuando AIDA esté lista</h2>
+      <p>
+        Estamos terminando de prepararla. Dejá tu correo y te escribimos cuando puedas usarla.
+        Sin spam ni newsletters: un solo mensaje, cuando haya novedades de verdad.
+      </p>
+
+      <form class="wl-form" id="waitlist-form" novalidate>
+        <div class="wl-form__row">
+          <label class="sr-only" for="waitlist-email">Tu correo electrónico</label>
+          <input class="wl-input" type="email" id="waitlist-email" name="email"
+                 placeholder="tu@correo.com" autocomplete="email" required />
+          <button class="btn btn--primary" type="submit" id="waitlist-btn">Anotarme</button>
+        </div>
+        <p class="wl-error" id="waitlist-error" role="alert" aria-live="polite" hidden></p>
+        <p class="wl-note">
+          Tu correo no se comparte con terceros y podés darte de baja cuando quieras.
+          Leé la <a href="privacidad.html">política de privacidad</a>.
+        </p>
+      </form>
+
+      <div class="wl-success" id="waitlist-success" role="status" aria-live="polite">
+        <svg aria-hidden="true"><use href="#i-check-circle"/></svg>
+        Listo, te anotamos. Te escribimos cuando AIDA esté disponible.
+      </div>
+
+      <div class="cta__alt">
+        <a href="mailto:aidaassistantbot@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Escribirnos</a>
+        <a href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-play"/></svg>Ver el video</a>
+        <a href="https://github.com/AIDA-Chatbot" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>Ver el código</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="footer__brand" href="#inicio">
+          <img src="assets/aida-mark.png" alt="" width="40" height="40" loading="lazy" />
+          <span>AIDA</span>
         </a>
-
-        <nav aria-label="Links del footer">
-          <ul class="footer__links" role="list">
-            <li><a href="privacidad.html" class="footer__link">Política de privacidad</a></li>
-            <li><a href="privacidad.html#terminos" class="footer__link">Términos y condiciones</a></li>
-            <li><a href="mailto:aidaassistantbot@gmail.com" class="footer__link">Contacto</a></li>
-          </ul>
-        </nav>
-
-        <p class="footer__copy">
-          &copy; <span id="footer-year"></span> AIDA Bot. Todos los derechos reservados.
+        <p class="footer__about">
+          Asistente Digital Unificado: un acompañante tecnológico paciente, claro y seguro
+          para personas mayores.
         </p>
+        <p class="footer__award">🏆 1.º puesto — Samsung Innovation Campus Argentina 2025</p>
       </div>
+
+      <nav aria-labelledby="f-producto">
+        <h3 id="f-producto">El proyecto</h3>
+        <ul>
+          <li><a href="#que-es">Qué es AIDA</a></li>
+          <li><a href="#funciones">Funciones</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#estado">Estado del proyecto</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-mas">
+        <h3 id="f-mas">Más</h3>
+        <ul>
+          <li><a href="#premio">El premio</a></li>
+          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="f-contacto">
+        <h3 id="f-contacto">Contacto</h3>
+        <ul>
+          <li><a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a></li>
+          <li><a href="https://github.com/AIDA-Chatbot" target="_blank" rel="noopener noreferrer">GitHub del proyecto</a></li>
+          <li><a href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener noreferrer">Video de presentación</a></li>
+          <li><a href="privacidad.html">Privacidad y términos</a></li>
+        </ul>
+      </nav>
     </div>
-  </footer>
 
-  <!-- Visually hidden utility -->
-  <style>
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-    .nav__link--active {
-      color: var(--c-primary) !important;
-      font-weight: 600;
-    }
-  </style>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> AIDA. Hecho en Argentina con paciencia.</p>
+      <p>Samsung, Telegram y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-  </script>
-  <script src="scripts/main.js"></script>
+<script src="scripts/main.js" defer></script>
 </body>
 </html>

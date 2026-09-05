@@ -1,55 +1,111 @@
-# WebAIDA — Sitio web oficial de AIDA Bot
+# WebAIDA — Sitio oficial de AIDA
 
-Sitio estático HTML/CSS/JS para [AIDA Bot](https://github.com/AIDA-org), el asistente de Telegram para adultos mayores.
-Deployado automáticamente en GitHub Pages desde la rama `main`.
+Sitio estático (HTML + CSS + JS, sin frameworks ni build) de **AIDA**, el asistente digital
+que acompaña a personas mayores en el uso de la tecnología.
+
+> 🏆 AIDA fue el **proyecto campeón del Capstone Project del Samsung Innovation Campus
+> Argentina 2025**, en la edición especializada en Inteligencia Artificial.
+
+Se publica automáticamente en GitHub Pages con cada push a `main`.
 
 ## Estructura
 
 ```
 WebAIDA/
-├── index.html              # Página principal (SPA de una sola página)
-├── privacidad.html         # Política de privacidad y términos
-├── pinguinoAIDA.jpg        # Logo mascota (PNG)
-├── pinguinoAIDA.ico        # Favicon
-├── styles/
-│   └── main.css            # Design system completo + estilos
-├── scripts/
-│   └── main.js             # Interactividad (nav, animaciones, formulario)
-└── .github/
-    └── workflows/
-        └── deploy.yml      # Auto-deploy a GitHub Pages
+├── index.html                  # Página principal (una sola página, con anclas)
+├── privacidad.html             # Política de privacidad y términos
+├── 404.html                    # Página de error
+├── robots.txt · sitemap.xml    # SEO básico
+├── assets/
+│   ├── aida-mark.png           # Isotipo recortado (fondo transparente) — nav, footer, avatar
+│   ├── aida-wave.png           # Pingüino saludando — hero y CTA
+│   ├── aida-penguin.png        # Pingüino parado, alta resolución
+│   ├── aida-ganadores.jpg      # Banner del premio
+│   ├── aida-logo.jpg           # Logotipo horizontal original
+│   ├── og-image.jpg            # Imagen para compartir en redes (1200×630)
+│   └── favicon.ico · favicon-32.png · favicon-256.png
+├── styles/main.css             # Sistema de diseño completo + componentes
+├── scripts/main.js             # Interactividad, sin dependencias
+└── .github/workflows/deploy.yml
 ```
+
+Los `assets/*.png` se generaron a partir del arte original de la carpeta del proyecto
+recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
+
+## Secciones de la página
+
+| Ancla | Contenido |
+|---|---|
+| `#inicio` | Hero con demo animada de una conversación real y métricas |
+| `#premio` | La historia del 1.º puesto en el SIC 2025 |
+| `#que-es` | Qué es AIDA y sus cuatro principios |
+| `#funciones` | Las 9 capacidades del asistente |
+| `#como-funciona` | Los 4 pasos para empezar |
+| `#para-quien` | Personas mayores / familias y cuidadores |
+| `#video` | Video de presentación (se carga recién al hacer clic) |
+| `#tecnologia` | Stack y diagrama del recorrido de un mensaje |
+| `#estado` | Qué está listo, qué está en curso y qué viene |
+| `#equipo` | Integrantes y agradecimientos |
+| `#preguntas` | Preguntas frecuentes |
+| `#lista-de-espera` | Formulario de la lista de espera |
+
+## Accesibilidad
+
+Es el punto central del proyecto, así que el sitio también lo cuida:
+
+- **Botón "Texto grande"** en la barra superior: sube la base tipográfica de 16 a 19 px y escala
+  todo el sitio de forma pareja. La preferencia queda guardada en `localStorage`.
+- Enlace de salto al contenido, foco visible en todos los elementos interactivos y jerarquía de
+  encabezados correcta.
+- Se respetan `prefers-reduced-motion` (se apagan las animaciones) y `prefers-contrast: more`.
+- Contraste alto, cuerpo de texto de 17 px y alineación a la izquierda, según el manual de identidad.
 
 ## Configuración del formulario de lista de espera
 
-El formulario usa [Formspree](https://formspree.io/) como backend. Para activarlo:
+El formulario usa [Formspree](https://formspree.io/). Mientras no esté configurado, en lugar de
+fingir que guardó el correo, invita a escribir a la casilla del proyecto.
 
-1. Creá una cuenta en [formspree.io](https://formspree.io)
-2. Creá un nuevo formulario y copiá tu ID (ej: `xabcdefg`)
-3. En `scripts/main.js`, reemplazá `YOUR_FORMSPREE_ID` con tu ID real:
-   ```js
-   fetch('https://formspree.io/f/xabcdefg', { ... })
-   ```
+1. Creá una cuenta en [formspree.io](https://formspree.io) y un formulario nuevo.
+2. Copiá el ID (por ejemplo `xabcdefg`).
+3. En [`scripts/main.js`](scripts/main.js), reemplazá el valor de `FORMSPREE_ID`:
 
-## Deploy manual
+```js
+var FORMSPREE_ID = 'xabcdefg';
+```
 
-El workflow `.github/workflows/deploy.yml` se ejecuta automáticamente en cada push a `main`.
+## Deploy
 
-Para activar GitHub Pages por primera vez:
-1. Ir a **Settings → Pages**
-2. En **Source**, seleccionar **GitHub Actions**
-3. Hacer un push a `main`
+`.github/workflows/deploy.yml` publica el sitio en cada push a `main`.
+Para activarlo por primera vez: **Settings → Pages → Source: GitHub Actions**.
 
-## Design system
+Para verlo en local, desde esta carpeta:
 
-Todos los valores de color, tipografía, espaciado, radio y animaciones están definidos como CSS custom properties en `styles/main.css` bajo `:root`. No hay valores mágicos sueltos.
+```bash
+python -m http.server 8765
+```
 
-| Token | Valor |
-|---|---|
-| `--c-primary` | `#196F77` — Turquesa oscuro |
-| `--c-secondary` | `#3BB7B4` — Turquesa claro |
-| `--c-accent` | `#F2B84D` — Mostaza (exclusivo CTAs) |
-| `--c-dark` | `#2C3539` — Texto principal |
-| `--font-head` | Poppins 700/800 |
-| `--font-body` | Inter 400/500 |
-| `--ease-std` | `cubic-bezier(0.4, 0, 0.2, 1)` |
+## Sistema de diseño
+
+Todos los colores, tamaños, radios, sombras y tiempos son *custom properties* declaradas en
+`:root` dentro de [`styles/main.css`](styles/main.css). No hay valores sueltos.
+La paleta se muestreó del arte original del isotipo y respeta el
+[manual de identidad visual](manual-de-identidad-visual.md).
+
+| Token | Valor | Uso |
+|---|---|---|
+| `--c-primary` | `#196F77` | Color principal de marca |
+| `--c-teal-500` | `#1FA6A0` | Turquesa de la cabeza del pingüino |
+| `--c-teal-400` | `#3BB7B4` | Secundario, detalles y acentos fríos |
+| `--c-blue` | `#1E6E96` | Base del degradado del cuerpo |
+| `--c-ink` | `#14343E` | Contorno del isotipo, títulos |
+| `--c-gold` | `#F2B84D` | Pico y patas — reservado para CTA y el premio |
+| `--font-head` | Poppins 600/700/800 | Títulos y elementos de interfaz |
+| `--font-body` | Inter 400/500/600 | Texto corrido |
+
+## Equipo
+
+- [Santiago Oroz](https://www.linkedin.com/in/santiago-oroz/)
+- [Renata Berho](https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/)
+- [Milagros Argañin](https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/)
+
+Contacto: **aidaassistantbot@gmail.com** · [Video de presentación](https://youtu.be/Sl-CFzgz-u0)
