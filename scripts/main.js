@@ -129,6 +129,24 @@
     var timers = [];
     var run = 0;
 
+    // El hilo se corre hacia abajo solo cuando ya no entra en la caja. Los
+    // mensajes que todavía no llegaron no ocupan lugar (CSS: display none
+    // hasta 'is-shown'), así que la conversación arranca arriba de todo y va
+    // bajando a medida que llegan, como en un chat de verdad. Si ocuparan
+    // lugar desde el principio, la caja arrancaría ya scrolleada al fondo y
+    // los primeros mensajes no se verían nunca.
+    var follow = function () {
+      if (chatBody.scrollHeight > chatBody.clientHeight) {
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+    };
+
+    var show = function (msg) {
+      msg.classList.add('is-shown');
+      void msg.offsetWidth;          // para que la aparición se anime
+      msg.classList.add('is-in');
+    };
+
     var clearTimers = function () {
       timers.forEach(clearTimeout);
       timers = [];
@@ -140,7 +158,7 @@
     };
 
     var showAll = function () {
-      messages.forEach(function (m) { m.classList.add('is-in'); });
+      messages.forEach(function (m) { m.classList.add('is-shown', 'is-in'); });
       if (typing) typing.classList.remove('is-in');
       if (replay) replay.classList.remove('is-visible');
     };
@@ -148,7 +166,7 @@
     var play = function () {
       run += 1;
       clearTimers();
-      messages.forEach(function (m) { m.classList.remove('is-in'); });
+      messages.forEach(function (m) { m.classList.remove('is-shown', 'is-in'); });
       if (typing) typing.classList.remove('is-in');
       if (replay) replay.classList.remove('is-visible');
       chatBody.scrollTop = 0;
@@ -161,15 +179,15 @@
         if (incoming && typing) {
           later(function () {
             typing.classList.add('is-in');
-            chatBody.scrollTop = chatBody.scrollHeight;
+            follow();
           }, t);
         }
         t += thinking;
 
         later(function () {
           if (typing) typing.classList.remove('is-in');
-          msg.classList.add('is-in');
-          chatBody.scrollTop = chatBody.scrollHeight;
+          show(msg);
+          follow();
           if (i === messages.length - 1 && replay) {
             later(function () { replay.classList.add('is-visible'); }, 900);
           }
@@ -180,8 +198,10 @@
     };
 
     if (reduceMotion) {
+      // Sin animación se muestra la conversación entera, y se deja arriba de
+      // todo: así se lee desde el principio, aunque el final quede cortado.
       showAll();
-      chatBody.scrollTop = chatBody.scrollHeight;
+      chatBody.scrollTop = 0;
     } else if ('IntersectionObserver' in window) {
       var chatObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {

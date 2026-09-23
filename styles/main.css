@@ -520,6 +520,7 @@ p { text-wrap: pretty; }
 }
 
 .msg {
+  display: none;
   max-width: 84%;
   font-size: .9375rem;
   line-height: 1.5;
@@ -529,6 +530,7 @@ p { text-wrap: pretty; }
   transform: translateY(14px) scale(.97);
   transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-spring);
 }
+.msg.is-shown { display: block; }
 .msg.is-in { opacity: 1; transform: none; }
 
 .msg--out {
@@ -552,7 +554,8 @@ p { text-wrap: pretty; }
 .msg strong { color: inherit; font-weight: 700; }
 
 /* Nota de voz */
-.msg--voice { display: flex; align-items: center; gap: .65rem; min-width: 200px; }
+.msg--voice.is-shown { display: flex; }
+.msg--voice { align-items: center; gap: .65rem; min-width: 200px; }
 .msg__play {
   display: grid; place-items: center; flex: none;
   width: 30px; height: 30px; border-radius: 50%;
@@ -1615,7 +1618,8 @@ p { text-wrap: pretty; }
     transition-duration: .01ms !important;
   }
   .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
-  .msg { opacity: 1 !important; transform: none !important; }
+  .msg { display: block; opacity: 1 !important; transform: none !important; }
+  .msg--voice { display: flex; }
 }
 
 @media (prefers-contrast: more) {
