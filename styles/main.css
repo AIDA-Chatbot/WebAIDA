@@ -1006,6 +1006,263 @@ p { text-wrap: pretty; }
   color: var(--c-muted-2); letter-spacing: .06em; text-transform: uppercase;
 }
 
+/* ---------- 17b. Próximamente: Android -------------------- */
+.soon-badge {
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-teal-300);
+  color: var(--c-primary);
+  font-family: var(--font-head); font-weight: 600; font-size: var(--text-xs);
+  padding: .45rem 1rem .45rem .8rem;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--sp-3);
+}
+.soon-badge__dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--c-gold);
+  box-shadow: 0 0 0 4px rgba(242,184,77,.25);
+  animation: blink 2.4s var(--ease) infinite;
+}
+
+.soon-note {
+  display: flex; gap: .85rem; align-items: flex-start;
+  margin-top: var(--sp-3);
+  background: var(--c-gold-100);
+  border: 1px solid rgba(218,158,46,.35);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-3);
+}
+.soon-note svg { width: 22px; height: 22px; flex: none; color: var(--c-gold-600); margin-top: .15rem; }
+.split__text .soon-note p { color: #5E4610; font-size: var(--text-sm); margin: 0; }
+.soon-note strong { color: #4A370A; }
+.android__actions { margin-top: var(--sp-3); }
+
+.android__visual {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-3);
+}
+.android__visual::before {
+  content: ''; position: absolute; z-index: 0;
+  width: min(440px, 100%); aspect-ratio: 1; top: 6%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,183,180,.28) 0%, rgba(59,183,180,.08) 55%, transparent 70%);
+  pointer-events: none;
+}
+
+/* El teléfono de ejemplo */
+.phone {
+  position: relative; z-index: 1;
+  width: min(300px, 100%);
+  aspect-ratio: 9 / 18.5;
+  padding: 10px;
+  background: var(--c-ink);
+  border-radius: 42px;
+  box-shadow: var(--sh-lg), inset 0 0 0 2px rgba(255,255,255,.08);
+}
+.phone__screen {
+  position: relative;
+  height: 100%;
+  border-radius: 33px;
+  overflow: hidden;
+  background: var(--c-surface);
+  display: flex; flex-direction: column;
+  font-size: .8125rem; line-height: 1.45;
+}
+.phone__status {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .55rem 1.1rem .3rem;
+  font-size: .6875rem; font-weight: 600; color: var(--c-white);
+  background: var(--c-primary-800);
+}
+.phone__status-icons { display: flex; gap: 3px; }
+.phone__status-icons i { width: 5px; border-radius: 1px; background: currentColor; opacity: .85; }
+.phone__status-icons i:nth-child(1) { height: 5px; margin-top: 4px; }
+.phone__status-icons i:nth-child(2) { height: 7px; margin-top: 2px; }
+.phone__status-icons i:nth-child(3) { height: 9px; }
+
+.phone__app { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.phone__appbar {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .55rem .8rem;
+  background: var(--c-primary-800); color: var(--c-white);
+}
+.phone__back { font-size: 1.3rem; line-height: 1; opacity: .8; }
+.phone__contact {
+  display: grid; place-items: center; flex: none;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--c-gold); color: var(--c-ink);
+  font-family: var(--font-head); font-weight: 700; font-size: .8rem;
+}
+.phone__who { display: flex; flex-direction: column; line-height: 1.2; }
+.phone__who b { font-family: var(--font-head); font-weight: 600; font-size: .8125rem; }
+.phone__who small { font-size: .625rem; opacity: .7; }
+
+.phone__thread {
+  flex: 1; display: flex; flex-direction: column; gap: .5rem;
+  padding: .8rem .7rem;
+  background: radial-gradient(circle at 80% 10%, rgba(59,183,180,.08), transparent 50%), var(--c-surface-2);
+}
+.p-msg {
+  max-width: 80%;
+  padding: .45rem .7rem;
+  border-radius: 12px; border-bottom-left-radius: 4px;
+  background: var(--c-white); color: var(--c-text);
+  box-shadow: var(--sh-xs);
+}
+.p-photo {
+  align-self: flex-end;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem;
+  width: 62%; aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--c-teal-200), var(--c-teal-100));
+  color: var(--c-primary); font-size: .6875rem; font-weight: 600;
+}
+.p-photo svg { width: 28px; height: 28px; }
+
+.phone__composer {
+  display: flex; align-items: center; gap: .45rem;
+  padding: .5rem .6rem .8rem;
+  background: var(--c-surface-2);
+}
+.phone__field {
+  flex: 1; background: var(--c-white);
+  border-radius: var(--r-pill); padding: .5rem .8rem;
+  color: var(--c-muted-2); font-size: .75rem;
+}
+.phone__send {
+  display: grid; place-items: center; flex: none;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--c-primary); color: var(--c-white);
+  transition: box-shadow 300ms var(--ease), transform 300ms var(--ease-spring);
+}
+.phone__send svg { width: 16px; height: 16px; margin-left: 2px; }
+.phone[data-state="speaking"] .phone__send {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 4px var(--c-white), 0 0 0 8px var(--c-gold);
+  animation: send-hint 1.4s var(--ease) infinite;
+}
+@keyframes send-hint {
+  0%, 100% { box-shadow: 0 0 0 4px var(--c-white), 0 0 0 8px var(--c-gold); }
+  50%      { box-shadow: 0 0 0 4px var(--c-white), 0 0 0 12px rgba(242,184,77,.45); }
+}
+
+/* La burbuja de AIDA */
+.bubble {
+  position: absolute; right: 10px; top: 44%;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--c-white);
+  box-shadow: 0 6px 16px rgba(14,70,79,.32);
+  display: grid; place-items: center;
+  transition: transform 300ms var(--ease-spring);
+}
+.bubble img { width: 46px; height: 46px; object-fit: contain; }
+.bubble__badge {
+  position: absolute; right: -3px; bottom: -3px;
+  display: grid; place-items: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--c-primary); color: var(--c-white);
+  border: 2px solid var(--c-white);
+}
+.bubble__mic { width: 12px; height: 12px; }
+.bubble__bars { display: none; align-items: center; gap: 2px; height: 11px; }
+.bubble__bars i {
+  width: 2.5px; height: 70%; border-radius: 2px; background: currentColor;
+  animation: pulse-bar 0.9s var(--ease) infinite;
+}
+.bubble__bars i:nth-child(2) { animation-delay: .15s; }
+.bubble__bars i:nth-child(3) { animation-delay: .3s; }
+
+.bubble__ring, .bubble__arc {
+  position: absolute; inset: -6px; border-radius: 50%;
+  opacity: 0; transition: opacity 250ms var(--ease);
+  pointer-events: none;
+}
+.bubble__ring { border: 3px solid var(--c-teal-400); }
+.bubble__arc {
+  border: 3px solid transparent;
+  border-top-color: var(--c-gold);
+  border-right-color: var(--c-gold);
+}
+
+.phone[data-state="tap"] .bubble { transform: scale(.88); }
+.phone[data-state="listening"] .bubble__ring { opacity: 1; animation: ring-pulse 1.2s var(--ease) infinite; }
+.phone[data-state="thinking"] .bubble__arc { opacity: 1; animation: spin .9s linear infinite; }
+.phone[data-state="speaking"] .bubble__mic { display: none; }
+.phone[data-state="speaking"] .bubble__bars { display: flex; }
+@keyframes ring-pulse {
+  0%   { transform: scale(.94); opacity: .95; }
+  70%  { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Lo que dice la persona y lo que contesta AIDA */
+.phone__ask {
+  position: absolute; right: 78px; top: calc(44% - 4px);
+  max-width: 150px;
+  padding: .5rem .7rem;
+  border-radius: 12px; border-bottom-right-radius: 4px;
+  background: var(--c-primary); color: var(--c-white);
+  font-size: .75rem; line-height: 1.4;
+  box-shadow: var(--sh-sm);
+  opacity: 0; transform: translateX(8px) scale(.96);
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-spring);
+}
+.phone[data-state="listening"] .phone__ask,
+.phone[data-state="thinking"] .phone__ask { opacity: 1; transform: none; }
+
+.phone__answer {
+  position: absolute; left: 10px; right: 10px; bottom: 62px;
+  padding: .75rem .9rem;
+  background: var(--c-white);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(14,70,79,.28);
+  font-size: .875rem; line-height: 1.45; color: var(--c-text);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 350ms var(--ease-out), transform 350ms var(--ease-out);
+}
+.phone__answer strong { color: var(--c-primary); }
+.phone__answer-head {
+  display: flex; align-items: center; gap: .35rem;
+  font-family: var(--font-head); font-weight: 700; font-size: .75rem;
+  color: var(--c-primary); margin-bottom: .2rem;
+}
+.phone__answer-head span { width: 7px; height: 7px; border-radius: 50%; background: var(--c-teal-400); }
+.phone[data-state="speaking"] .phone__answer { opacity: 1; transform: none; }
+
+/* Los tres pasos debajo del teléfono */
+.bubble-steps {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem;
+}
+.bubble-steps li {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  padding: .35rem .85rem .35rem .4rem;
+  font-size: var(--text-xs); font-weight: 600; color: var(--c-muted);
+  transition: background 250ms var(--ease), color 250ms var(--ease), border-color 250ms var(--ease);
+}
+.bubble-steps li span {
+  display: grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--c-teal-100); color: var(--c-primary);
+  font-family: var(--font-head); font-size: .75rem;
+}
+.bubble-steps li.is-on { background: var(--c-primary); border-color: var(--c-primary); color: var(--c-white); }
+.bubble-steps li.is-on span { background: var(--c-gold); color: var(--c-ink); }
+
+/* Ocho tarjetas: de a cuatro o de a dos, para que nunca quede una fila coja. */
+.android__cards {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.android__cards .f-card { padding: var(--sp-3); }
+@media (max-width: 1080px) { .android__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px)  { .android__cards { grid-template-columns: 1fr; } }
+
 /* ---------- 18. Equipo ------------------------------------ */
 .skills {
   display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem;
@@ -1318,6 +1575,8 @@ p { text-wrap: pretty; }
   .award__ribbon { left: 50%; transform: translateX(-50%) rotate(-3deg); }
 
   .tech-teaser { grid-template-columns: 1fr; }
+
+  .android__visual { margin-top: var(--sp-2); }
 
   .steps { grid-template-columns: repeat(2, 1fr); row-gap: var(--sp-6); }
   .steps::before { display: none; }

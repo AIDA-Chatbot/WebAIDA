@@ -44,6 +44,7 @@ recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
 | `#que-es` | Qué es AIDA y sus cuatro principios |
 | `#funciones` | Las 9 capacidades del asistente |
 | `#como-funciona` | Los 4 pasos para empezar |
+| `#android` | Adelanto de la app para Android (todavía sin publicar): la burbuja, con un teléfono de ejemplo animado |
 | `#para-quien` | Personas mayores / familias y cuidadores |
 | `#video` | Video de presentación (se carga recién al hacer clic) |
 | `#tecnologia` | Invitación a la página técnica (el detalle vive en `tecnologia.html`) |

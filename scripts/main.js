@@ -198,6 +198,51 @@
     if (replay) replay.addEventListener('click', play);
   }
 
+  /* --- Teléfono de ejemplo de la app para Android --------- */
+  // Recorre los estados de la burbuja (tocar, escuchar, mirar, hablar) y
+  // enciende el paso de abajo que corresponde. Solo corre mientras se ve.
+  var phone = $('#phone');
+  if (phone) {
+    var stepItems = $$('.bubble-steps li');
+    var sequence = [
+      { state: 'idle',      ms: 1400 },
+      { state: 'tap',       ms: 250  },
+      { state: 'listening', ms: 2400 },
+      { state: 'thinking',  ms: 1700 },
+      { state: 'speaking',  ms: 4200 }
+    ];
+    var stepFor = { tap: 'listening', listening: 'listening', thinking: 'thinking', speaking: 'speaking' };
+    var phoneTimer = null;
+    var phoneIndex = 0;
+
+    var setPhone = function (state) {
+      phone.setAttribute('data-state', state);
+      stepItems.forEach(function (li) {
+        li.classList.toggle('is-on', li.getAttribute('data-step') === stepFor[state]);
+      });
+    };
+
+    var tick = function () {
+      var step = sequence[phoneIndex];
+      setPhone(step.state);
+      phoneIndex = (phoneIndex + 1) % sequence.length;
+      phoneTimer = setTimeout(tick, step.ms);
+    };
+
+    var stopPhone = function () { clearTimeout(phoneTimer); phoneTimer = null; };
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      setPhone('speaking');
+    } else {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !phoneTimer) tick();
+          else if (!entry.isIntersecting) stopPhone();
+        });
+      }, { threshold: 0.3 }).observe(phone);
+    }
+  }
+
   /* --- Video: se carga recién al hacer clic --------------- */
   var facade = $('#video-facade');
   var videoWrap = $('#video-wrap');

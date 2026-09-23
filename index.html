@@ -80,6 +80,9 @@
   <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2.5 7 8.4 5.6a2 2 0 0 0 2.2 0L21.5 7"/></symbol>
   <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><polyline points="21 3 21 8 16 8"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><polyline points="3 21 3 16 8 16"/></symbol>
+  <symbol id="i-bubble" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="15" cy="13" r="2.6"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></symbol>
+  <symbol id="i-widget" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><path d="M17.25 14.5v5.5"/><path d="M14.5 17.25h5.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="11" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="16" r="1.4"/></symbol>
   <symbol id="i-text-size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 8 6l5 12"/><path d="M4.6 14.5h6.8"/><path d="M15 18l3.5-8 3.5 8"/><path d="M16.1 15.6h4.8"/></symbol>
 </svg>
 
@@ -107,6 +110,7 @@
       <a class="nav__link" href="#premio">El premio</a>
       <a class="nav__link" href="#que-es">Qué es</a>
       <a class="nav__link" href="#funciones">Funciones</a>
+      <a class="nav__link" href="#android">Android</a>
       <a class="nav__link" href="tecnologia.html">Tecnología</a>
       <a class="nav__link" href="#equipo">Equipo</a>
     </nav>
@@ -133,6 +137,7 @@
         <li><a class="nav__link" href="#que-es">Qué es AIDA</a></li>
         <li><a class="nav__link" href="#funciones">Funciones</a></li>
         <li><a class="nav__link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="nav__link" href="#android">Próximamente en Android</a></li>
         <li><a class="nav__link" href="#video">Video</a></li>
         <li><a class="nav__link" href="tecnologia.html">Tecnología</a></li>
         <li><a class="nav__link" href="#estado">Estado del proyecto</a></li>
@@ -438,6 +443,136 @@
     </div>
   </section>
 
+  <!-- ================ PRÓXIMAMENTE: ANDROID ========== -->
+  <section class="section section--tint android" id="android" aria-labelledby="android-title">
+    <div class="container">
+      <div class="split android__split">
+        <div class="split__text reveal">
+          <p class="soon-badge"><span class="soon-badge__dot" aria-hidden="true"></span>Próximamente · App para Android</p>
+          <h2 id="android-title" class="section-title">AIDA, arriba de todas tus aplicaciones</h2>
+          <p>
+            Estamos preparando una aplicación para celulares Android. AIDA se queda en la pantalla
+            como una burbuja con la cara del pingüino: la tocás mientras usás WhatsApp, el correo o
+            cualquier otra aplicación, le preguntás, y mira lo que tenés adelante para decirte qué
+            tocar. En voz alta.
+          </p>
+          <p>
+            Se configura una sola vez. La primera vez que se abre guía paso a paso, un permiso por
+            pantalla y explicando para qué sirve cada uno. Está pensada para que la deje lista un
+            hijo, una hija o un nieto, y que después no haya que volver a tocar nada.
+          </p>
+          <div class="soon-note">
+            <svg aria-hidden="true"><use href="#i-clock"/></svg>
+            <p><strong>Todavía no está en Google Play.</strong> La estamos probando en teléfonos reales
+            antes de publicarla. Si te anotás en la lista de espera, te avisamos el día que salga.</p>
+          </div>
+          <p class="android__actions">
+            <a class="btn btn--primary" href="#lista-de-espera">
+              Avisarme cuando salga
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+          </p>
+        </div>
+
+        <div class="android__visual reveal">
+          <div class="phone" id="phone" data-state="idle" role="img"
+               aria-label="Ejemplo: en una conversación de mensajería aparece la burbuja de AIDA. La persona la toca, pregunta qué botón toca para mandar la foto, y AIDA le contesta en voz alta que toque el avioncito de papel de abajo a la derecha.">
+            <div class="phone__screen" aria-hidden="true">
+              <div class="phone__status"><span>10:24</span><span class="phone__status-icons"><i></i><i></i><i></i></span></div>
+
+              <div class="phone__app">
+                <div class="phone__appbar">
+                  <span class="phone__back">‹</span>
+                  <span class="phone__contact">M</span>
+                  <span class="phone__who"><b>Marta</b><small>en línea</small></span>
+                </div>
+                <div class="phone__thread">
+                  <div class="p-msg p-msg--in">¡Hola, mamá! ¿Me mandás la foto de la receta? 😊</div>
+                  <div class="p-photo">
+                    <svg><use href="#i-image"/></svg>
+                    <span>Foto lista para mandar</span>
+                  </div>
+                </div>
+                <div class="phone__composer">
+                  <span class="phone__field">Agregá un comentario…</span>
+                  <span class="phone__send" id="phone-send">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l-.02 6.52L15 12 3.38 13.88z"/></svg>
+                  </span>
+                </div>
+              </div>
+
+              <div class="phone__ask">¿Qué botón toco para mandar la foto?</div>
+
+              <div class="bubble">
+                <span class="bubble__ring"></span>
+                <span class="bubble__arc"></span>
+                <img src="assets/aida-mark.png" alt="" width="56" height="56" />
+                <span class="bubble__badge">
+                  <svg class="bubble__mic"><use href="#i-mic"/></svg>
+                  <span class="bubble__bars"><i></i><i></i><i></i></span>
+                </span>
+              </div>
+
+              <div class="phone__answer">
+                <p class="phone__answer-head"><span></span>AIDA</p>
+                <p>Tocá el <strong>avioncito de papel</strong>, abajo a la derecha. Ese botón manda la foto.</p>
+              </div>
+            </div>
+          </div>
+
+          <ol class="bubble-steps" aria-label="Cómo se usa la burbuja">
+            <li data-step="listening"><span>1</span>La tocás y le preguntás</li>
+            <li data-step="thinking"><span>2</span>Mira tu pantalla</li>
+            <li data-step="speaking"><span>3</span>Te contesta en voz alta</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="grid-cards android__cards stagger">
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-bubble"/></svg></span>
+          <h3>Una burbuja siempre a mano</h3>
+          <p>Queda en un costado de la pantalla, encima de cualquier aplicación. Se arrastra para correrla de lugar, y llevándola hasta la equis se saca.</p>
+        </article>
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-eye"/></svg></span>
+          <h3>Mira tu pantalla, solo si la llamás</h3>
+          <p>Cuando la tocás, ve lo que tenés adelante y te dice qué tocar con las palabras que usás vos: «el avioncito», no «el botón Enviar».</p>
+        </article>
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
+          <h3>Te contesta hablando</h3>
+          <p>Con voz y a la velocidad que elijas. Si el teléfono está en silencio, te avisa y te muestra la respuesta escrita.</p>
+        </article>
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-chat"/></svg></span>
+          <h3>Una charla aparte</h3>
+          <p>Para las preguntas que no son sobre la pantalla: le escribís o le hablás, y la conversación sigue donde había quedado.</p>
+        </article>
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-widget"/></svg></span>
+          <h3>Un botón en la pantalla de inicio</h3>
+          <p>Si el teléfono se apaga, la burbuja vuelve con un solo toque, sin tener que abrir la aplicación ni buscar nada.</p>
+        </article>
+        <article class="f-card">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-text-size"/></svg></span>
+          <h3>Letra grande, de verdad</h3>
+          <p>La letra y la burbuja se agrandan en cuatro pasos cada una. Y se puede elegir entre modo claro y modo oscuro.</p>
+        </article>
+        <article class="f-card f-card--gold">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
+          <h3>Te ayuda con las estafas</h3>
+          <p>¿Te llegó un mensaje raro? Abrilo, tocá la burbuja y preguntale si es de verdad. Te dice qué le llama la atención, sin asustarte.</p>
+        </article>
+        <article class="f-card f-card--gold">
+          <span class="f-card__icon" aria-hidden="true"><svg><use href="#i-lock"/></svg></span>
+          <h3>Lo privado, privado</h3>
+          <p>En las aplicaciones de banco y billeteras AIDA no ve nada, a propósito. Y las imágenes de tu pantalla no se guardan en ningún lado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- =================== PARA QUIÉN ================== -->
   <section class="section section--alt" id="para-quien" aria-labelledby="quien-title">
     <div class="container">
@@ -549,6 +684,11 @@
         <div class="rm-item rm-item--now">
           <span class="rm-item__when">En curso</span>
           <div><h3>Versión para WhatsApp</h3><p>Llevar el mismo asistente a la app que más usan las personas mayores en Argentina.</p></div>
+          <span class="pill pill--gold">En desarrollo</span>
+        </div>
+        <div class="rm-item rm-item--now">
+          <span class="rm-item__when">En curso</span>
+          <div><h3>App para Android</h3><p>La burbuja que acompaña en cualquier aplicación. La estamos probando en teléfonos reales antes de publicarla en Google Play.</p></div>
           <span class="pill pill--gold">En desarrollo</span>
         </div>
         <div class="rm-item rm-item--now">
@@ -670,7 +810,11 @@
         </details>
         <details>
           <summary>¿En qué dispositivos funciona?</summary>
-          <div class="faq__answer"><p>En cualquier celular, tablet o computadora donde funcione Telegram: Android, iPhone, Windows, Mac o directamente desde el navegador. La versión para WhatsApp está en desarrollo.</p></div>
+          <div class="faq__answer"><p>En cualquier celular, tablet o computadora donde funcione Telegram: Android, iPhone, Windows, Mac o directamente desde el navegador. La versión para WhatsApp está en desarrollo.</p><p>Además estamos preparando una <a href="#android">aplicación propia para Android</a>, con una burbuja que acompaña dentro de cualquier otra aplicación. Todavía no tiene fecha de salida.</p></div>
+        </details>
+        <details>
+          <summary>¿Y la aplicación con la burbuja va a estar para iPhone?</summary>
+          <div class="faq__answer"><p>Por ahora no. En el iPhone ninguna aplicación puede quedarse encima de otra ni ver lo que muestra otra aplicación: es una regla de Apple, no algo que podamos resolver nosotros. En el iPhone, AIDA se sigue pudiendo usar desde Telegram.</p></div>
         </details>
         <details>
           <summary>Trabajo con personas mayores, ¿podemos colaborar?</summary>
@@ -741,6 +885,7 @@
           <li><a href="#que-es">Qué es AIDA</a></li>
           <li><a href="#funciones">Funciones</a></li>
           <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#android">App para Android</a></li>
           <li><a href="#estado">Estado del proyecto</a></li>
         </ul>
       </nav>
