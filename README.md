@@ -39,14 +39,14 @@ recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
 
 | Ancla | Contenido |
 |---|---|
-| `#inicio` | Hero con demo animada de una conversación real y métricas |
-| `#premio` | La historia del 1.º puesto en el SIC 2025 |
+| `#inicio` | Hero con demo animada de una conversación real y métricas. En escritorio entra entero en la primera pantalla, incluso en una notebook con escala al 150 % (~1280×600) |
 | `#que-es` | Qué es AIDA y sus cuatro principios |
 | `#funciones` | Las 9 capacidades del asistente |
 | `#como-funciona` | Los 4 pasos para empezar |
 | `#android` | Adelanto de la app para Android (todavía sin publicar): la burbuja, con un teléfono de ejemplo animado |
 | `#para-quien` | Personas mayores / familias y cuidadores |
 | `#video` | Video de presentación (se carga recién al hacer clic) |
+| `#premio` | La historia del 1.º puesto en el SIC 2025 |
 | `#tecnologia` | Invitación a la página técnica (el detalle vive en `tecnologia.html`) |
 | `#estado` | Qué está listo, qué está en curso y qué viene |
 | `#equipo` | Integrantes y agradecimientos |

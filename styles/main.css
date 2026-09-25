@@ -390,28 +390,12 @@ p { text-wrap: pretty; }
   align-items: center;
 }
 
-.award-badge {
-  display: inline-flex; align-items: center; gap: .6rem;
-  background: var(--c-white);
-  border: 1px solid var(--c-gold);
-  box-shadow: 0 4px 18px rgba(218,158,46,.20);
-  color: #7A570D;
-  font-family: var(--font-head); font-weight: 600; font-size: var(--text-xs);
-  padding: .5rem 1rem .5rem .6rem;
-  border-radius: var(--r-pill);
-  margin-bottom: var(--sp-3);
-}
-.award-badge__medal {
-  display: grid; place-items: center;
-  width: 26px; height: 26px; border-radius: 50%;
-  background: var(--g-gold); font-size: .85rem;
-}
-
 .hero__title {
   font-size: var(--text-3xl);
   font-weight: 800;
   line-height: 1.04;
   margin-bottom: var(--sp-3);
+  text-wrap: balance;
 }
 /* El resaltado va como fondo del inline, no como pseudo-elemento:
    así se repinta en cada línea cuando el titular se parte en pantallas chicas. */
@@ -628,8 +612,9 @@ p { text-wrap: pretty; }
   font-size: var(--text-xs); color: var(--c-muted-2);
 }
 .chat__field {
-  flex: 1; background: var(--c-surface-2);
+  flex: 1; min-width: 0; background: var(--c-surface-2);
   border-radius: var(--r-pill); padding: .55rem .9rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .chat__mic {
   display: grid; place-items: center; flex: none;
@@ -650,6 +635,41 @@ p { text-wrap: pretty; }
 .chat__replay.is-visible { opacity: 1; pointer-events: auto; }
 .chat__replay:hover { background: var(--c-ink); }
 .chat__replay svg { width: 13px; height: 13px; }
+
+/* ---------- 8b. Primera pantalla en escritorio ------------ */
+/* Lo principal del hero (título, bajada, botones y el chat) tiene que entrar
+   en la primera pantalla. El caso más ajustado es una notebook con la escala
+   de Windows al 150 %: la ventana queda en unos 1280x600 y, descontando la
+   barra del premio y la navegación, sobran unos 480 px de alto. Por eso los
+   tamaños se atan también al alto de la ventana (vh), con tope: en pantallas
+   grandes todo queda como antes. */
+@media (min-width: 961px) {
+  .hero { padding-top: clamp(1.5rem, 5vh, 4.5rem); }
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+  .hero__title {
+    font-size: clamp(2.4rem, min(4.4vw, 8.4vh), 3.7rem);
+    margin-bottom: clamp(.75rem, 2.4vh, 1.5rem);
+  }
+  .hero__desc {
+    font-size: clamp(1.05rem, 3.1vh, 1.3rem);
+    margin-bottom: clamp(1rem, 3.5vh, 2rem);
+  }
+  .hero__actions { margin-bottom: clamp(1rem, 3.5vh, 2rem); }
+  .hero__trust { padding-top: clamp(.75rem, 2.4vh, 1.5rem); }
+
+  .chat { width: min(380px, 100%); }
+  /* 380 px = barras de arriba de la página, cabecera y pie del chat, y aire. */
+  .chat__body { height: clamp(220px, calc(100vh - 380px), 430px); }
+  .hero__peng { width: clamp(96px, min(12vw, 22vh), 168px); }
+}
+/* Entre tablet horizontal y notebook chica los dos botones no entraban en una
+   fila y empujaban todo para abajo: el texto se lleva más ancho. */
+@media (min-width: 961px) and (max-width: 1100px) {
+  .hero__inner { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); }
+}
 
 /* ---------- 9. Métricas ----------------------------------- */
 .stats {
