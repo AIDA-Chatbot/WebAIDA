@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aida-chatbot.github.io/WebAIDA/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-09-26</lastmod>
+    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/aida-ganadores.jpg</image:loc></image:image>
+    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/aida-penguin.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://aida-chatbot.github.io/WebAIDA/tecnologia.html</loc>
-    <lastmod>2025-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-09-26</lastmod>
   </url>
   <url>
     <loc>https://aida-chatbot.github.io/WebAIDA/privacidad.html</loc>
-    <lastmod>2025-11-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-09-26</lastmod>
   </url>
 </urlset>

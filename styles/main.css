@@ -397,6 +397,18 @@ p { text-wrap: pretty; }
   margin-bottom: var(--sp-3);
   text-wrap: balance;
 }
+/* Dice qué es AIDA con las palabras que la gente busca. Va dentro del h1 porque
+   es la señal más fuerte para los buscadores, pero chica, para no competir con
+   el titular. */
+.hero__kicker {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.3;
+  color: var(--c-teal-600);
+  margin-bottom: .55em;
+}
 /* El resaltado va como fondo del inline, no como pseudo-elemento:
    así se repinta en cada línea cuando el titular se parte en pantallas chicas. */
 .hero__title em {

@@ -1,0 +1,31 @@
+# AIDA — Asistente Digital Unificado
+
+> AIDA es un asistente con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Se usa como un chat: la persona escribe, manda una nota de voz o una foto, y AIDA contesta en palabras simples, sin tecnicismos. También revisa mensajes sospechosos y avisa si parecen una estafa. Está hecho en Argentina, en castellano rioplatense, y ganó el 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025.
+
+## Datos clave
+
+- Nombre: AIDA (Asistente Digital Unificado).
+- Para quién: adultos mayores con poca experiencia en tecnología, y sus familias y personas cuidadoras.
+- País e idioma: Argentina; castellano rioplatense. Si la persona escribe en otro idioma, AIDA contesta en ese idioma.
+- Qué hace: conversación natural; entiende notas de voz y puede responder en audio; analiza fotos y capturas de pantalla; detecta mensajes de estafa; adapta el tono si nota enojo, frustración o tristeza; puede avisar por correo a un contacto de confianza ante señales de riesgo; tiene respuestas ya revisadas para más de 35 dudas comunes del celular.
+- Qué no hace: no da diagnósticos médicos ni asesoramiento financiero, y no reemplaza a un familiar ni a un profesional.
+- Dónde funciona hoy: como bot de Telegram (celular, tablet, computadora o navegador).
+- En desarrollo: versión para WhatsApp, y una aplicación propia para Android con una burbuja que acompaña dentro de cualquier otra aplicación y puede mirar la pantalla cuando la persona la toca. No hay versión con burbuja para iPhone, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
+- Disponibilidad: todavía no está abierto al público y no hay fecha anunciada. Hay una lista de espera en el sitio.
+- Precio: todavía no está definido. Va a haber una manera de usar AIDA sin pagar, y algunas cosas van a tener un costo.
+- Datos personales: se guardan en Firebase (Google Cloud), solo los ve el equipo de AIDA, no se venden ni se comparten, y se pueden borrar a pedido.
+- Equipo: Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial).
+- Reconocimiento: 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025, organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
+- Contacto: aidaassistantbot@gmail.com
+
+## Páginas
+
+- [Inicio](https://aida-chatbot.github.io/WebAIDA/): qué es AIDA, funciones, cómo se empieza, la futura app para Android, estado del proyecto, equipo y preguntas frecuentes.
+- [Cómo está hecha](https://aida-chatbot.github.io/WebAIDA/tecnologia.html): arquitectura modular, modelos de inteligencia artificial, voz, visión, análisis de sentimiento y decisiones de diseño.
+- [Privacidad y términos](https://aida-chatbot.github.io/WebAIDA/privacidad.html): qué datos se guardan, para qué, dónde y cómo pedir que se borren.
+
+## Más
+
+- [Video de presentación](https://www.youtube.com/watch?v=Sl-CFzgz-u0): el video con el que AIDA ganó el primer puesto (3 minutos, en castellano).
+- [Canal de YouTube](https://www.youtube.com/@AIDAChatbot)
+- [Organización en GitHub](https://github.com/AIDA-Chatbot)

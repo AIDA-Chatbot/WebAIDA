@@ -17,7 +17,8 @@ WebAIDA/
 ├── tecnologia.html             # Detalle técnico (arquitectura, stack, decisiones)
 ├── privacidad.html             # Política de privacidad y términos
 ├── 404.html                    # Página de error
-├── robots.txt · sitemap.xml    # SEO básico
+├── robots.txt · sitemap.xml    # Para buscadores (ver «SEO y visibilidad en IA»)
+├── llms.txt                    # Resumen de AIDA para asistentes de IA
 ├── assets/
 │   ├── aida-mark.png           # Isotipo recortado (fondo transparente) — nav, footer, avatar
 │   ├── aida-wave.png           # Pingüino saludando — hero y CTA
@@ -86,11 +87,56 @@ var FORMSPREE_ID = 'xabcdefg';
 `.github/workflows/static.yml` publica el sitio en cada push a `main`.
 Para activarlo por primera vez: **Settings → Pages → Source: GitHub Actions**.
 
+Se publican **solo los archivos del sitio**, que el workflow copia a `_site/`. Los `.md`
+de esta carpeta quedan en el repo pero no en la web. **Un archivo nuevo del sitio hay que
+sumarlo a la lista del paso «Preparar el sitio»**, o no se publica.
+
 Para verlo en local, desde esta carpeta:
 
 ```bash
 python -m http.server 8765
 ```
+
+## SEO y visibilidad en IA
+
+Hecho en el código:
+
+- **Título, descripción y encabezado con las palabras que se buscan.** En Argentina se
+  busca «adultos mayores» mucho más que «personas mayores»: va en el `<title>`, en la
+  descripción y en la línea chica que abre el `<h1>`. El resto del texto sigue diciendo
+  «personas mayores».
+- **Datos estructurados (JSON-LD).** En `index.html`: `Organization` (con el equipo, el
+  premio, YouTube y GitHub), `WebSite`, `WebPage`, `SoftwareApplication`, `VideoObject` y
+  `FAQPage`. En las otras dos páginas: `TechArticle` o `WebPage`, más `BreadcrumbList`.
+- **Las preguntas frecuentes tienen que decir lo mismo en el HTML y en el `FAQPage`.** Si
+  se cambia una, se cambia en los dos lados (hay un aviso en el HTML).
+- **`llms.txt`**: los datos de AIDA en texto plano, para que un asistente de IA la describa
+  sin inventar. Si cambia algo del proyecto (estado, precio, canales), va también ahí.
+- **Tres preguntas pensadas para asistentes de IA**: «¿Qué es AIDA?», «¿En qué se
+  diferencia de ChatGPT…?» y «¿Quién hizo AIDA?». Son lo que la gente les pregunta, con
+  una respuesta directa que se puede citar.
+- `lang="es-AR"`, `canonical`, Open Graph y tarjeta de X en las tres páginas, imágenes en
+  el sitemap y la página 404 con `noindex`.
+
+Queda a mano, porque pide una cuenta:
+
+1. **Google Search Console**: agregar la propiedad `https://aida-chatbot.github.io/WebAIDA/`
+   (la verificación por etiqueta HTML va en el `<head>` de `index.html`) y enviar
+   `sitemap.xml`.
+2. **Bing Webmaster Tools**: importar la propiedad desde Search Console. El índice de Bing
+   alimenta la búsqueda de Copilot y es una de las fuentes de ChatGPT.
+3. **Probar los datos estructurados** en la
+   [prueba de resultados enriquecidos](https://search.google.com/test/rich-results) de Google.
+
+Limitaciones de publicar en `github.io/WebAIDA`:
+
+- **Los buscadores solo leen el `robots.txt` de la raíz del dominio**, y esa raíz
+  (`aida-chatbot.github.io`) no es de este repo. Por eso el sitemap se da de alta a mano.
+  Hoy la raíz da 404, así que nada está bloqueado.
+- **Un dominio propio** (por ejemplo `aida.com.ar`) resolvería lo anterior y suma
+  autoridad de marca. Para mudarse: poner el dominio en Settings → Pages y reemplazar
+  `https://aida-chatbot.github.io/WebAIDA/` en los `.html`, `sitemap.xml`, `robots.txt` y
+  `llms.txt`.
 
 ## Sistema de diseño
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIDA — Asistente digital con paciencia para personas mayores</title>
+  <title>AIDA: asistente digital con IA para adultos mayores</title>
 
-  <meta name="description" content="AIDA es un asistente conversacional que acompaña a personas mayores en el uso de la tecnología: entiende audios, analiza imágenes, detecta estafas y se adapta al estado emocional. Proyecto campeón del Samsung Innovation Campus 2025." />
+  <meta name="description" content="Asistente con inteligencia artificial para adultos mayores: responde con paciencia, entiende audios y fotos, y avisa si un mensaje es una estafa." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Santiago Oroz, Renata Berho, Milagros Argañin" />
   <meta name="theme-color" content="#196F77" />
   <link rel="canonical" href="https://aida-chatbot.github.io/WebAIDA/" />
@@ -20,14 +21,17 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="AIDA — Tecnología con paciencia de verdad. Proyecto ganador del Samsung Innovation Campus 2025." />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AIDA — Tecnología con paciencia de verdad" />
-  <meta name="twitter:description" content="Asistente digital para personas mayores. Proyecto campeón del Samsung Innovation Campus 2025." />
+  <meta name="twitter:description" content="Asistente digital con inteligencia artificial para adultos mayores. Proyecto campeón del Samsung Innovation Campus 2025." />
+  <meta name="twitter:image:alt" content="AIDA — Tecnología con paciencia de verdad. Proyecto ganador del Samsung Innovation Campus 2025." />
   <meta name="twitter:image" content="https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg" />
 
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="assets/favicon-256.png" />
+  <link rel="alternate" type="text/plain" href="llms.txt" title="Resumen de AIDA para asistentes de IA" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,21 +41,253 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "AIDA — Asistente Digital Unificado",
-    "applicationCategory": "CommunicationApplication",
-    "operatingSystem": "Telegram (Android, iOS, Windows, macOS, Web)",
-    "inLanguage": "es",
-    "description": "Asistente conversacional empático que acompaña a personas mayores en el uso de la tecnología: entiende mensajes de voz, analiza imágenes, detecta posibles estafas y adapta su tono al estado emocional de la persona.",
-    "url": "https://aida-chatbot.github.io/WebAIDA/",
-    "image": "https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg",
-    "author": [
-      { "@type": "Person", "name": "Santiago Oroz", "url": "https://www.linkedin.com/in/santiago-oroz/" },
-      { "@type": "Person", "name": "Renata Berho", "url": "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/" },
-      { "@type": "Person", "name": "Milagros Argañin", "url": "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/" }
-    ],
-    "award": "1° puesto — Capstone Project del Samsung Innovation Campus Argentina 2025",
-    "isAccessibleForFree": true
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#organizacion",
+        "name": "AIDA",
+        "alternateName": "Asistente Digital Unificado",
+        "url": "https://aida-chatbot.github.io/WebAIDA/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aida-chatbot.github.io/WebAIDA/assets/favicon-256.png",
+          "width": 256,
+          "height": 256
+        },
+        "image": "https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg",
+        "email": "aidaassistantbot@gmail.com",
+        "description": "Equipo argentino que desarrolla AIDA, un asistente con inteligencia artificial para adultos mayores con poca experiencia en tecnología.",
+        "foundingDate": "2025",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Argentina"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Argentina"
+        },
+        "founder": [
+          {
+            "@type": "Person",
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#santiago",
+            "name": "Santiago Oroz",
+            "url": "https://www.linkedin.com/in/santiago-oroz/",
+            "sameAs": [
+              "https://www.linkedin.com/in/santiago-oroz/"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#renata",
+            "name": "Renata Berho",
+            "url": "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/",
+            "sameAs": [
+              "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#milagros",
+            "name": "Milagros Argañin",
+            "url": "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/",
+            "sameAs": [
+              "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/"
+            ]
+          }
+        ],
+        "award": "1.º puesto — Capstone Project del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial)",
+        "sameAs": [
+          "https://www.youtube.com/@AIDAChatbot",
+          "https://github.com/AIDA-Chatbot"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#sitio",
+        "url": "https://aida-chatbot.github.io/WebAIDA/",
+        "name": "AIDA",
+        "alternateName": "AIDA — Asistente Digital Unificado",
+        "inLanguage": "es-AR",
+        "publisher": {
+          "@id": "https://aida-chatbot.github.io/WebAIDA/#organizacion"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#pagina",
+        "url": "https://aida-chatbot.github.io/WebAIDA/",
+        "name": "AIDA: asistente digital con IA para adultos mayores",
+        "isPartOf": {
+          "@id": "https://aida-chatbot.github.io/WebAIDA/#sitio"
+        },
+        "about": {
+          "@id": "https://aida-chatbot.github.io/WebAIDA/#aplicacion"
+        },
+        "inLanguage": "es-AR",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "dateModified": "2026-09-26"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#aplicacion",
+        "name": "AIDA",
+        "alternateName": "Asistente Digital Unificado",
+        "applicationCategory": "CommunicationApplication",
+        "applicationSubCategory": "Asistente conversacional con inteligencia artificial",
+        "operatingSystem": "Telegram (Android, iOS, Windows, macOS y navegador)",
+        "inLanguage": "es",
+        "description": "Asistente conversacional con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Entiende texto, notas de voz y fotos, responde sin tecnicismos, detecta mensajes de estafa, adapta el tono al estado de ánimo de la persona y puede avisar a un contacto de confianza ante señales de riesgo.",
+        "url": "https://aida-chatbot.github.io/WebAIDA/",
+        "image": "https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg",
+        "audience": {
+          "@type": "PeopleAudience",
+          "audienceType": "Adultos mayores con poca experiencia en tecnología, y sus familias y cuidadores"
+        },
+        "featureList": [
+          "Conversación natural en castellano rioplatense",
+          "Entiende notas de voz y responde en audio",
+          "Analiza fotos y capturas de pantalla",
+          "Detecta mensajes de estafa y fraudes",
+          "Adapta el tono al estado de ánimo",
+          "Avisa a un contacto de confianza ante señales de riesgo",
+          "Perfil personalizado",
+          "Respuestas revisadas para las dudas más comunes del celular",
+          "Responde en el idioma de la persona"
+        ],
+        "author": {
+          "@id": "https://aida-chatbot.github.io/WebAIDA/#organizacion"
+        },
+        "creator": [
+          {
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#santiago"
+          },
+          {
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#renata"
+          },
+          {
+            "@id": "https://aida-chatbot.github.io/WebAIDA/#milagros"
+          }
+        ],
+        "award": "1.º puesto — Capstone Project del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial)"
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#video",
+        "name": "Presentación de AIDA — Proyecto final del Samsung Innovation Campus",
+        "description": "El video con el que AIDA ganó el primer puesto del Capstone Project del Samsung Innovation Campus Argentina 2025: la idea, el problema que resuelve y el asistente funcionando.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/Sl-CFzgz-u0/maxresdefault.jpg",
+          "https://i.ytimg.com/vi/Sl-CFzgz-u0/hqdefault.jpg"
+        ],
+        "uploadDate": "2025-11-14T12:40:16-08:00",
+        "duration": "PT3M",
+        "inLanguage": "es",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/Sl-CFzgz-u0",
+        "contentUrl": "https://www.youtube.com/watch?v=Sl-CFzgz-u0",
+        "publisher": {
+          "@id": "https://aida-chatbot.github.io/WebAIDA/#organizacion"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://aida-chatbot.github.io/WebAIDA/#preguntas",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es AIDA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AIDA (Asistente Digital Unificado) es un asistente con inteligencia artificial pensado para adultos mayores con poca experiencia en tecnología. Se usa como un chat: le escribís, le mandás un audio o una foto, y te contesta en palabras simples. También revisa mensajes sospechosos y te avisa si parecen una estafa. La hicimos en Argentina y ganó el primer puesto del Samsung Innovation Campus 2025."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué se diferencia de ChatGPT o de otros asistentes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Está hecha para alguien mayor que no se lleva bien con la tecnología, y todo sale de ahí. Contesta sin tecnicismos y en pasos cortos, entiende notas de voz, tiene respuestas ya revisadas para las dudas más comunes del celular, detecta estafas y puede avisarle a un familiar si nota una señal de riesgo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuándo voy a poder usar AIDA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Todavía no está abierto al público y preferimos no dar una fecha que después no podamos cumplir. Si dejás tu correo en la lista de espera, sos de las primeras personas en enterarte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hace falta saber de tecnología para usarlo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Si sabés mandar un mensaje o una nota de voz, sabés usar AIDA. Todo pasa dentro de un chat común y corriente, sin menús ni configuraciones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto va a costar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Todavía lo estamos definiendo, y preferimos no tirar un número que después no podamos sostener. Lo que sí sabemos: va a haber una manera de usar AIDA sin pagar nada, y algunas cosas van a tener un costo, porque mantener el servicio andando todos los días cuesta plata. Cuando esté decidido, lo vas a leer acá."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué pasa con mis datos y mis conversaciones?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se guardan de forma segura en Firebase (Google Cloud) y solo el equipo de AIDA puede verlos. No se venden ni se comparten con terceros, y podés pedir que los borremos cuando quieras. Está todo detallado en la política de privacidad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿AIDA reemplaza a un familiar o a un profesional?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, y no quiere hacerlo. AIDA acompaña en el uso de la tecnología y puede avisar a un contacto de confianza, pero no da diagnósticos médicos ni asesoramiento financiero. Ante una emergencia hay que llamar a los servicios de emergencia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué dispositivos funciona?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En cualquier celular, tablet o computadora donde funcione Telegram: Android, iPhone, Windows, Mac o directamente desde el navegador. La versión para WhatsApp está en desarrollo. Además estamos preparando una aplicación propia para Android, con una burbuja que acompaña dentro de cualquier otra aplicación. Todavía no tiene fecha de salida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Y la aplicación con la burbuja va a estar para iPhone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Por ahora no. En el iPhone ninguna aplicación puede quedarse encima de otra ni ver lo que muestra otra aplicación: es una regla de Apple, no algo que podamos resolver nosotros. En el iPhone, AIDA se sigue pudiendo usar desde Telegram."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Quién hizo AIDA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025, en la edición dedicada a inteligencia artificial. El proyecto ganó el primer puesto del Capstone Project."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Trabajo con personas mayores, ¿podemos colaborar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, nos interesa mucho. Escribinos a aidaassistantbot@gmail.com y contanos en qué contexto trabajan."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -156,7 +392,7 @@
     <div class="container hero__inner">
 
       <div class="hero__copy">
-        <h1 class="hero__title">Tecnología con <em>paciencia de verdad</em></h1>
+        <h1 class="hero__title"><span class="hero__kicker">Asistente digital para adultos mayores</span><span class="sr-only">: </span>Tecnología con <em>paciencia de verdad</em></h1>
 
         <p class="hero__desc">
           AIDA es un asistente conversacional pensado para que nadie quede afuera del mundo digital.
@@ -777,7 +1013,17 @@
         <h2 id="faq-title" class="section-title">Lo que más nos preguntan</h2>
       </div>
 
+      <!-- Si cambiás una pregunta o una respuesta, cambiala también en el JSON-LD
+           del <head> (FAQPage): tienen que decir exactamente lo mismo. -->
       <div class="faq">
+        <details>
+          <summary>¿Qué es AIDA?</summary>
+          <div class="faq__answer"><p>AIDA (Asistente Digital Unificado) es un asistente con inteligencia artificial pensado para adultos mayores con poca experiencia en tecnología. Se usa como un chat: le escribís, le mandás un audio o una foto, y te contesta en palabras simples. También revisa mensajes sospechosos y te avisa si parecen una estafa. La hicimos en Argentina y ganó el primer puesto del Samsung Innovation Campus 2025.</p></div>
+        </details>
+        <details>
+          <summary>¿En qué se diferencia de ChatGPT o de otros asistentes?</summary>
+          <div class="faq__answer"><p>Está hecha para alguien mayor que no se lleva bien con la tecnología, y todo sale de ahí. Contesta sin tecnicismos y en pasos cortos, entiende notas de voz, tiene respuestas ya revisadas para las dudas más comunes del celular, detecta estafas y puede avisarle a un familiar si nota una señal de riesgo.</p></div>
+        </details>
         <details>
           <summary>¿Cuándo voy a poder usar AIDA?</summary>
           <div class="faq__answer"><p>Todavía no está abierto al público y preferimos no dar una fecha que después no podamos cumplir. Si dejás tu correo en la lista de espera, sos de las primeras personas en enterarte.</p></div>
@@ -805,6 +1051,10 @@
         <details>
           <summary>¿Y la aplicación con la burbuja va a estar para iPhone?</summary>
           <div class="faq__answer"><p>Por ahora no. En el iPhone ninguna aplicación puede quedarse encima de otra ni ver lo que muestra otra aplicación: es una regla de Apple, no algo que podamos resolver nosotros. En el iPhone, AIDA se sigue pudiendo usar desde Telegram.</p></div>
+        </details>
+        <details>
+          <summary>¿Quién hizo AIDA?</summary>
+          <div class="faq__answer"><p>Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025, en la edición dedicada a inteligencia artificial. El proyecto ganó el primer puesto del Capstone Project.</p></div>
         </details>
         <details>
           <summary>Trabajo con personas mayores, ¿podemos colaborar?</summary>

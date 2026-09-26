@@ -33,11 +33,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      # Se publica solo el sitio. Sin este paso también quedaban en línea los
+      # .md del repo (README, manual, políticas del bot) y Google los indexaba
+      # como páginas sueltas. Un archivo nuevo del sitio se agrega a esta lista.
+      - name: Preparar el sitio
+        run: |
+          mkdir _site
+          cp -r index.html tecnologia.html privacidad.html 404.html _site/
+          cp -r robots.txt sitemap.xml llms.txt _site/
+          cp -r assets styles scripts _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
