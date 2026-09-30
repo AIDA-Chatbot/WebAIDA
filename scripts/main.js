@@ -8,10 +8,12 @@
   'use strict';
 
   /* --- Configuración -------------------------------------- */
-  // Reemplazá por el ID real del formulario de Formspree (ej: 'xabcdefg').
-  // Mientras diga 'YOUR_FORMSPREE_ID', el formulario invita a escribir por correo
-  // en lugar de fingir que guardó el dato.
-  var FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+  // Lista de espera: se envía a Web3Forms. La clave de acceso es pública por
+  // diseño; para recibir los correos en otra casilla, se cambia W3F_KEY.
+  var W3F_ENDPOINT = 'https://api.web3forms.com/submit';
+  var W3F_KEY = '1eacf71b-14ad-495f-a0cc-39f3472fa544';
+  var MIN_FORM_TIME_MS = 3000;      // menos que esto desde la carga es un bot
+  var PAGE_LOADED_AT = Date.now();
   var CONTACT_EMAIL = 'aidaassistantbot@gmail.com';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -296,16 +298,24 @@
   }
 
   /* --- Lista de espera ------------------------------------ */
-  var form = $('#waitlist-form');
-  if (form) {
-    var input   = $('#waitlist-email');
-    var btn     = $('#waitlist-btn');
-    var errorEl = $('#waitlist-error');
-    var okEl    = $('#waitlist-success');
+  // Hay dos formularios (el del hero y el del cierre); comparten el envío.
+  // Cada uno declara data-waitlist="<origen>" y data-success="<id del aviso>".
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  $$('form[data-waitlist]').forEach(function (form) {
+    var input   = $('input[type="email"]', form);
+    var btn     = $('button[type="submit"]', form);
+    var honey   = $('input[name="botcheck"]', form);
+    var errorEl = $('.wl-error', form);
+    var okEl    = form.dataset.success ? $('#' + form.dataset.success) : null;
 
     var fail = function (html) {
       errorEl.innerHTML = html;
       errorEl.hidden = false;
+    };
+    var done = function () {
+      form.hidden = true;
+      if (okEl) okEl.classList.add('is-visible');
     };
 
     form.addEventListener('submit', function (e) {
@@ -315,17 +325,16 @@
       errorEl.hidden = true;
       errorEl.textContent = '';
 
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (!email || !EMAIL_RE.test(email)) {
         fail('Revisá el correo: parece que le falta algo.');
         input.focus();
         return;
       }
 
-      if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-        fail('Todavía estamos activando el formulario. Escribinos a ' +
-             '<a href="mailto:' + CONTACT_EMAIL + '?subject=Lista%20de%20espera%20de%20AIDA" ' +
-             'style="color:inherit;text-decoration:underline">' + CONTACT_EMAIL + '</a> ' +
-             'y te anotamos a mano.');
+      // Anti-spam sin CAPTCHA: señuelo oculto + tiempo mínimo desde la carga.
+      // Si salta alguno, se muestra el "listo" y no se envía nada.
+      if ((honey && honey.checked) || Date.now() - PAGE_LOADED_AT < MIN_FORM_TIME_MS) {
+        done();
         return;
       }
 
@@ -333,15 +342,22 @@
       var label = btn.textContent;
       btn.textContent = 'Enviando';
 
-      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      fetch(W3F_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email: email, origen: 'WebAIDA — lista de espera' })
+        body: JSON.stringify({
+          access_key: W3F_KEY,
+          subject: 'AIDA · lista de espera',
+          from_name: 'AIDA · lista de espera',
+          email: email,
+          origen: location.hostname + location.pathname + ' · formulario del ' + form.dataset.waitlist
+        })
       })
         .then(function (res) {
-          if (!res.ok) throw new Error('respuesta ' + res.status);
-          form.hidden = true;
-          okEl.classList.add('is-visible');
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (!res.ok || data.success === false) throw new Error('respuesta ' + res.status);
+            done();
+          });
         })
         .catch(function () {
           fail('No pudimos registrar tu correo. Probá de nuevo o escribinos a ' +
@@ -353,5 +369,5 @@
           btn.textContent = label;
         });
     });
-  }
+  });
 })();

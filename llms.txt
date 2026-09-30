@@ -20,9 +20,9 @@
 
 ## Páginas
 
-- [Inicio](https://aida-chatbot.github.io/WebAIDA/): qué es AIDA, funciones, cómo se empieza, la futura app para Android, estado del proyecto, equipo y preguntas frecuentes.
-- [Cómo está hecha](https://aida-chatbot.github.io/WebAIDA/tecnologia.html): arquitectura modular, modelos de inteligencia artificial, voz, visión, análisis de sentimiento y decisiones de diseño.
-- [Privacidad y términos](https://aida-chatbot.github.io/WebAIDA/privacidad.html): qué datos se guardan, para qué, dónde y cómo pedir que se borren.
+- [Inicio](https://www.techdelfuego.com/aidaasistente/): qué es AIDA, funciones, cómo se empieza, la futura app para Android, estado del proyecto, equipo y preguntas frecuentes.
+- [Cómo está hecha](https://www.techdelfuego.com/aidaasistente/tecnologia.html): arquitectura modular, modelos de inteligencia artificial, voz, visión, análisis de sentimiento y decisiones de diseño.
+- [Privacidad y términos](https://www.techdelfuego.com/aidaasistente/privacidad.html): qué datos se guardan, para qué, dónde y cómo pedir que se borren.
 
 ## Más
 

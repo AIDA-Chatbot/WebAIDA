@@ -1447,6 +1447,51 @@ p { text-wrap: pretty; }
 .wl-success.is-visible { display: flex; }
 .wl-success svg { width: 22px; height: 22px; color: #7BE0B0; flex: none; }
 
+/* ---------- Lista de espera en el hero ----------------------
+   Mismo formulario que el del cierre, pero sobre fondo claro: cambian
+   los colores, no la estructura (.wl-form). Todo sale de los tokens. */
+.hero__form { margin: 0 0 var(--sp-3); max-width: 34em; }
+.hero__form .wl-form__row { flex-wrap: wrap; }
+/* Sin flex-basis: en teléfono la fila pasa a columna y un basis se volvería alto. */
+.hero__form .wl-input { flex: 1 1 auto; min-width: 14rem; }
+.hero__form .btn { justify-content: center; }
+
+.wl-form--light .wl-input {
+  background: var(--c-white);
+  border-color: var(--c-border);
+  color: var(--c-text);
+  box-shadow: 0 1px 3px rgba(20,52,62,.06);
+}
+.wl-form--light .wl-input::placeholder { color: var(--c-muted); }
+.wl-form--light .wl-input:focus {
+  border-color: var(--c-primary);
+  background: var(--c-white);
+  box-shadow: 0 0 0 3px var(--c-teal-100);
+}
+.wl-form--light .wl-error { color: var(--c-danger); }
+.wl-form--light .wl-note { margin-top: var(--sp-2); color: var(--c-muted); }
+.wl-form--light .wl-note a { color: var(--c-primary); }
+
+.wl-success--light {
+  margin: 0 0 var(--sp-3);
+  background: var(--c-ok-bg);
+  border-color: transparent;
+  color: var(--c-ok);
+}
+.wl-success--light svg { color: var(--c-ok); }
+
+/* Señuelo anti-spam: fuera de pantalla (no display:none, para que los bots
+   sí lo vean y lo completen). */
+.wl-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Logos de las instituciones en el hero: reemplazan
+   los nombres en texto. El tamaño de cada logo va en sus atributos width/height
+   (un logotipo ancho pide menos altura que un isologo), para que se vean parejos
+   a ojo y no salten al cargar. */
+.hero__logos { align-items: center; gap: .6rem 1.4rem; }
+.hero__logos li { background: none; border: 0; border-radius: 0; padding: 0; display: flex; align-items: center; }
+.hero__logos img { display: block; }
+
 .cta__alt {
   margin-top: var(--sp-4); padding-top: var(--sp-4);
   border-top: 1px solid rgba(255,255,255,.14);
