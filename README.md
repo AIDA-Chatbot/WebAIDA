@@ -6,7 +6,7 @@ que acompaña a personas mayores en el uso de la tecnología.
 > 🏆 AIDA fue el **proyecto campeón del Capstone Project del Samsung Innovation Campus
 > Argentina 2025**, en la edición especializada en Inteligencia Artificial.
 
-En línea: **https://aida-chatbot.github.io/WebAIDA/**
+En línea: **https://aidaasistente.com/**
 Se publica automáticamente en GitHub Pages con cada push a `main`.
 
 ## Estructura
@@ -120,7 +120,7 @@ Hecho en el código:
 
 Queda a mano, porque pide una cuenta:
 
-1. **Google Search Console**: agregar la propiedad `https://aida-chatbot.github.io/WebAIDA/`
+1. **Google Search Console**: agregar la propiedad `https://aidaasistente.com/`
    (la verificación por etiqueta HTML va en el `<head>` de `index.html`) y enviar
    `sitemap.xml`.
 2. **Bing Webmaster Tools**: importar la propiedad desde Search Console. El índice de Bing
@@ -128,15 +128,12 @@ Queda a mano, porque pide una cuenta:
 3. **Probar los datos estructurados** en la
    [prueba de resultados enriquecidos](https://search.google.com/test/rich-results) de Google.
 
-Limitaciones de publicar en `github.io/WebAIDA`:
-
-- **Los buscadores solo leen el `robots.txt` de la raíz del dominio**, y esa raíz
-  (`aida-chatbot.github.io`) no es de este repo. Por eso el sitemap se da de alta a mano.
-  Hoy la raíz da 404, así que nada está bloqueado.
-- **Un dominio propio** (por ejemplo `aida.com.ar`) resolvería lo anterior y suma
-  autoridad de marca. Para mudarse: poner el dominio en Settings → Pages y reemplazar
-  `https://aida-chatbot.github.io/WebAIDA/` en los `.html`, `sitemap.xml`, `robots.txt` y
-  `llms.txt`.
+Dominio: el sitio vive en `https://aidaasistente.com/` (Settings → Pages → Custom domain).
+`aida-chatbot.github.io/WebAIDA/` y `www.aidaasistente.com` redirigen solos a esa
+dirección, y como el sitio está en la raíz del dominio, `robots.txt` y `sitemap.xml`
+valen. Si algún día cambia el dominio, se reemplaza `https://aidaasistente.com/` en los
+`.html`, `sitemap.xml`, `robots.txt` y `llms.txt`, y se ajustan las rutas absolutas de
+`404.html`.
 
 ## Sistema de diseño
 

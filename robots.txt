@@ -1,9 +1,4 @@
-# Ojo: los buscadores solo leen el robots.txt de la raíz del dominio
-# (aida-chatbot.github.io/robots.txt), y este sitio vive en una subcarpeta.
-# Este archivo queda para el día que el sitio tenga dominio propio. Mientras
-# tanto, el sitemap se da de alta a mano en Google Search Console y en Bing
-# Webmaster Tools (ver README, sección SEO).
 User-agent: *
 Allow: /
 
-Sitemap: https://aida-chatbot.github.io/WebAIDA/sitemap.xml
+Sitemap: https://aidaasistente.com/sitemap.xml
