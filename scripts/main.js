@@ -13,6 +13,9 @@
   var W3F_ENDPOINT = 'https://api.web3forms.com/submit';
   var W3F_KEY = '1eacf71b-14ad-495f-a0cc-39f3472fa544';
   var CONTACT_EMAIL = 'aidaassistantbot@gmail.com';
+  // Medición: Microsoft Clarity carga solo si el visitante acepta el aviso.
+  var CLARITY_ID = 'yqht5qdhtm';
+  var CLAVE_MEDICION = 'aida-medicion';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $  = function (sel, ctx) { return (ctx || document).querySelector(sel); };
@@ -366,6 +369,63 @@
           delete btn.dataset.loading;
           btn.textContent = label;
         });
+    });
+  });
+
+  /* --- Aviso de medición ---------------------------------- */
+  // Clarity no carga hasta que el visitante elige "Aceptar". Los nombres
+  // evitan la palabra "cookie": los bloqueadores ocultan esos elementos.
+  function leerMedicion() {
+    try { return localStorage.getItem(CLAVE_MEDICION); } catch (e) { return null; }
+  }
+  function guardarMedicion(valor) {
+    try { localStorage.setItem(CLAVE_MEDICION, valor); } catch (e) {}
+  }
+
+  function cargarClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_ID);
+  }
+
+  function mostrarAvisoMedicion() {
+    var aviso = document.createElement('div');
+    aviso.className = 'aviso-medicion';
+    aviso.setAttribute('role', 'region');
+    aviso.setAttribute('aria-label', 'Aviso de medición');
+    aviso.innerHTML =
+      '<p>Con tu permiso, usamos una herramienta de Microsoft para ver cómo se usa este sitio ' +
+      'y mejorarlo. <a href="privacidad.html#medicion">Más información</a></p>' +
+      '<div class="aviso-medicion__btns">' +
+        '<button type="button" class="btn btn--primary" data-medicion="si">Aceptar</button>' +
+        '<button type="button" class="btn btn--ghost" data-medicion="no">Rechazar</button>' +
+      '</div>';
+    document.body.appendChild(aviso);
+    $$('[data-medicion]', aviso).forEach(function (boton) {
+      boton.addEventListener('click', function () {
+        var eleccion = boton.getAttribute('data-medicion');
+        guardarMedicion(eleccion);
+        aviso.parentNode.removeChild(aviso);
+        if (eleccion === 'si') cargarClarity();
+      });
+    });
+  }
+
+  var eleccionMedicion = leerMedicion();
+  if (eleccionMedicion === 'si') cargarClarity();
+  else if (eleccionMedicion !== 'no') mostrarAvisoMedicion();
+
+  // "Cambiar mi elección", en la política de privacidad: borra lo elegido y vuelve a preguntar.
+  $$('[data-medicion-cambiar]').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+      try { localStorage.removeItem(CLAVE_MEDICION); } catch (e) {}
+      ['_clck', '_clsk'].forEach(function (nombre) {
+        document.cookie = nombre + '=; Max-Age=0; path=/';
+        document.cookie = nombre + '=; Max-Age=0; path=/; domain=.' + location.hostname;
+      });
+      location.reload();
     });
   });
 })();

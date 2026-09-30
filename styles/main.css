@@ -1707,8 +1707,22 @@ p { text-wrap: pretty; }
   }
 }
 
+/* ---------- Aviso de medición ------------------------------ */
+.aviso-medicion {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: .9rem 1.5rem;
+  padding: 1rem var(--sp-2) calc(1rem + env(safe-area-inset-bottom, 0px));
+  background: var(--c-primary-900); color: var(--c-white);
+  font-size: var(--text-md); line-height: 1.5;
+  box-shadow: 0 -8px 24px rgba(10, 52, 60, .28);
+}
+.aviso-medicion p { margin: 0; max-width: 44rem; text-align: center; }
+.aviso-medicion a { color: var(--c-white); text-decoration: underline; text-underline-offset: 3px; }
+.aviso-medicion__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+
 @media print {
-  .topbar, .nav, .cta, .video-wrap, .chat__replay { display: none !important; }
+  .topbar, .nav, .cta, .video-wrap, .chat__replay, .aviso-medicion { display: none !important; }
   body { color: #000; }
   .section { padding-block: 1.5rem; }
 }
