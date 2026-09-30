@@ -12,8 +12,6 @@
   // diseño; para recibir los correos en otra casilla, se cambia W3F_KEY.
   var W3F_ENDPOINT = 'https://api.web3forms.com/submit';
   var W3F_KEY = '1eacf71b-14ad-495f-a0cc-39f3472fa544';
-  var MIN_FORM_TIME_MS = 3000;      // menos que esto desde la carga es un bot
-  var PAGE_LOADED_AT = Date.now();
   var CONTACT_EMAIL = 'aidaassistantbot@gmail.com';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -331,9 +329,9 @@
         return;
       }
 
-      // Anti-spam sin CAPTCHA: señuelo oculto + tiempo mínimo desde la carga.
-      // Si salta alguno, se muestra el "listo" y no se envía nada.
-      if ((honey && honey.checked) || Date.now() - PAGE_LOADED_AT < MIN_FORM_TIME_MS) {
+      // Anti-spam sin CAPTCHA: si el señuelo oculto viene marcado, es un robot.
+      // Se muestra el "listo" y no se envía nada.
+      if (honey && honey.checked) {
         done();
         return;
       }
@@ -342,17 +340,17 @@
       var label = btn.textContent;
       btn.textContent = 'Enviando';
 
-      fetch(W3F_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: W3F_KEY,
-          subject: 'AIDA · lista de espera',
-          from_name: 'AIDA · lista de espera',
-          email: email,
-          origen: location.hostname + location.pathname + ' · formulario del ' + form.dataset.waitlist
-        })
-      })
+      // Se envía como FormData (multipart), el modo que Web3Forms recomienda
+      // desde el navegador. Asunto y remitente sin caracteres especiales.
+      var fd = new FormData();
+      fd.append('access_key', W3F_KEY);
+      fd.append('subject', 'AIDA - lista de espera');
+      fd.append('from_name', 'AIDA - lista de espera');
+      fd.append('email', email);
+      fd.append('message', 'Quiere anotarse en la lista de espera de AIDA.');
+      fd.append('origen', location.hostname + location.pathname + ' - formulario del ' + form.dataset.waitlist);
+
+      fetch(W3F_ENDPOINT, { method: 'POST', body: fd })
         .then(function (res) {
           return res.json().catch(function () { return {}; }).then(function (data) {
             if (!res.ok || data.success === false) throw new Error('respuesta ' + res.status);
