@@ -1667,7 +1667,18 @@ p { text-wrap: pretty; }
 @media (max-width: 640px) {
   :root { --nav-h: 64px; }
 
-  .topbar__inner { font-size: .8125rem; }
+  .topbar__inner { font-size: .75rem; gap: .4rem; padding-block: .4rem; line-height: 1.3; }
+  .topbar__inner > span[aria-hidden] { display: none; }
+  .topbar a { display: none; }
+
+  .aviso-medicion {
+    gap: .5rem .75rem; padding: .6rem var(--sp-2) calc(.6rem + env(safe-area-inset-bottom, 0px));
+    font-size: .8125rem; line-height: 1.35;
+    flex-wrap: nowrap; justify-content: space-between;
+  }
+  .aviso-medicion p { text-align: left; flex: 1 1 auto; }
+  .aviso-medicion__btns { flex-direction: column; gap: .4rem; flex: 0 0 auto; }
+  .aviso-medicion .btn { padding: .4rem .9rem; min-height: 0; font-size: .8125rem; }
   .brand img { width: 36px; height: 36px; }
   .brand__name { font-size: 1.2rem; }
 

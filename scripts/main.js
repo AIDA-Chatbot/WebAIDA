@@ -396,8 +396,8 @@
     aviso.setAttribute('role', 'region');
     aviso.setAttribute('aria-label', 'Aviso de medición');
     aviso.innerHTML =
-      '<p>Con tu permiso, usamos una herramienta de Microsoft para ver cómo se usa este sitio ' +
-      'y mejorarlo. <a href="privacidad.html#medicion">Más información</a></p>' +
+      '<p>Con tu permiso, medimos cómo se usa el sitio (Microsoft Clarity). ' +
+      '<a href="privacidad.html#medicion">Más info</a></p>' +
       '<div class="aviso-medicion__btns">' +
         '<button type="button" class="btn btn--primary" data-medicion="si">Aceptar</button>' +
         '<button type="button" class="btn btn--ghost" data-medicion="no">Rechazar</button>' +
