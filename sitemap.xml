@@ -2,34 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-<<<<<<< HEAD
     <loc>https://aidaasistente.com/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <image:image><image:loc>https://aidaasistente.com/assets/og-image.jpg</image:loc></image:image>
     <image:image><image:loc>https://aidaasistente.com/assets/aida-ganadores.jpg</image:loc></image:image>
     <image:image><image:loc>https://aidaasistente.com/assets/aida-penguin.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://aidaasistente.com/tecnologia.html</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://aidaasistente.com/privacidad.html</loc>
-    <lastmod>2026-09-26</lastmod>
-=======
-    <loc>https://aida-chatbot.github.io/WebAIDA/</loc>
     <lastmod>2026-09-30</lastmod>
-    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg</image:loc></image:image>
-    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/aida-ganadores.jpg</image:loc></image:image>
-    <image:image><image:loc>https://aida-chatbot.github.io/WebAIDA/assets/aida-penguin.png</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://aida-chatbot.github.io/WebAIDA/tecnologia.html</loc>
-    <lastmod>2026-09-30</lastmod>
-  </url>
-  <url>
-    <loc>https://aida-chatbot.github.io/WebAIDA/privacidad.html</loc>
-    <lastmod>2026-09-30</lastmod>
->>>>>>> 14c7330 (AIDA solo para Android: se quitan las menciones de Telegram, WhatsApp, Mini App y navegador)
   </url>
 </urlset>
