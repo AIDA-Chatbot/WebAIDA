@@ -134,8 +134,8 @@
       <section id="resumen" aria-labelledby="resumen-title">
         <h2 id="resumen-title">Resumen en tres líneas</h2>
         <div class="prose__note">
-          <p><strong>1.</strong> La conversación y tu perfil (nombre, preferencias) se guardan en tu teléfono, no en un servidor nuestro.</p>
-          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla se mandan a un servicio externo (Groq). Las imágenes no se guardan. No vendemos ni compartimos nada.</p>
+          <p><strong>1.</strong> La conversación y tu perfil (nombre, preferencias) se guardan en tu teléfono; el servidor de AIDA no las guarda.</p>
+          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo (Groq). Ni ese servidor ni las imágenes guardan nada. No vendemos ni compartimos nada.</p>
           <p><strong>3.</strong> Borrás todo desde Ajustes. Para sacar tu correo de la lista de espera, escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a>.</p>
         </div>
         <p>
@@ -174,9 +174,7 @@
         <h3>Qué sale del teléfono</h3>
         <p>
           Para contestar, AIDA manda el texto de la pregunta, lo que ve de la pantalla (o la foto
-          elegida) y el perfil a un servicio externo que genera la respuesta (ver
-          <a href="#terceros">Servicios de terceros</a>). Esa es la única conexión: AIDA no tiene un
-          servidor propio que reciba la conversación.
+          elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo único que registra es cuántas consultas hace cada instalación, para ponerles un límite. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
         </p>
 
         <h3>Para qué usamos esta información</h3>
@@ -224,6 +222,7 @@
           contenido se procesa en esa plataforma, con sus propias políticas:
         </p>
         <ul>
+          <li><strong>Servidor de AIDA</strong> — recibe la consulta, la reenvía a Groq con la clave de AIDA y te devuelve la respuesta, sin guardarla.</li>
           <li><strong>Groq</strong> — procesamiento de los modelos de lenguaje y de visión que generan la respuesta.</li>
         </ul>
         <h3 id="medicion">Este sitio web</h3>

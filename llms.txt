@@ -13,9 +13,9 @@
 - Estado: la aplicación está en pruebas en teléfonos reales y todavía no está en Google Play.
 - Disponibilidad: todavía no está abierta al público y no hay fecha anunciada. Hay una lista de espera en el sitio.
 - Precio: todavía no está definido. Va a haber una manera de usar AIDA sin pagar, y algunas cosas van a tener un costo.
-- Datos personales: la conversación y el perfil se guardan en el teléfono y se borran desde Ajustes. Para contestar, la pregunta y lo que ve de la pantalla se mandan a Groq (servicio de modelos de IA); las imágenes no se guardan. No se venden ni se comparten.
+- Datos personales: la conversación y el perfil se guardan en el teléfono y se borran desde Ajustes. Para contestar, la pregunta y lo que ve de la pantalla pasan por un servidor de AIDA que los reenvía a Groq (servicio de modelos de IA) y no los guarda; las imágenes no se guardan. No se venden ni se comparten.
 - Equipo: Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial).
-- Reconocimiento: 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025, organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
+- Reconocimiento: 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025 con la primera versión de AIDA, un asistente en Telegram que funcionó durante un tiempo (hoy el desarrollo es la app para Android), organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
 - Contacto: aidaassistantbot@gmail.com
 
 ## Páginas
