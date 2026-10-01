@@ -465,189 +465,6 @@ p { text-wrap: pretty; }
   50%      { transform: translateY(-12px) rotate(-2deg); }
 }
 
-/* ---------- 8. Mockup de chat ----------------------------- */
-.chat {
-  position: relative; z-index: 1;
-  width: min(400px, 100%);
-  background: var(--c-white);
-  border: 1px solid var(--c-border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--sh-lg);
-  overflow: hidden;
-}
-.chat::before {
-  content: ''; position: absolute; inset: -40% -20% auto -20%; height: 70%;
-  background: radial-gradient(circle at 50% 0%, rgba(59,183,180,.18), transparent 70%);
-  pointer-events: none;
-}
-
-.chat__bar {
-  display: flex; align-items: center; gap: .7rem;
-  padding: .85rem 1rem;
-  background: var(--g-deep);
-  color: var(--c-white);
-}
-.chat__avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--c-white); object-fit: contain; padding: 2px;
-  flex: none;
-}
-.chat__name { font-family: var(--font-head); font-weight: 600; font-size: var(--text-sm); line-height: 1.2; }
-.chat__status {
-  display: flex; align-items: center; gap: .35rem;
-  font-size: .75rem; color: rgba(255,255,255,.7);
-}
-.chat__status i {
-  width: 7px; height: 7px; border-radius: 50%; background: #55D6A0;
-  animation: blink 2.4s var(--ease) infinite;
-}
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
-.chat__bar-icon { margin-left: auto; opacity: .6; width: 18px; height: 18px; }
-
-.chat__body {
-  display: flex; flex-direction: column; gap: .6rem;
-  padding: 1rem;
-  height: 430px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(59,183,180,.07), transparent 45%),
-    var(--c-surface);
-  scroll-behavior: smooth;
-}
-
-.msg {
-  display: none;
-  max-width: 84%;
-  font-size: .9375rem;
-  line-height: 1.5;
-  padding: .65rem .9rem;
-  border-radius: var(--r-md);
-  opacity: 0;
-  transform: translateY(14px) scale(.97);
-  transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-spring);
-}
-.msg.is-shown { display: block; }
-.msg.is-in { opacity: 1; transform: none; }
-
-.msg--out {
-  align-self: flex-end;
-  background: var(--c-primary);
-  color: var(--c-white);
-  border-bottom-right-radius: 6px;
-}
-.msg--in {
-  align-self: flex-start;
-  background: var(--c-white);
-  color: var(--c-text);
-  border: 1px solid var(--c-border-soft);
-  border-bottom-left-radius: 6px;
-  box-shadow: var(--sh-xs);
-}
-.msg__time {
-  display: block; margin-top: .25rem;
-  font-size: .6875rem; opacity: .55; text-align: right;
-}
-.msg strong { color: inherit; font-weight: 700; }
-
-/* Nota de voz */
-.msg--voice.is-shown { display: flex; }
-.msg--voice { align-items: center; gap: .65rem; min-width: 200px; }
-.msg__play {
-  display: grid; place-items: center; flex: none;
-  width: 30px; height: 30px; border-radius: 50%;
-  background: rgba(255,255,255,.22); color: currentColor;
-}
-.msg__play svg { width: 13px; height: 13px; }
-.wave { display: flex; align-items: center; gap: 2px; height: 22px; flex: 1; }
-.wave span {
-  flex: 1; min-width: 2px; border-radius: 2px;
-  background: currentColor; opacity: .55;
-  animation: pulse-bar 1.3s var(--ease) infinite;
-}
-.wave span:nth-child(2n) { animation-delay: .12s; }
-.wave span:nth-child(3n) { animation-delay: .30s; }
-.wave span:nth-child(5n) { animation-delay: .45s; }
-.wave span:nth-child(7n) { animation-delay: .62s; }
-@keyframes pulse-bar {
-  0%, 100% { height: 25%; } 50% { height: 100%; }
-}
-.msg__dur { font-size: .75rem; opacity: .8; flex: none; }
-
-/* Tarjeta de foto analizada */
-.msg--card { padding: .5rem; max-width: 88%; }
-.msg__thumb {
-  display: flex; align-items: center; gap: .6rem;
-  background: var(--c-surface-2);
-  border-radius: var(--r-sm);
-  padding: .55rem .7rem;
-  margin-bottom: .5rem;
-  font-size: .8125rem; color: var(--c-muted);
-}
-.msg__thumb svg { width: 18px; height: 18px; color: var(--c-primary); flex: none; }
-.msg__body { padding: .1rem .4rem .35rem; }
-
-.alert-chip {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: var(--c-danger-bg); color: var(--c-danger);
-  font-weight: 700; font-size: .75rem;
-  padding: .28rem .6rem; border-radius: var(--r-pill);
-  margin-bottom: .4rem;
-}
-.alert-chip svg { width: 13px; height: 13px; }
-
-/* Indicador de "escribiendo" */
-.typing {
-  align-self: flex-start;
-  display: none; gap: 4px; align-items: center;
-  background: var(--c-white); border: 1px solid var(--c-border-soft);
-  border-radius: var(--r-md); border-bottom-left-radius: 6px;
-  padding: .8rem .9rem; box-shadow: var(--sh-xs);
-}
-.typing.is-in { display: flex; }
-.typing i {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--c-teal-400);
-  animation: typing 1.2s var(--ease) infinite;
-}
-.typing i:nth-child(2) { animation-delay: .18s; }
-.typing i:nth-child(3) { animation-delay: .36s; }
-@keyframes typing {
-  0%, 60%, 100% { transform: translateY(0); opacity: .45; }
-  30%           { transform: translateY(-5px); opacity: 1; }
-}
-
-.chat__input {
-  display: flex; align-items: center; gap: .6rem;
-  padding: .75rem 1rem;
-  border-top: 1px solid var(--c-border-soft);
-  background: var(--c-white);
-  font-size: var(--text-xs); color: var(--c-muted-2);
-}
-.chat__field {
-  flex: 1; min-width: 0; background: var(--c-surface-2);
-  border-radius: var(--r-pill); padding: .55rem .9rem;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.chat__mic {
-  display: grid; place-items: center; flex: none;
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--g-brand); color: var(--c-white);
-}
-.chat__mic svg { width: 16px; height: 16px; }
-
-.chat__replay {
-  position: absolute; left: .85rem; bottom: 4.5rem; z-index: 3;
-  display: inline-flex; align-items: center; gap: .35rem;
-  background: rgba(20,52,62,.86); color: var(--c-white);
-  font-size: .75rem; font-weight: 600;
-  padding: .4rem .8rem; border-radius: var(--r-pill);
-  opacity: 0; pointer-events: none;
-  transition: opacity 250ms var(--ease);
-}
-.chat__replay.is-visible { opacity: 1; pointer-events: auto; }
-.chat__replay:hover { background: var(--c-ink); }
-.chat__replay svg { width: 13px; height: 13px; }
-
 /* ---------- 8b. Primera pantalla en escritorio ------------ */
 /* Lo principal del hero (título, bajada, botones y el chat) tiene que entrar
    en la primera pantalla. El caso más ajustado es una notebook con la escala
@@ -672,10 +489,8 @@ p { text-wrap: pretty; }
   .hero__actions { margin-bottom: clamp(1rem, 3.5vh, 2rem); }
   .hero__trust { padding-top: clamp(.75rem, 2.4vh, 1.5rem); }
 
-  .chat { width: min(380px, 100%); }
-  /* 380 px = barras de arriba de la página, cabecera y pie del chat, y aire. */
-  .chat__body { height: clamp(220px, calc(100vh - 380px), 430px); }
-  .hero__peng { width: clamp(96px, min(12vw, 22vh), 168px); }
+  /* El teléfono se ata al alto de la ventana para entrar en la primera pantalla. */
+  .hero .phone { width: clamp(210px, min(26vw, 34vh), 290px); }
 }
 /* Entre tablet horizontal y notebook chica los dos botones no entraban en una
    fila y empujaban todo para abajo: el texto se lleva más ancho. */
@@ -1115,7 +930,43 @@ p { text-wrap: pretty; }
 .phone__status-icons i:nth-child(2) { height: 7px; margin-top: 2px; }
 .phone__status-icons i:nth-child(3) { height: 9px; }
 
-.phone__app { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.phone__apps { position: relative; flex: 1; min-height: 0; }
+.phone__app {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; min-height: 0;
+  background: var(--c-surface);
+  transition: transform 450ms var(--ease-out), opacity 450ms var(--ease-out);
+}
+.phone[data-app="msg"] .phone__app--mail { transform: translateX(100%); opacity: 0; }
+.phone[data-app="mail"] .phone__app--msg { transform: translateX(-30%); opacity: 0; }
+.phone__appbar--mail { background: #5B4B8A; }
+.p-mail {
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .55rem .7rem; border-radius: 10px;
+  background: var(--c-white); box-shadow: var(--sh-xs);
+  border-left: 4px solid var(--c-gold);
+  font-size: .75rem; line-height: 1.35; color: var(--c-text);
+}
+.p-mail b { font-family: var(--font-head); font-size: .8125rem; }
+.p-mail small { color: var(--c-muted-2); font-size: .6875rem; }
+.p-mail--plain { border-left-color: var(--c-teal-400); }
+
+/* Cartel que aparece al cambiar de aplicación */
+.phone__switch {
+  position: absolute; left: 10px; right: 10px; bottom: 62px; z-index: 2;
+  padding: .45rem .7rem; border-radius: 12px; text-align: center;
+  background: var(--c-ink); color: var(--c-white);
+  font-size: .6875rem; font-weight: 600; line-height: 1.35;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
+  pointer-events: none;
+}
+.phone[data-state="switch"] .phone__switch { opacity: 1; transform: none; }
+.phone[data-state="switch"] .bubble { animation: bubble-stay 1.1s var(--ease) 2; }
+@keyframes bubble-stay {
+  0%, 100% { box-shadow: 0 6px 16px rgba(14,70,79,.32), 0 0 0 0 rgba(242,184,77,.0); }
+  50%      { box-shadow: 0 6px 16px rgba(14,70,79,.32), 0 0 0 9px rgba(242,184,77,.55); }
+}
 .phone__appbar {
   display: flex; align-items: center; gap: .55rem;
   padding: .55rem .8rem;
@@ -1171,7 +1022,7 @@ p { text-wrap: pretty; }
   transition: box-shadow 300ms var(--ease), transform 300ms var(--ease-spring);
 }
 .phone__send svg { width: 16px; height: 16px; margin-left: 2px; }
-.phone[data-state="speaking"] .phone__send {
+.phone[data-state="speaking"][data-app="msg"] .phone__send {
   transform: scale(1.12);
   box-shadow: 0 0 0 4px var(--c-white), 0 0 0 8px var(--c-gold);
   animation: send-hint 1.4s var(--ease) infinite;
@@ -1183,7 +1034,7 @@ p { text-wrap: pretty; }
 
 /* La burbuja de AIDA */
 .bubble {
-  position: absolute; right: 10px; top: 44%;
+  position: absolute; z-index: 3; right: 10px; top: 44%;
   width: 60px; height: 60px;
   border-radius: 50%;
   background: var(--c-white);
@@ -1234,7 +1085,7 @@ p { text-wrap: pretty; }
 
 /* Lo que dice la persona y lo que contesta AIDA */
 .phone__ask {
-  position: absolute; right: 78px; top: calc(44% - 4px);
+  position: absolute; z-index: 2; right: 78px; top: calc(44% - 4px);
   max-width: 150px;
   padding: .5rem .7rem;
   border-radius: 12px; border-bottom-right-radius: 4px;
@@ -1244,11 +1095,13 @@ p { text-wrap: pretty; }
   opacity: 0; transform: translateX(8px) scale(.96);
   transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-spring);
 }
-.phone[data-state="listening"] .phone__ask,
-.phone[data-state="thinking"] .phone__ask { opacity: 1; transform: none; }
+.phone[data-app="msg"][data-state="listening"] .phone__ask--msg,
+.phone[data-app="msg"][data-state="thinking"] .phone__ask--msg,
+.phone[data-app="mail"][data-state="listening"] .phone__ask--mail,
+.phone[data-app="mail"][data-state="thinking"] .phone__ask--mail { opacity: 1; transform: none; }
 
 .phone__answer {
-  position: absolute; left: 10px; right: 10px; bottom: 62px;
+  position: absolute; z-index: 2; left: 10px; right: 10px; bottom: 62px;
   padding: .75rem .9rem;
   background: var(--c-white);
   border-radius: 18px;
@@ -1264,7 +1117,8 @@ p { text-wrap: pretty; }
   color: var(--c-primary); margin-bottom: .2rem;
 }
 .phone__answer-head span { width: 7px; height: 7px; border-radius: 50%; background: var(--c-teal-400); }
-.phone[data-state="speaking"] .phone__answer { opacity: 1; transform: none; }
+.phone[data-app="msg"][data-state="speaking"] .phone__answer--msg,
+.phone[data-app="mail"][data-state="speaking"] .phone__answer--mail { opacity: 1; transform: none; }
 
 /* Los tres pasos debajo del teléfono */
 .bubble-steps {
@@ -1646,8 +1500,7 @@ p { text-wrap: pretty; }
   .hero__desc { margin-inline: auto; }
   .hero__actions, .hero__trust { justify-content: center; }
   .hero__visual { margin-top: var(--sp-4); }
-  .hero__peng { right: 2%; bottom: -3%; }
-
+  
   .stats { grid-template-columns: repeat(2, 1fr); }
 
   .award__inner, .split { grid-template-columns: 1fr; }
@@ -1671,21 +1524,11 @@ p { text-wrap: pretty; }
   .topbar__inner > span[aria-hidden] { display: none; }
   .topbar a { display: none; }
 
-  .aviso-medicion {
-    gap: .5rem .75rem; padding: .6rem var(--sp-2) calc(.6rem + env(safe-area-inset-bottom, 0px));
-    font-size: .8125rem; line-height: 1.35;
-    flex-wrap: nowrap; justify-content: space-between;
-  }
-  .aviso-medicion p { text-align: left; flex: 1 1 auto; }
-  .aviso-medicion__btns { flex-direction: column; gap: .4rem; flex: 0 0 auto; }
-  .aviso-medicion .btn { padding: .4rem .9rem; min-height: 0; font-size: .8125rem; }
   .brand img { width: 36px; height: 36px; }
   .brand__name { font-size: 1.2rem; }
 
   .hero__actions .btn { width: 100%; }
-  .hero__peng { display: none; }
   .stats { grid-template-columns: 1fr; }
-  .chat__body { height: 380px; }
 
   .rm-item { grid-template-columns: 1fr; gap: .4rem; }
   .rm-item__when { order: -1; }
@@ -1733,7 +1576,21 @@ p { text-wrap: pretty; }
 .aviso-medicion__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 
 @media print {
-  .topbar, .nav, .cta, .video-wrap, .chat__replay, .aviso-medicion { display: none !important; }
+  .topbar, .nav, .cta, .video-wrap, .aviso-medicion { display: none !important; }
   body { color: #000; }
   .section { padding-block: 1.5rem; }
+}
+
+/* La sección de Android quedó solo con texto */
+.split--single { grid-template-columns: minmax(0, 46rem); justify-content: center; }
+
+@media (max-width: 640px) {
+  .aviso-medicion {
+    gap: .5rem .75rem; padding: .6rem var(--sp-2) calc(.6rem + env(safe-area-inset-bottom, 0px));
+    font-size: .8125rem; line-height: 1.35;
+    flex-wrap: nowrap; justify-content: space-between;
+  }
+  .aviso-medicion p { text-align: left; flex: 1 1 auto; }
+  .aviso-medicion__btns { flex-direction: column; gap: .4rem; flex: 0 0 auto; }
+  .aviso-medicion .btn { padding: .4rem .9rem; min-height: 0; font-size: .8125rem; }
 }

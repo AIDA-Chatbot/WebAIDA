@@ -439,58 +439,85 @@
       </div>
 
       <div class="hero__visual">
-        <div class="chat" id="chat" aria-label="Ejemplo de una charla con AIDA dentro de la aplicación" role="group">
-          <div class="chat__bar">
-            <img class="chat__avatar" src="assets/aida-mark.png" alt="" width="40" height="40" />
-            <div>
-              <p class="chat__name">AIDA</p>
-              <p class="chat__status"><i aria-hidden="true"></i>Charla · responde con paciencia</p>
-            </div>
-            <svg class="chat__bar-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>
-          </div>
+        <div class="android__visual">
+          <div class="phone" id="phone" data-state="idle" data-app="msg" role="img"
+               aria-label="Ejemplo: la burbuja de AIDA flota sobre la pantalla. En una app de mensajes la persona la toca y pregunta qué botón manda la foto, y AIDA contesta en voz alta. Al cambiar a la app de correo, la burbuja sigue encima: le pregunta si un mail es seguro y AIDA le avisa que es un engaño.">
+            <div class="phone__screen" aria-hidden="true">
+              <div class="phone__status"><span>10:24</span><span class="phone__status-icons"><i></i><i></i><i></i></span></div>
 
-          <div class="chat__body" id="chat-body">
-            <div class="msg msg--out" data-msg><p>Hola AIDA, ¿me ayudás con una cosa del celular?</p><span class="msg__time">10:24</span></div>
+              <div class="phone__apps">
+                <div class="phone__app phone__app--msg">
+                  <div class="phone__appbar">
+                    <span class="phone__back">‹</span>
+                    <span class="phone__contact">M</span>
+                    <span class="phone__who"><b>Marta</b><small>Mensajes</small></span>
+                  </div>
+                  <div class="phone__thread">
+                    <div class="p-msg p-msg--in">¡Hola, mamá! ¿Me mandás la foto de la receta? 😊</div>
+                    <div class="p-photo">
+                      <svg><use href="#i-image"/></svg>
+                      <span>Foto lista para mandar</span>
+                    </div>
+                  </div>
+                  <div class="phone__composer">
+                    <span class="phone__field">Agregá un comentario…</span>
+                    <span class="phone__send" id="phone-send">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l-.02 6.52L15 12 3.38 13.88z"/></svg>
+                    </span>
+                  </div>
+                </div>
 
-            <div class="msg msg--in" data-msg><p>¡Hola, Elena! Claro que sí. Contame tranquila, no hay apuro. 🐧</p><span class="msg__time">10:24</span></div>
-
-            <div class="msg msg--out msg--voice" data-msg>
-              <span class="msg__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-              <span class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
-              <span class="msg__dur">0:14</span>
-              <span class="sr-only">Pregunta dicha en voz alta por la persona usuaria, de 14 segundos</span>
-            </div>
-
-            <div class="msg msg--in" data-msg><p>Te escuché. Querés hacer una videollamada con tu nieta. Te lo explico en tres pasos cortos, y te lo digo también en voz alta. 🎧</p><span class="msg__time">10:25</span></div>
-
-            <div class="msg msg--out msg--card" data-msg>
-              <div class="msg__thumb">
-                <svg aria-hidden="true"><use href="#i-image"/></svg>
-                captura-mensaje.jpg
+                <div class="phone__app phone__app--mail">
+                  <div class="phone__appbar phone__appbar--mail">
+                    <span class="phone__back">‹</span>
+                    <span class="phone__who"><b>Correo</b><small>Bandeja de entrada</small></span>
+                  </div>
+                  <div class="phone__thread">
+                    <div class="p-mail">
+                      <b>Banco Seguro</b>
+                      <span>Tu cuenta será bloqueada hoy</span>
+                      <small>Ingresá ya a este link y confirmá tu clave para evitarlo…</small>
+                    </div>
+                    <div class="p-mail p-mail--plain">
+                      <b>Lucía</b>
+                      <span>Fotos del domingo</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="msg__body">También me llegó esto. ¿Es seguro?</div>
-            </div>
 
-            <div class="msg msg--in" data-msg>
-              <span class="alert-chip"><svg aria-hidden="true"><use href="#i-alert"/></svg>Mejor no responder</span>
-              <p>Leí la imagen: te piden un código por SMS y un pago urgente. Es un engaño muy común. <strong>No respondas ni pagues.</strong> Si querés, se lo mostrás a Marta.</p>
-              <span class="msg__time">10:26</span>
-            </div>
+              <div class="phone__switch">Cambiás de aplicación… y la burbuja sigue encima</div>
 
-            <div class="typing" id="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="phone__ask phone__ask--msg">¿Qué botón toco para mandar la foto?</div>
+              <div class="phone__ask phone__ask--mail">¿Este mail es de verdad?</div>
+
+              <div class="bubble">
+                <span class="bubble__ring"></span>
+                <span class="bubble__arc"></span>
+                <img src="assets/aida-mark.png" alt="" width="56" height="56" />
+                <span class="bubble__badge">
+                  <svg class="bubble__mic"><use href="#i-mic"/></svg>
+                  <span class="bubble__bars"><i></i><i></i><i></i></span>
+                </span>
+              </div>
+
+              <div class="phone__answer phone__answer--msg">
+                <p class="phone__answer-head"><span></span>AIDA</p>
+                <p>Tocá el <strong>avioncito de papel</strong>, abajo a la derecha. Ese botón manda la foto.</p>
+              </div>
+              <div class="phone__answer phone__answer--mail">
+                <p class="phone__answer-head"><span></span>AIDA</p>
+                <p><strong>Es un engaño.</strong> Un banco no te pide la clave por mail. No toques el link.</p>
+              </div>
+            </div>
           </div>
 
-          <button class="chat__replay" id="chat-replay" type="button">
-            <svg aria-hidden="true"><use href="#i-refresh"/></svg> Ver de nuevo
-          </button>
-
-          <div class="chat__input">
-            <span class="chat__field">Escribí o tocá para hablar…</span>
-            <span class="chat__mic" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
-          </div>
+          <ol class="bubble-steps" aria-label="Cómo se usa la burbuja">
+            <li data-step="listening"><span>1</span>La tocás y le preguntás</li>
+            <li data-step="thinking"><span>2</span>Mira tu pantalla</li>
+            <li data-step="speaking"><span>3</span>Te contesta en voz alta</li>
+          </ol>
         </div>
-
-        <img class="hero__peng" src="assets/aida-wave.png" alt="" width="168" height="197" />
       </div>
     </div>
 
@@ -657,7 +684,7 @@
   <!-- ================ PRÓXIMAMENTE: ANDROID ========== -->
   <section class="section section--tint android" id="android" aria-labelledby="android-title">
     <div class="container">
-      <div class="split android__split">
+      <div class="split split--single android__split">
         <div class="split__text reveal">
           <p class="soon-badge"><span class="soon-badge__dot" aria-hidden="true"></span>App para Android</p>
           <h2 id="android-title" class="section-title">AIDA, arriba de todas tus aplicaciones</h2>
@@ -685,58 +712,6 @@
           </p>
         </div>
 
-        <div class="android__visual reveal">
-          <div class="phone" id="phone" data-state="idle" role="img"
-               aria-label="Ejemplo: en una conversación de mensajería aparece la burbuja de AIDA. La persona la toca, pregunta qué botón toca para mandar la foto, y AIDA le contesta en voz alta que toque el avioncito de papel de abajo a la derecha.">
-            <div class="phone__screen" aria-hidden="true">
-              <div class="phone__status"><span>10:24</span><span class="phone__status-icons"><i></i><i></i><i></i></span></div>
-
-              <div class="phone__app">
-                <div class="phone__appbar">
-                  <span class="phone__back">‹</span>
-                  <span class="phone__contact">M</span>
-                  <span class="phone__who"><b>Marta</b><small>en línea</small></span>
-                </div>
-                <div class="phone__thread">
-                  <div class="p-msg p-msg--in">¡Hola, mamá! ¿Me mandás la foto de la receta? 😊</div>
-                  <div class="p-photo">
-                    <svg><use href="#i-image"/></svg>
-                    <span>Foto lista para mandar</span>
-                  </div>
-                </div>
-                <div class="phone__composer">
-                  <span class="phone__field">Agregá un comentario…</span>
-                  <span class="phone__send" id="phone-send">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l-.02 6.52L15 12 3.38 13.88z"/></svg>
-                  </span>
-                </div>
-              </div>
-
-              <div class="phone__ask">¿Qué botón toco para mandar la foto?</div>
-
-              <div class="bubble">
-                <span class="bubble__ring"></span>
-                <span class="bubble__arc"></span>
-                <img src="assets/aida-mark.png" alt="" width="56" height="56" />
-                <span class="bubble__badge">
-                  <svg class="bubble__mic"><use href="#i-mic"/></svg>
-                  <span class="bubble__bars"><i></i><i></i><i></i></span>
-                </span>
-              </div>
-
-              <div class="phone__answer">
-                <p class="phone__answer-head"><span></span>AIDA</p>
-                <p>Tocá el <strong>avioncito de papel</strong>, abajo a la derecha. Ese botón manda la foto.</p>
-              </div>
-            </div>
-          </div>
-
-          <ol class="bubble-steps" aria-label="Cómo se usa la burbuja">
-            <li data-step="listening"><span>1</span>La tocás y le preguntás</li>
-            <li data-step="thinking"><span>2</span>Mira tu pantalla</li>
-            <li data-step="speaking"><span>3</span>Te contesta en voz alta</li>
-          </ol>
-        </div>
       </div>
 
       <div class="grid-cards android__cards stagger">

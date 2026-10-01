@@ -121,118 +121,26 @@
     sections.forEach(function (s) { sectionObserver.observe(s); });
   }
 
-  /* --- Animación del chat de ejemplo ---------------------- */
-  var chat = $('#chat');
-  var chatBody = $('#chat-body');
-  var typing = $('#typing');
-  var replay = $('#chat-replay');
-
-  if (chat && chatBody) {
-    var messages = $$('[data-msg]', chatBody);
-    var timers = [];
-    var run = 0;
-
-    // El hilo se corre hacia abajo solo cuando ya no entra en la caja. Los
-    // mensajes que todavía no llegaron no ocupan lugar (CSS: display none
-    // hasta 'is-shown'), así que la conversación arranca arriba de todo y va
-    // bajando a medida que llegan, como en un chat de verdad. Si ocuparan
-    // lugar desde el principio, la caja arrancaría ya scrolleada al fondo y
-    // los primeros mensajes no se verían nunca.
-    var follow = function () {
-      if (chatBody.scrollHeight > chatBody.clientHeight) {
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-    };
-
-    var show = function (msg) {
-      msg.classList.add('is-shown');
-      void msg.offsetWidth;          // para que la aparición se anime
-      msg.classList.add('is-in');
-    };
-
-    var clearTimers = function () {
-      timers.forEach(clearTimeout);
-      timers = [];
-    };
-
-    var later = function (fn, ms) {
-      var id = run;
-      timers.push(setTimeout(function () { if (id === run) fn(); }, ms));
-    };
-
-    var showAll = function () {
-      messages.forEach(function (m) { m.classList.add('is-shown', 'is-in'); });
-      if (typing) typing.classList.remove('is-in');
-      if (replay) replay.classList.remove('is-visible');
-    };
-
-    var play = function () {
-      run += 1;
-      clearTimers();
-      messages.forEach(function (m) { m.classList.remove('is-shown', 'is-in'); });
-      if (typing) typing.classList.remove('is-in');
-      if (replay) replay.classList.remove('is-visible');
-      chatBody.scrollTop = 0;
-
-      var t = 350;
-      messages.forEach(function (msg, i) {
-        var incoming = msg.classList.contains('msg--in');
-        var thinking = incoming ? 850 : 0;
-
-        if (incoming && typing) {
-          later(function () {
-            typing.classList.add('is-in');
-            follow();
-          }, t);
-        }
-        t += thinking;
-
-        later(function () {
-          if (typing) typing.classList.remove('is-in');
-          show(msg);
-          follow();
-          if (i === messages.length - 1 && replay) {
-            later(function () { replay.classList.add('is-visible'); }, 900);
-          }
-        }, t);
-
-        t += 1150;
-      });
-    };
-
-    if (reduceMotion) {
-      // Sin animación se muestra la conversación entera, y se deja arriba de
-      // todo: así se lee desde el principio, aunque el final quede cortado.
-      showAll();
-      chatBody.scrollTop = 0;
-    } else if ('IntersectionObserver' in window) {
-      var chatObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          chatObserver.disconnect();
-          play();
-        });
-      }, { threshold: 0.35 });
-      chatObserver.observe(chat);
-    } else {
-      showAll();
-    }
-
-    if (replay) replay.addEventListener('click', play);
-  }
-
   /* --- Teléfono de ejemplo de la app para Android --------- */
   // Recorre los estados de la burbuja (tocar, escuchar, mirar, hablar) y
   // enciende el paso de abajo que corresponde. Solo corre mientras se ve.
   var phone = $('#phone');
   if (phone) {
     var stepItems = $$('.bubble-steps li');
+    // Dos aplicaciones: entre una y otra la burbuja se queda en su lugar
+    // ('switch'), para que se vea que acompaña dentro de cualquier app.
     var sequence = [
-      { state: 'idle',      ms: 1400 },
+      { state: 'idle',      ms: 1200, app: 'msg'  },
       { state: 'tap',       ms: 250  },
-      { state: 'listening', ms: 2400 },
-      { state: 'thinking',  ms: 1700 },
-      { state: 'speaking',  ms: 4200 }
+      { state: 'listening', ms: 2200 },
+      { state: 'thinking',  ms: 1500 },
+      { state: 'speaking',  ms: 3800 },
+      { state: 'switch',    ms: 2200, app: 'mail' },
+      { state: 'tap',       ms: 250  },
+      { state: 'listening', ms: 2000 },
+      { state: 'thinking',  ms: 1500 },
+      { state: 'speaking',  ms: 3800 },
+      { state: 'switch',    ms: 2200, app: 'msg'  }
     ];
     var stepFor = { tap: 'listening', listening: 'listening', thinking: 'thinking', speaking: 'speaking' };
     var phoneTimer = null;
@@ -247,6 +155,7 @@
 
     var tick = function () {
       var step = sequence[phoneIndex];
+      if (step.app) phone.setAttribute('data-app', step.app);
       setPhone(step.state);
       phoneIndex = (phoneIndex + 1) % sequence.length;
       phoneTimer = setTimeout(tick, step.ms);
