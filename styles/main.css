@@ -490,7 +490,7 @@ p { text-wrap: pretty; }
   .hero__trust { padding-top: clamp(.75rem, 2.4vh, 1.5rem); }
 
   /* El teléfono se ata al alto de la ventana para entrar en la primera pantalla. */
-  .hero .phone { width: clamp(210px, min(26vw, 34vh), 290px); }
+  .hero .phone { width: clamp(240px, min(26vw, 38vh), 300px); }
 }
 /* Entre tablet horizontal y notebook chica los dos botones no entraban en una
    fila y empujaban todo para abajo: el texto se lleva más ancho. */
@@ -989,7 +989,7 @@ p { text-wrap: pretty; }
   background: radial-gradient(circle at 80% 10%, rgba(59,183,180,.08), transparent 50%), var(--c-surface-2);
 }
 .p-msg {
-  max-width: 80%;
+  max-width: 68%;
   padding: .45rem .7rem;
   border-radius: 12px; border-bottom-left-radius: 4px;
   background: var(--c-white); color: var(--c-text);
@@ -1022,27 +1022,36 @@ p { text-wrap: pretty; }
   transition: box-shadow 300ms var(--ease), transform 300ms var(--ease-spring);
 }
 .phone__send svg { width: 16px; height: 16px; margin-left: 2px; }
+.phone__clip {
+  display: grid; place-items: center; flex: none;
+  width: 36px; height: 36px; border-radius: 50%;
+  color: var(--c-primary);
+}
+.phone__clip svg { width: 20px; height: 20px; }
+/* AIDA marca primero el clip y después el avioncito */
+.phone[data-state="speaking"][data-app="msg"] .phone__clip {
+  background: var(--c-white);
+  animation: send-hint 3.8s var(--ease) infinite;
+}
 .phone[data-state="speaking"][data-app="msg"] .phone__send {
-  transform: scale(1.12);
-  box-shadow: 0 0 0 4px var(--c-white), 0 0 0 8px var(--c-gold);
-  animation: send-hint 1.4s var(--ease) infinite;
+  animation: send-hint 3.8s var(--ease) 1.9s infinite;
 }
 @keyframes send-hint {
-  0%, 100% { box-shadow: 0 0 0 4px var(--c-white), 0 0 0 8px var(--c-gold); }
-  50%      { box-shadow: 0 0 0 4px var(--c-white), 0 0 0 12px rgba(242,184,77,.45); }
+  0%, 45%, 100% { box-shadow: none; transform: none; }
+  8%, 40% { transform: scale(1.12); box-shadow: 0 0 0 3px var(--c-white), 0 0 0 7px var(--c-gold); }
 }
 
 /* La burbuja de AIDA */
 .bubble {
-  position: absolute; z-index: 3; right: 10px; top: 44%;
-  width: 60px; height: 60px;
+  position: absolute; z-index: 3; right: 10px; top: 50%;
+  width: 52px; height: 52px;
   border-radius: 50%;
   background: var(--c-white);
   box-shadow: 0 6px 16px rgba(14,70,79,.32);
   display: grid; place-items: center;
   transition: transform 300ms var(--ease-spring);
 }
-.bubble img { width: 46px; height: 46px; object-fit: contain; }
+.bubble img { width: 40px; height: 40px; object-fit: contain; }
 .bubble__badge {
   position: absolute; right: -3px; bottom: -3px;
   display: grid; place-items: center;
@@ -1085,8 +1094,8 @@ p { text-wrap: pretty; }
 
 /* Lo que dice la persona y lo que contesta AIDA */
 .phone__ask {
-  position: absolute; z-index: 2; right: 78px; top: calc(44% - 4px);
-  max-width: 150px;
+  position: absolute; z-index: 2; right: 10px; top: calc(50% - 3.2rem);
+  max-width: 62%;
   padding: .5rem .7rem;
   border-radius: 12px; border-bottom-right-radius: 4px;
   background: var(--c-primary); color: var(--c-white);
@@ -1106,7 +1115,7 @@ p { text-wrap: pretty; }
   background: var(--c-white);
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(14,70,79,.28);
-  font-size: .875rem; line-height: 1.45; color: var(--c-text);
+  font-size: .8125rem; line-height: 1.5; color: var(--c-text);
   opacity: 0; transform: translateY(16px);
   transition: opacity 350ms var(--ease-out), transform 350ms var(--ease-out);
 }
