@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacidad y términos de AIDA</title>
-  <meta name="description" content="Política de privacidad y términos y condiciones de AIDA: qué datos guardamos, para qué los usamos, dónde se almacenan y cómo pedir que los borremos." />
+  <meta name="description" content="Política de privacidad y términos y condiciones de AIDA: qué datos usa la aplicación, para qué los usa, dónde quedan y cómo borrarlos." />
   <meta name="theme-color" content="#196F77" />
   <link rel="canonical" href="https://aidaasistente.com/privacidad.html" />
   <meta name="robots" content="index, follow" />
@@ -14,8 +14,13 @@
   <meta property="og:site_name" content="AIDA" />
   <meta property="og:url" content="https://aidaasistente.com/privacidad.html" />
   <meta property="og:title" content="Privacidad y términos de AIDA" />
+<<<<<<< HEAD
   <meta property="og:description" content="Qué datos guarda AIDA, para qué los usa, dónde se almacenan y cómo pedir que los borremos." />
   <meta property="og:image" content="https://aidaasistente.com/assets/og-image.jpg" />
+=======
+  <meta property="og:description" content="Qué datos usa la aplicación AIDA, para qué, dónde quedan y cómo borrarlos." />
+  <meta property="og:image" content="https://aida-chatbot.github.io/WebAIDA/assets/og-image.jpg" />
+>>>>>>> 14c7330 (AIDA solo para Android: se quitan las menciones de Telegram, WhatsApp, Mini App y navegador)
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -134,9 +139,9 @@
       <section id="resumen" aria-labelledby="resumen-title">
         <h2 id="resumen-title">Resumen en tres líneas</h2>
         <div class="prose__note">
-          <p><strong>1.</strong> Guardamos tus mensajes y algunos datos básicos (nombre, preferencias) para que AIDA funcione y mejore.</p>
-          <p><strong>2.</strong> Se almacenan de forma segura en Firebase (Google Cloud) y solo el equipo de AIDA puede verlos. No los vendemos ni los compartimos.</p>
-          <p><strong>3.</strong> Si querés que los borremos, escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a> y lo hacemos.</p>
+          <p><strong>1.</strong> La conversación y tu perfil (nombre, preferencias) se guardan en tu teléfono, no en un servidor nuestro.</p>
+          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla se mandan a un servicio externo (Groq). Las imágenes no se guardan. No vendemos ni compartimos nada.</p>
+          <p><strong>3.</strong> Borrás todo desde Ajustes. Para sacar tu correo de la lista de espera, escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a>.</p>
         </div>
         <p>
           Lo que sigue es la versión completa. Si algo no se entiende, escribinos y te lo explicamos
@@ -148,53 +153,53 @@
       <section id="privacidad" aria-labelledby="priv-title">
         <h2 id="priv-title">Política de privacidad</h2>
         <p>
-          AIDA es un asistente desarrollado por el equipo de AIDA con el objetivo de acompañar y asistir
+          AIDA es una aplicación para Android desarrollada por el equipo de AIDA con el objetivo de acompañar y asistir
           a las personas en el uso de herramientas digitales. Esta política explica cómo recolectamos,
-          usamos y protegemos los datos de quienes interactúan con el asistente.
+          usamos y protegemos los datos de quienes usan la aplicación.
         </p>
 
-        <h3>Qué datos recopilamos</h3>
-        <p>Durante el uso del asistente podemos recolectar:</p>
+        <h3>Qué datos usa la aplicación</h3>
+        <p>La aplicación trabaja con:</p>
         <ul>
-          <li>Nombre o apodo, si la persona decide compartirlo.</li>
-          <li>Edad, si la persona decide compartirla.</li>
-          <li>Preferencias: idioma, tipo de voz, forma de respuesta, entre otras.</li>
-          <li>Mensajes enviados en el chat, incluidos audios e imágenes.</li>
-          <li>Identificador de usuario de la app de mensajería, con fecha y hora de cada interacción.</li>
-          <li>Información técnica necesaria para el funcionamiento interno del sistema.</li>
+          <li>Nombre o apodo, edad y preferencias (tipo de voz, forma de respuesta, tamaños), si la persona decide contarlos en su perfil.</li>
+          <li>La conversación con AIDA: lo que se le preguntó y lo que contestó.</li>
+          <li>Lo que muestra la pantalla, solo cuando la persona toca la burbuja, y las fotos que elija mostrarle.</li>
+          <li>Lo que la persona dice, que lo transforma en texto el reconocimiento de voz del propio teléfono.</li>
         </ul>
+
+        <h3>Dónde quedan los datos</h3>
+        <p>
+          La conversación, el perfil y los ajustes se guardan <strong>en el teléfono</strong>, y se
+          borran desde Ajustes o al desinstalar la aplicación. Las imágenes de la pantalla no se
+          guardan en ningún lado: viven en memoria mientras dura la consulta. En las aplicaciones de
+          banco y billeteras AIDA no ve nada, a propósito. El registro técnico no anota lo que dice la
+          persona.
+        </p>
+
+        <h3>Qué sale del teléfono</h3>
+        <p>
+          Para contestar, AIDA manda el texto de la pregunta, lo que ve de la pantalla (o la foto
+          elegida) y el perfil a un servicio externo que genera la respuesta (ver
+          <a href="#terceros">Servicios de terceros</a>). Esa es la única conexión: AIDA no tiene un
+          servidor propio que reciba la conversación.
+        </p>
 
         <h3>Para qué usamos esta información</h3>
-        <p>Usamos los datos exclusivamente para:</p>
-        <ul>
-          <li>Mejorar la calidad de las respuestas del asistente.</li>
-          <li>Personalizar la experiencia de cada persona.</li>
-          <li>Detectar errores y mejorar el funcionamiento.</li>
-          <li>Brindar soporte técnico cuando sea necesario.</li>
-        </ul>
+        <p>Exclusivamente para contestar la pregunta y para personalizar cómo te habla AIDA.</p>
         <p><strong>No vendemos ni compartimos datos con terceros con fines comerciales.</strong></p>
 
-        <h3>Dónde se almacenan los datos</h3>
+        <h3>La lista de espera</h3>
         <p>
-          Toda la información se almacena en Firebase (Google Cloud), que aplica estándares de
-          seguridad y cifrado a nivel de servidor. El acceso está restringido exclusivamente al equipo
-          de AIDA, mediante cuentas protegidas.
-        </p>
-
-        <h3>Alertas a un contacto de confianza</h3>
-        <p>
-          Si la función de alertas está activada y AIDA detecta señales de riesgo en los mensajes,
-          puede enviar un aviso por correo electrónico al contacto de confianza que se haya configurado
-          previamente. Ese aviso incluye únicamente la información necesaria para que esa persona pueda
-          comunicarse con quien usa el asistente.
+          Si dejás tu correo en este sitio, lo usamos solamente para avisarte cuando AIDA esté
+          disponible. Podés pedir que lo borremos cuando quieras.
         </p>
 
         <h3>Tus derechos</h3>
         <p>En cualquier momento podés:</p>
         <ul>
-          <li>Solicitar acceso a tu información.</li>
-          <li>Pedir la eliminación de tus datos.</li>
-          <li>Consultar cómo se usa tu información.</li>
+          <li>Borrar la conversación y el perfil desde Ajustes, sin pedirle permiso a nadie.</li>
+          <li>Pedirnos que borremos tu correo de la lista de espera.</li>
+          <li>Consultarnos cómo se usa tu información.</li>
         </ul>
         <p>
           Para ejercer estos derechos, escribinos a
@@ -203,8 +208,8 @@
 
         <h3>Seguridad</h3>
         <p>
-          Tomamos medidas razonables para proteger la información: acceso restringido a administradores,
-          registros en un entorno seguro y la seguridad provista por Firebase. Ningún sistema es
+          Tomamos medidas razonables para proteger la información: los datos quedan en el teléfono y la
+          conexión con el servicio externo va cifrada. Ningún sistema es
           completamente infalible, por lo que recomendamos <strong>no compartir datos extremadamente
           sensibles</strong>, como información bancaria, contraseñas o datos de salud detallados.
         </p>
@@ -220,18 +225,15 @@
       <section id="terceros" aria-labelledby="terceros-title">
         <h2 id="terceros-title">Servicios de terceros</h2>
         <p>
-          Para funcionar, AIDA se apoya en servicios externos. Cuando enviás un mensaje, parte del
-          contenido puede procesarse en estas plataformas, cada una con sus propias políticas:
+          Para contestar, AIDA se apoya en un servicio externo. Cuando hacés una pregunta, parte del
+          contenido se procesa en esa plataforma, con sus propias políticas:
         </p>
         <ul>
-          <li><strong>Telegram</strong> — canal por el que llegan y salen los mensajes.</li>
-          <li><strong>Groq</strong> — procesamiento de los modelos de lenguaje y de visión.</li>
-          <li><strong>Firebase (Google Cloud)</strong> — almacenamiento de perfiles y sesiones.</li>
-          <li><strong>Microsoft Edge TTS</strong> — generación de las respuestas en audio.</li>
-          <li><strong>Make.com</strong> — envío de los correos de alerta al contacto de confianza.</li>
+          <li><strong>Groq</strong> — procesamiento de los modelos de lenguaje y de visión que generan la respuesta.</li>
         </ul>
         <h3 id="medicion">Este sitio web</h3>
         <p>
+<<<<<<< HEAD
           Si lo aceptás en el aviso que aparece al entrar, este sitio usa <strong>Microsoft Clarity</strong>
           para entender cómo se recorre: dónde se hace clic, hasta dónde se lee y en qué partes cuesta
           avanzar. Lo hace con mapas de calor y grabaciones de las visitas. Si elegís "Rechazar", no se carga.
@@ -248,6 +250,14 @@
         <p>
           Las tipografías se cargan desde Google Fonts y el video de presentación se reproduce desde
           YouTube solo si hacés clic para verlo.
+=======
+          La voz se reconoce y se reproduce con las funciones del propio teléfono. 
+        </p>
+        <p>
+          Este sitio web no usa cookies de seguimiento ni herramientas de analítica. Las tipografías se
+          cargan desde Google Fonts y el video de presentación se reproduce desde YouTube solo si hacés
+          clic para verlo.
+>>>>>>> 14c7330 (AIDA solo para Android: se quitan las menciones de Telegram, WhatsApp, Mini App y navegador)
         </p>
       </section>
 
@@ -281,7 +291,7 @@
         <h3>Estado del proyecto</h3>
         <p>
           AIDA nació como trabajo final del Samsung Innovation Campus y todavía está en desarrollo.
-          El servicio puede cambiar, interrumpirse o dejar de estar disponible sin aviso previo mientras
+          La aplicación puede cambiar, interrumpirse o dejar de estar disponible sin aviso previo mientras
           dure esta etapa.
         </p>
 
@@ -354,7 +364,7 @@
 
     <div class="footer__bottom">
       <p>&copy; <span id="year"></span> AIDA. Hecho en Argentina con paciencia.</p>
-      <p>Samsung, Telegram y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
+      <p>Samsung, Android, Groq y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
     </div>
   </div>
 </footer>

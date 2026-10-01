@@ -1,28 +1,34 @@
 # AIDA — Asistente Digital Unificado
 
-> AIDA es un asistente con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Se usa como un chat: la persona escribe, manda una nota de voz o una foto, y AIDA contesta en palabras simples, sin tecnicismos. También revisa mensajes sospechosos y avisa si parecen una estafa. Está hecho en Argentina, en castellano rioplatense, y ganó el 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025.
+> AIDA es una aplicación para Android con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Deja una burbuja sobre la pantalla: la persona la toca, le habla o le escribe, AIDA mira lo que hay en la pantalla y contesta en voz alta, en palabras simples, qué tocar. También ayuda a saber si un mensaje es seguro. Está hecha en Argentina, en castellano rioplatense, y ganó el 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025.
 
 ## Datos clave
 
 - Nombre: AIDA (Asistente Digital Unificado).
 - Para quién: adultos mayores con poca experiencia en tecnología, y sus familias y personas cuidadoras.
-- País e idioma: Argentina; castellano rioplatense. Si la persona escribe en otro idioma, AIDA contesta en ese idioma.
-- Qué hace: conversación natural; entiende notas de voz y puede responder en audio; analiza fotos y capturas de pantalla; detecta mensajes de estafa; adapta el tono si nota enojo, frustración o tristeza; puede avisar por correo a un contacto de confianza ante señales de riesgo; tiene respuestas ya revisadas para más de 35 dudas comunes del celular.
+- País e idioma: Argentina; castellano rioplatense. Contesta en el idioma que tenga configurado el teléfono.
+- Qué hace: burbuja flotante que se usa encima de cualquier aplicación; escucha y responde en voz alta (o por escrito); mira la pantalla cuando la persona la toca y marca con un anillo dónde tocar; ¿Es seguro? para revisar mensajes; guías cotidianas, palabras del celular, preguntas frecuentes y teléfonos útiles; perfil personalizado; opciones para quien no ve bien.
 - Qué no hace: no da diagnósticos médicos ni asesoramiento financiero, y no reemplaza a un familiar ni a un profesional.
-- Dónde funciona hoy: como bot de Telegram (celular, tablet, computadora o navegador).
-- En desarrollo: versión para WhatsApp, y una aplicación propia para Android con una burbuja que acompaña dentro de cualquier otra aplicación y puede mirar la pantalla cuando la persona la toca. No hay versión con burbuja para iPhone, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
-- Disponibilidad: todavía no está abierto al público y no hay fecha anunciada. Hay una lista de espera en el sitio.
+- Plataforma: solo Android (11 o más nuevo). No hay versión para iPhone, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
+- Estado: la aplicación está en pruebas en teléfonos reales y todavía no está en Google Play.
+- Disponibilidad: todavía no está abierta al público y no hay fecha anunciada. Hay una lista de espera en el sitio.
 - Precio: todavía no está definido. Va a haber una manera de usar AIDA sin pagar, y algunas cosas van a tener un costo.
-- Datos personales: se guardan en Firebase (Google Cloud), solo los ve el equipo de AIDA, no se venden ni se comparten, y se pueden borrar a pedido.
+- Datos personales: la conversación y el perfil se guardan en el teléfono y se borran desde Ajustes. Para contestar, la pregunta y lo que ve de la pantalla se mandan a Groq (servicio de modelos de IA); las imágenes no se guardan. No se venden ni se comparten.
 - Equipo: Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial).
 - Reconocimiento: 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025, organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
 - Contacto: aidaassistantbot@gmail.com
 
 ## Páginas
 
+<<<<<<< HEAD
 - [Inicio](https://aidaasistente.com/): qué es AIDA, funciones, cómo se empieza, la futura app para Android, estado del proyecto, equipo y preguntas frecuentes.
 - [Cómo está hecha](https://aidaasistente.com/tecnologia.html): arquitectura modular, modelos de inteligencia artificial, voz, visión, análisis de sentimiento y decisiones de diseño.
 - [Privacidad y términos](https://aidaasistente.com/privacidad.html): qué datos se guardan, para qué, dónde y cómo pedir que se borren.
+=======
+- [Inicio](https://aida-chatbot.github.io/WebAIDA/): qué es AIDA, funciones, cómo se empieza, la app para Android, estado del proyecto, equipo y preguntas frecuentes.
+- [Cómo está hecha](https://aida-chatbot.github.io/WebAIDA/tecnologia.html): arquitectura de la app Android, modelos de inteligencia artificial, voz, visión y decisiones de diseño.
+- [Privacidad y términos](https://aida-chatbot.github.io/WebAIDA/privacidad.html): qué datos usa la app, dónde quedan, qué sale del teléfono y cómo borrarlos.
+>>>>>>> 14c7330 (AIDA solo para Android: se quitan las menciones de Telegram, WhatsApp, Mini App y navegador)
 
 ## Más
 

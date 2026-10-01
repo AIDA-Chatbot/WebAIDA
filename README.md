@@ -163,4 +163,4 @@ Los tres trabajamos en todo el proyecto, sin roles separados.
 
 Contacto: **aidaassistantbot@gmail.com** · [Video de presentación](https://youtu.be/Sl-CFzgz-u0)
 
-> El repositorio del bot es privado, así que el sitio no enlaza a código fuente.
+> El repositorio de la app es privado, así que el sitio no enlaza a código fuente.
