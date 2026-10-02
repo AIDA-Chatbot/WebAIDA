@@ -937,8 +937,10 @@ p { text-wrap: pretty; }
   background: var(--c-surface);
   transition: transform 450ms var(--ease-out), opacity 450ms var(--ease-out);
 }
-.phone[data-app="msg"] .phone__app--mail { transform: translateX(100%); opacity: 0; }
-.phone[data-app="mail"] .phone__app--msg { transform: translateX(-30%); opacity: 0; }
+.phone[data-app="msg"] .phone__app--mail,
+.phone[data-app="home"] .phone__app--mail { transform: translateX(100%); opacity: 0; }
+.phone[data-app="mail"] .phone__app--msg,
+.phone[data-app="home2"] .phone__app--msg { transform: translateX(-30%); opacity: 0; }
 .phone__appbar--mail { background: #5B4B8A; }
 .p-mail {
   display: flex; flex-direction: column; gap: .15rem;
@@ -1093,17 +1095,24 @@ p { text-wrap: pretty; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* Lo que dice la persona y lo que contesta AIDA */
+.phone__ask svg { flex: none; width: 14px; height: 14px; color: var(--c-teal-400); }
 .phone__ask {
   position: absolute; z-index: 2; right: 10px; top: calc(50% - 3.2rem);
   max-width: 62%;
   padding: .5rem .7rem;
   border-radius: 12px; border-bottom-right-radius: 4px;
-  background: var(--c-primary); color: var(--c-white);
-  font-size: .75rem; line-height: 1.4;
+  display: flex; align-items: center; gap: .4rem;
+  background: var(--c-white); color: var(--c-primary-800);
+  border: 2px dashed var(--c-teal-400); border-radius: 999px;
+  font-size: .75rem; line-height: 1.3; font-style: italic; font-weight: 600;
   box-shadow: var(--sh-sm);
   opacity: 0; transform: translateX(8px) scale(.96);
   transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-spring);
 }
+.phone[data-app="home2"][data-state="listening"] .phone__ask--open2,
+.phone[data-app="home2"][data-state="thinking"] .phone__ask--open2,
+.phone[data-app="home"][data-state="listening"] .phone__ask--open,
+.phone[data-app="home"][data-state="thinking"] .phone__ask--open,
 .phone[data-app="msg"][data-state="listening"] .phone__ask--msg,
 .phone[data-app="msg"][data-state="thinking"] .phone__ask--msg,
 .phone[data-app="mail"][data-state="listening"] .phone__ask--mail,
@@ -1126,6 +1135,23 @@ p { text-wrap: pretty; }
   color: var(--c-primary); margin-bottom: .2rem;
 }
 .phone__answer-head span { width: 7px; height: 7px; border-radius: 50%; background: var(--c-teal-400); }
+.phone__answer-head em {
+  margin-left: auto; font-style: normal; font-weight: 500;
+  font-size: .6875rem; color: var(--c-muted-2);
+}
+.phone__open-btn {
+  display: block; margin-top: .55rem; padding: .55rem;
+  border-radius: 12px; text-align: center;
+  background: var(--c-primary); color: var(--c-white);
+  font-family: var(--font-head); font-weight: 700; font-size: .8125rem;
+  box-shadow: 0 3px 0 var(--c-primary-800);
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+.phone[data-state="press"] .phone__open-btn { transform: translateY(3px); box-shadow: none; }
+.phone[data-app="home2"][data-state="speaking"] .phone__answer--open2,
+.phone[data-app="home2"][data-state="press"] .phone__answer--open2,
+.phone[data-app="home"][data-state="speaking"] .phone__answer--open,
+.phone[data-app="home"][data-state="press"] .phone__answer--open,
 .phone[data-app="msg"][data-state="speaking"] .phone__answer--msg,
 .phone[data-app="mail"][data-state="speaking"] .phone__answer--mail { opacity: 1; transform: none; }
 
@@ -1392,6 +1418,19 @@ p { text-wrap: pretty; }
   border: 1px solid rgba(242,184,77,.28);
   border-radius: var(--r-pill); padding: .35rem .8rem;
 }
+.footer__social { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: var(--sp-2); }
+.footer .footer__social li + li { margin-top: 0; }
+.footer .footer__social a {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .45rem .9rem .45rem .7rem;
+  font-size: .8rem; font-weight: 600; color: var(--c-white);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r-pill);
+  transition: background 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease);
+}
+.footer .footer__social a:hover { background: rgba(255,255,255,.14); border-color: var(--c-gold); transform: translateY(-2px); }
+.footer .footer__social a:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
 .footer h3 {
   font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
   color: var(--c-white); margin-bottom: var(--sp-2);

@@ -135,11 +135,22 @@
       { state: 'listening', ms: 2200 },
       { state: 'thinking',  ms: 1500 },
       { state: 'speaking',  ms: 3800 },
+      // AIDA también abre aplicaciones: ofrece un botón y, al tocarlo, pasa al correo
+      { state: 'tap',       ms: 250,  app: 'home' },
+      { state: 'listening', ms: 1800 },
+      { state: 'thinking',  ms: 1200 },
+      { state: 'speaking',  ms: 2200 },
+      { state: 'press',     ms: 700  },
       { state: 'switch',    ms: 2200, app: 'mail' },
       { state: 'tap',       ms: 250  },
       { state: 'listening', ms: 2000 },
       { state: 'thinking',  ms: 1500 },
       { state: 'speaking',  ms: 3800 },
+      { state: 'tap',       ms: 250,  app: 'home2' },
+      { state: 'listening', ms: 1800 },
+      { state: 'thinking',  ms: 1200 },
+      { state: 'speaking',  ms: 2200 },
+      { state: 'press',     ms: 700  },
       { state: 'switch',    ms: 2200, app: 'msg'  }
     ];
     var stepFor = { tap: 'listening', listening: 'listening', thinking: 'thinking', speaking: 'speaking' };

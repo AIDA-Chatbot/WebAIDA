@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css?v=20261001e" />
+  <link rel="stylesheet" href="styles/main.css?v=20261002b" />
 
   <script type="application/ld+json">
   {
@@ -80,18 +80,18 @@
             "@type": "Person",
             "@id": "https://aidaasistente.com/#renata",
             "name": "Renata Berho",
-            "url": "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/",
+            "url": "https://www.linkedin.com/in/renata-berho-02264230a/",
             "sameAs": [
-              "https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/"
+              "https://www.linkedin.com/in/renata-berho-02264230a/"
             ]
           },
           {
             "@type": "Person",
             "@id": "https://aidaasistente.com/#milagros",
             "name": "Milagros Argañin",
-            "url": "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/",
+            "url": "https://www.linkedin.com/in/milagros-arga%C3%B1in",
             "sameAs": [
-              "https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/"
+              "https://www.linkedin.com/in/milagros-arga%C3%B1in"
             ]
           }
         ],
@@ -441,7 +441,7 @@
       <div class="hero__visual">
         <div class="android__visual">
           <div class="phone" id="phone" data-state="idle" data-app="msg" role="img"
-               aria-label="Ejemplo: la burbuja de AIDA flota sobre la pantalla. En una app de mensajes la persona la toca y pregunta cómo mandar una foto, y AIDA le indica en voz alta qué tocar. Al cambiar a la app de correo, la burbuja sigue encima: le pregunta si un mail es seguro y AIDA le avisa que es un engaño.">
+               aria-label="Ejemplo: la burbuja de AIDA flota sobre la pantalla. En WhatsApp la persona la toca y pregunta cómo mandar una foto, y AIDA le indica en voz alta qué tocar. Luego le pide que abra el correo y AIDA le muestra un botón para abrirlo. Ya en la app de correo, la burbuja sigue encima: le pregunta si un mail es seguro y AIDA le avisa que es un engaño. Después le pide abrir WhatsApp y AIDA vuelve a mostrarle el botón.">
             <div class="phone__screen" aria-hidden="true">
               <div class="phone__status"><span>10:24</span><span class="phone__status-icons"><i></i><i></i><i></i></span></div>
 
@@ -450,7 +450,7 @@
                   <div class="phone__appbar">
                     <span class="phone__back">‹</span>
                     <span class="phone__contact">M</span>
-                    <span class="phone__who"><b>Marta</b><small>Mensajes</small></span>
+                    <span class="phone__who"><b>Marta</b><small>WhatsApp</small></span>
                   </div>
                   <div class="phone__thread">
                     <div class="p-msg p-msg--in">¡Hola, mamá! ¿Me mandás una foto de la receta? 😊</div>
@@ -483,8 +483,10 @@
 
               <div class="phone__switch">Cambiás de aplicación… y la burbuja sigue encima</div>
 
-              <div class="phone__ask phone__ask--msg">¿Cómo le mando una foto?</div>
-              <div class="phone__ask phone__ask--mail">¿Este mail es de verdad?</div>
+              <div class="phone__ask phone__ask--msg"><svg viewBox="0 0 24 24"><use href="#i-mic"/></svg>¿Cómo le mando una foto?</div>
+              <div class="phone__ask phone__ask--open"><svg viewBox="0 0 24 24"><use href="#i-mic"/></svg>Abrime el correo</div>
+              <div class="phone__ask phone__ask--open2"><svg viewBox="0 0 24 24"><use href="#i-mic"/></svg>Abrime WhatsApp</div>
+              <div class="phone__ask phone__ask--mail"><svg viewBox="0 0 24 24"><use href="#i-mic"/></svg>¿Este mail es de verdad?</div>
 
               <div class="bubble">
                 <span class="bubble__ring"></span>
@@ -499,6 +501,16 @@
               <div class="phone__answer phone__answer--msg">
                 <p class="phone__answer-head"><span></span>AIDA</p>
                 <p><strong>1.</strong> Tocá el <strong>clip</strong>, abajo a la izquierda.<br /><strong>2.</strong> Elegí la foto.<br /><strong>3.</strong> Tocá el <strong>avioncito</strong>.</p>
+              </div>
+              <div class="phone__answer phone__answer--open">
+                <p class="phone__answer-head"><span></span>AIDA<em>Cerrar</em></p>
+                <p>Tocá el botón <strong>Abrir Correo</strong> que está abajo.</p>
+                <span class="phone__open-btn">Abrir Correo</span>
+              </div>
+              <div class="phone__answer phone__answer--open2">
+                <p class="phone__answer-head"><span></span>AIDA<em>Cerrar</em></p>
+                <p>Tocá el botón <strong>Abrir WhatsApp</strong> que está abajo.</p>
+                <span class="phone__open-btn">Abrir WhatsApp</span>
               </div>
               <div class="phone__answer phone__answer--mail">
                 <p class="phone__answer-head"><span></span>AIDA</p>
@@ -953,7 +965,7 @@
             <img src="assets/equipo-renata.png" alt="Renata Berho, ilustrado como el pingüino de AIDA" width="620" height="700" loading="lazy" />
           </span>
           <h3>Renata Berho</h3>
-          <a class="member__link" href="https://www.linkedin.com/in/renata-ana-emilia-berho-02264230a/" target="_blank" rel="noopener noreferrer">
+          <a class="member__link" href="https://www.linkedin.com/in/renata-berho-02264230a/" target="_blank" rel="noopener noreferrer">
             <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
             <span class="sr-only">de Renata Berho (se abre en una pestaña nueva)</span>
           </a>
@@ -963,7 +975,7 @@
             <img src="assets/equipo-milagros.png" alt="Milagros Argañin, ilustrado como el pingüino de AIDA" width="620" height="700" loading="lazy" />
           </span>
           <h3>Milagros Argañin</h3>
-          <a class="member__link" href="https://www.linkedin.com/in/milagros-arga%C3%B1in-13641a376/" target="_blank" rel="noopener noreferrer">
+          <a class="member__link" href="https://www.linkedin.com/in/milagros-arga%C3%B1in" target="_blank" rel="noopener noreferrer">
             <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
             <span class="sr-only">de Milagros Argañin (se abre en una pestaña nueva)</span>
           </a>
@@ -1098,6 +1110,20 @@
           para personas mayores.
         </p>
         <p class="footer__award">🏆 1.º puesto — Samsung Innovation Campus Argentina 2025</p>
+        <ul class="footer__social" aria-label="Redes sociales de AIDA">
+          <li>
+            <a href="https://www.instagram.com/aidaasistente/" target="_blank" rel="noopener" aria-label="Instagram: @aidaasistente">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <span>@aidaasistente</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/AIDAasistente/" target="_blank" rel="noopener" aria-label="Facebook: AIDA asistente">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
+              <span>AIDA asistente</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <nav aria-labelledby="f-producto">
@@ -1138,6 +1164,6 @@
   </div>
 </footer>
 
-<script src="scripts/main.js?v=20261001e" defer></script>
+<script src="scripts/main.js?v=20261002b" defer></script>
 </body>
 </html>
