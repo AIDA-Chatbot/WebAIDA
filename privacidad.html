@@ -111,7 +111,7 @@
     </a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
-    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 30 de septiembre de 2026</span></p>
+    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 2 de octubre de 2026</span></p>
   </div>
 </div>
 
@@ -159,7 +159,8 @@
           <li>Nombre o apodo, edad y preferencias (tipo de voz, forma de respuesta, tamaños), si la persona decide contarlos en su perfil.</li>
           <li>La conversación con AIDA: lo que se le preguntó y lo que contestó.</li>
           <li>Lo que muestra la pantalla, solo cuando la persona toca la burbuja, y las fotos que elija mostrarle.</li>
-          <li>Lo que la persona dice, que lo transforma en texto el reconocimiento de voz del propio teléfono.</li>
+          <li>Lo que la persona dice, que lo transforma en texto el reconocimiento de voz del propio teléfono (que puede ser el de Google, con su propia política). AIDA no graba ni guarda el audio.</li>
+          <li>Si la persona toca «Esto está mal» en una respuesta, esa respuesta, la pregunta y el motivo elegido.</li>
         </ul>
 
         <h3>Dónde quedan los datos</h3>
@@ -174,7 +175,7 @@
         <h3>Qué sale del teléfono</h3>
         <p>
           Para contestar, AIDA manda el texto de la pregunta, lo que ve de la pantalla (o la foto
-          elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo único que registra es cuántas consultas hace cada instalación, para ponerles un límite. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
+          elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo único que registra es un identificador al azar por instalación (sin nombre ni teléfono) y cuántas consultas hace, para ponerles un límite. Si tocás «Esto está mal», esa respuesta y tu pregunta sí llegan al equipo de AIDA, que las guarda hasta 90 días para corregirla; es la única excepción. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
         </p>
 
         <h3>Para qué usamos esta información</h3>
@@ -191,6 +192,8 @@
         <p>En cualquier momento podés:</p>
         <ul>
           <li>Borrar la conversación y el perfil desde Ajustes, sin pedirle permiso a nadie.</li>
+          <li>Borrar del servidor lo que AIDA tiene de tu instalación (el identificador, el conteo y los reportes), con el botón «Borrar lo que AIDA tiene de mí» en Ajustes.</li>
+          <li>Retirar el permiso para mandar tus consultas desde Ajustes («Tus datos»). Sin ese permiso AIDA no puede contestarte.</li>
           <li>Pedirnos que borremos tu correo de la lista de espera.</li>
           <li>Consultarnos cómo se usa tu información.</li>
         </ul>
@@ -227,7 +230,7 @@
         </ul>
         <h3 id="medicion">Este sitio web</h3>
         <p>
-          La voz se reconoce y se reproduce con las funciones del propio teléfono. 
+          La voz se reconoce y se reproduce con las funciones del propio teléfono. Si la persona prende «Llamar a AIDA por voz», la frase «Hola AIDA» se detecta dentro del teléfono con un modelo pequeño (Vosk, de código abierto) que se descarga una vez desde <strong>alphacephei.com</strong>; en esa descarga no se envía ningún dato de la persona, y el audio de la espera no sale del teléfono.
         </p>
         <p>
           Si lo aceptás en el aviso que aparece al entrar, este sitio usa <strong>Google Analytics</strong>
