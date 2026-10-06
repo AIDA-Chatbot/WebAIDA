@@ -7,7 +7,7 @@
 - Nombre: AIDA (Asistente Digital Unificado).
 - Para quién: adultos mayores con poca experiencia en tecnología, y sus familias y personas cuidadoras.
 - País e idioma: Argentina; castellano rioplatense. Contesta en el idioma que tenga configurado el teléfono.
-- Qué hace: burbuja flotante que se usa encima de cualquier aplicación; escucha y responde en voz alta (o por escrito); mira la pantalla cuando la persona la toca y marca con un anillo dónde tocar; ¿Es seguro? para revisar mensajes; guías cotidianas, palabras del celular, preguntas frecuentes y teléfonos útiles; perfil personalizado; opciones para quien no ve bien.
+- Qué hace: burbuja flotante que se usa encima de cualquier aplicación; escucha y responde en voz alta (o por escrito); mira la pantalla cuando la persona la toca y marca con un anillo dónde tocar; ¿Es seguro? para revisar mensajes; avisos de estafa al momento (opcional: lee las notificaciones que llegan y avisa si algo parece una estafa, revisando casi todo dentro del teléfono); guías cotidianas, palabras del celular, preguntas frecuentes y teléfonos útiles; perfil personalizado; opciones para quien no ve bien.
 - Qué no hace: no da diagnósticos médicos ni asesoramiento financiero, y no reemplaza a un familiar ni a un profesional.
 - Plataforma: solo Android (11 o más nuevo). No hay versión para iPhone, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
 - Estado: la aplicación está en pruebas en teléfonos reales y todavía no está en Google Play.

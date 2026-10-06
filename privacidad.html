@@ -111,7 +111,7 @@
     </a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
-    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 2 de octubre de 2026</span></p>
+    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 5 de octubre de 2026</span></p>
   </div>
 </div>
 
@@ -134,7 +134,7 @@
       <section id="resumen" aria-labelledby="resumen-title">
         <h2 id="resumen-title">Resumen en tres líneas</h2>
         <div class="prose__note">
-          <p><strong>1.</strong> La conversación y tu perfil (nombre, preferencias) se guardan en tu teléfono; el servidor de AIDA no las guarda.</p>
+          <p><strong>1.</strong> La conversación, tu perfil (nombre, preferencias) y lo que AIDA revisó por estafas se guardan en tu teléfono; el servidor de AIDA no los guarda.</p>
           <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo (Groq). Ni ese servidor ni las imágenes guardan nada. No vendemos ni compartimos nada.</p>
           <p><strong>3.</strong> Borrás todo desde Ajustes. Para sacar tu correo de la lista de espera, escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a>.</p>
         </div>
@@ -161,6 +161,7 @@
           <li>Lo que muestra la pantalla, solo cuando la persona toca la burbuja, y las fotos que elija mostrarle.</li>
           <li>Lo que la persona dice, que lo transforma en texto el reconocimiento de voz del propio teléfono (que puede ser el de Google, con su propia política). AIDA no graba ni guarda el audio.</li>
           <li>Si la persona toca «Esto está mal» en una respuesta, esa respuesta, la pregunta y el motivo elegido.</li>
+          <li>Si la persona prende los <strong>avisos de estafa</strong> (vienen apagados), las notificaciones que le llegan al teléfono: los mensajes, los correos y los avisos de páginas y aplicaciones. AIDA las lee para avisarle en el momento si algo parece una estafa, pero nunca las abre, las contesta ni las borra.</li>
         </ul>
 
         <h3>Dónde quedan los datos</h3>
@@ -171,11 +172,24 @@
           banco y billeteras AIDA no ve nada, a propósito. El registro técnico no anota lo que dice la
           persona.
         </p>
+        <p>
+          Lo que AIDA revisó para saber si era una estafa (lo que preguntaste en «¿Es seguro?» y los
+          avisos que llegaron con señales de estafa) también queda <strong>solo en el teléfono</strong>, y
+          se borra desde «Lo que AIDA revisó». Las notificaciones sin señales de estafa no se guardan en
+          ningún lado.
+        </p>
 
         <h3>Qué sale del teléfono</h3>
         <p>
           Para contestar, AIDA manda el texto de la pregunta, lo que ve de la pantalla (o la foto
           elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo único que registra es un identificador al azar por instalación (sin nombre ni teléfono) y cuántas consultas hace, para ponerles un límite. Si tocás «Esto está mal», esa respuesta y tu pregunta sí llegan al equipo de AIDA, que las guarda hasta 90 días para corregirla; es la única excepción. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
+        </p>
+        <p>
+          Con los avisos de estafa prendidos, casi todas las notificaciones se revisan dentro del
+          teléfono y no salen. Solo cuando una tiene señales de estafa (un enlace, un pedido de plata o
+          de códigos, un premio, un aviso de virus), AIDA manda su texto, de qué aplicación vino y quién
+          la mandó, por el mismo camino que una pregunta, para que el modelo diga si es una estafa. Se
+          trata igual que una pregunta: el servidor no lo guarda.
         </p>
 
         <h3>Para qué usamos esta información</h3>
@@ -192,6 +206,7 @@
         <p>En cualquier momento podés:</p>
         <ul>
           <li>Borrar la conversación y el perfil desde Ajustes, sin pedirle permiso a nadie.</li>
+          <li>Apagar los avisos de estafa desde Ajustes («Avisarme si me llega una estafa»), sacarle a AIDA el acceso a las notificaciones en los ajustes del teléfono, y borrar lo que AIDA revisó.</li>
           <li>Borrar del servidor lo que AIDA tiene de tu instalación (el identificador, el conteo y los reportes), con el botón «Borrar lo que AIDA tiene de mí» en Ajustes.</li>
           <li>Retirar el permiso para mandar tus consultas desde Ajustes («Tus datos»). Sin ese permiso AIDA no puede contestarte.</li>
           <li>Pedirnos que borremos tu correo de la lista de espera.</li>
