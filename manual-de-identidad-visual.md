@@ -126,7 +126,7 @@ El isotipo puede adoptar diferentes poses y expresiones para acompañar el conte
 
 ### 6.1. UI de la app Android (burbuja y charla)
 *   **Burbuja:** La cara del pingüino (versión "Solo Isotipo") en un círculo blanco, con una insignia abajo a la derecha que cuenta qué está haciendo (micrófono, mirando, hablando). Debe verse clara encima de cualquier aplicación, sobre fondos claros y oscuros.
-*   **Mensajes:** Mantener el tono de voz establecido. Las pantallas no explican lo que el botón ya dice. El uso de emojis debe ser moderado y complementar el mensaje, sin signos de alarma. Los valores exactos de colores y tamaños de la app están en LabAndroid/MARCA.md (carpeta hermana del repo).
+*   **Mensajes:** Mantener el tono de voz establecido. Las pantallas no explican lo que el botón ya dice. El uso de emojis debe ser moderado y complementar el mensaje, sin signos de alarma. Los valores exactos de colores y tamaños de la app están en AIDA-Android/MARCA.md (carpeta hermana del repo).
 
 ### 6.2. Materiales Promocionales (Gráficas, Presentaciones)
 *   Utilizar fondos limpios, preferiblemente blancos o grises muy claros.
