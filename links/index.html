@@ -270,6 +270,14 @@
     /* Celular: una sola columna, como una lista */
     @media (max-width: 860px) {
       .back { position: absolute; }
+      /* En el celular primero los links; la lista de espera, los premios y la auditoría van abajo */
+      .page { display: flex; flex-direction: column; }
+      .left { display: contents; }
+      .brand { order: 1; }
+      .right { order: 2; }
+      .waitlist { order: 3; margin-top: 28px; }
+      .left > .label, .awards, .audit { order: 4; }
+      .audit { align-self: center; }
       .page { grid-template-columns: 1fr; gap: 0; max-width: 520px; padding-top: 68px; }
       .brand { justify-content: center; }
       .brand img { width: 84px; }
