@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css?v=20261002c" />
+  <link rel="stylesheet" href="styles/main.css?v=20261019c" />
 
   <script type="application/ld+json">
   {
@@ -104,7 +104,7 @@
     <nav class="nav__links" aria-label="Navegación principal">
       <a class="nav__link" href="index.html#que-es">Qué es</a>
       <a class="nav__link" href="index.html#funciones">Funciones</a>
-      <a class="nav__link" href="index.html#android">Android</a>
+      <a class="nav__link" href="index.html#premio">Premios</a>
       <a class="nav__link is-active" href="tecnologia.html" aria-current="page">Tecnología</a>
       <a class="nav__link" href="index.html#equipo">Equipo</a>
     </nav>
@@ -124,18 +124,12 @@
 <!-- ===================== ENCABEZADO ================== -->
 <div class="page-hero">
   <div class="container">
-    <a href="index.html" class="member__link" style="margin-bottom:var(--sp-3)">
-      <svg aria-hidden="true"><use href="#i-back"/></svg> Volver al inicio
-    </a>
+    <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Cómo está hecha AIDA</h1>
     <p style="max-width:62ch">
-      Esta página es la versión técnica del proyecto: arquitectura, modelos y las decisiones
-      que tomamos por el camino. Si lo que buscabas es qué hace AIDA y cómo se usa, con la
-      <a href="index.html" style="color:var(--c-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">página principal</a>
-      alcanza y sobra.
-    </p>
-    <p style="margin-top:var(--sp-3)">
-      <span class="pill pill--gold">Trabajo final del Samsung Innovation Campus 2025</span>
+      La parte técnica del proyecto: cómo está armada AIDA y las decisiones que tomamos
+      por el camino, para quien tenga curiosidad. Qué hace y cómo se usa está en la
+      <a href="index.html" style="color:var(--c-primary);font-weight:600;text-decoration:underline;text-underline-offset:3px">página principal</a>.
     </p>
   </div>
 </div>
@@ -147,10 +141,9 @@
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Arquitectura</p>
-        <h2 id="arq-title" class="section-title">Una app sin dependencias que consulta al modelo por un servidor mínimo</h2>
+        <h2 id="arq-title" class="section-title">Una app nativa que consulta a la inteligencia artificial por un servidor propio</h2>
         <p class="section-desc">
-          AIDA es una aplicación Android escrita en Kotlin, sin librerías externas: todo sale de lo
-          que ya trae el teléfono. Lo único que sale del teléfono es la consulta al modelo, que pasa por un servidor mínimo de AIDA que guarda la clave y no almacena la conversación.
+          AIDA es una aplicación Android nativa que se apoya en lo que ya trae el teléfono. Lo único que sale del teléfono es la consulta, que pasa por un servidor de AIDA y no se guarda en ningún lado.
         </p>
       </div>
 
@@ -158,7 +151,7 @@
         <h3>Cómo viaja una pregunta</h3>
         <p>De la burbuja al modelo, y de vuelta como voz y anillo — en un solo recorrido.</p>
         <div class="diagram__scroll">
-          <svg viewBox="0 0 900 380" role="img" aria-label="Diagrama: la persona toca la burbuja y habla; el reconocimiento de voz del teléfono lo pasa a texto; el rol de asistente de Android entrega la estructura y la imagen de la pantalla; la app consulta a un modelo en Groq; la respuesta vuelve como voz y como un anillo que marca dónde tocar, y la conversación y el perfil se guardan en el teléfono.">
+          <svg viewBox="0 0 900 380" role="img" aria-label="Diagrama: la persona toca la burbuja y habla; el reconocimiento de voz del teléfono lo pasa a texto; el rol de asistente de Android entrega la estructura y la imagen de la pantalla; la app consulta a modelos de inteligencia artificial por un servidor de AIDA; la respuesta vuelve como voz y como un anillo que marca dónde tocar, y la conversación y el perfil se guardan en el teléfono.">
             <defs>
               <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#1FA6A0"/><stop offset="100%" stop-color="#1E6E96"/>
@@ -189,7 +182,7 @@
               <rect x="510" y="110" width="260" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
               <text x="530" y="138">👁️ Pantalla — rol de asistente</text>
               <rect x="510" y="180" width="260" height="46" rx="12" fill="#fff" stroke="#DCE7E8"/>
-              <text x="530" y="208">💬 Servidor de AIDA → Groq (texto y visión)</text>
+              <text x="530" y="208">💬 Servidor de AIDA → modelos de IA</text>
               <rect x="510" y="250" width="260" height="46" rx="12" fill="#FDF2DC" stroke="#F2B84D"/>
               <text x="530" y="278">🔔 Anillo que marca dónde tocar</text>
             </g>
@@ -226,16 +219,15 @@
       </div>
 
       <div class="tech-grid">
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Lenguaje</p><p class="tech-item__name">Kotlin</p><p class="tech-item__desc">Casi todo. Una sola clase está en Java, por una diferencia entre versiones del SDK de Android.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Versiones</p><p class="tech-item__name">Android 11 a 16</p><p class="tech-item__desc">Compila para Android 16 y funciona desde Android 11.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Dependencias</p><p class="tech-item__name">Ninguna externa</p><p class="tech-item__desc">Red, JSON, interfaz, dibujos y guardado salen de la plataforma. El APK pesa unos 2,6 MB.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Asistente</p><p class="tech-item__name">Rol de asistente de Android</p><p class="tech-item__desc">Entrega la estructura y la imagen de la pantalla cuando la persona toca la burbuja.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Burbuja</p><p class="tech-item__name">Ventana flotante propia</p><p class="tech-item__desc">Se arrastra, se pega al borde y se saca llevándola a la equis.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Voz</p><p class="tech-item__name">Reconocimiento y síntesis del sistema</p><p class="tech-item__desc">Gratis y sin subir audio a ningún servidor propio. El idioma sale del teléfono.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Conversación</p><p class="tech-item__name">gpt-oss 120B vía Groq</p><p class="tech-item__desc">Modelo de texto que contesta, con un prompt armado según el perfil.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Visión</p><p class="tech-item__name">Qwen 27B vía Groq</p><p class="tech-item__desc">Mira la captura de pantalla o la foto elegida. Groq lo marca como versión de prueba.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Guardado</p><p class="tech-item__name">SharedPreferences</p><p class="tech-item__desc">Conversación, perfil y ajustes quedan en el teléfono y se borran desde Ajustes.</p></div></div>
-        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Contenido</p><p class="tech-item__name">Guías y preguntas locales</p><p class="tech-item__desc">Guías, palabras y teléfonos útiles viajan dentro de la app y se leen sin conexión.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Plataforma</p><p class="tech-item__name">Android nativo</p><p class="tech-item__desc">Hecha a medida para Android, desde la versión 11.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Dependencias</p><p class="tech-item__name">Las mínimas</p><p class="tech-item__desc">Casi todo sale de lo que ya trae el teléfono: menos piezas que puedan fallar.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Pantalla</p><p class="tech-item__name">Rol de asistente de Android</p><p class="tech-item__desc">Ve la pantalla solo cuando la persona toca la burbuja.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Voz</p><p class="tech-item__name">La del teléfono</p><p class="tech-item__desc">Escucha y habla con la voz del sistema. «Hola AIDA» se reconoce en el propio teléfono.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Inteligencia</p><p class="tech-item__name">Modelos de lenguaje y visión</p><p class="tech-item__desc">Alojados afuera y consultados a través del servidor de AIDA, que no guarda las conversaciones.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Guardado</p><p class="tech-item__name">En el teléfono</p><p class="tech-item__desc">Conversación, perfil y ajustes quedan en el teléfono y se borran desde Ajustes.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Contenido</p><p class="tech-item__name">Guías dentro de la app</p><p class="tech-item__desc">Guías, palabras y teléfonos útiles se leen aunque no haya internet.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">Seguridad</p><p class="tech-item__name">Auditada por Tech del Fuego</p><p class="tech-item__desc">Revisión constante de la app, el servidor y el dominio.</p></div></div>
+        <div class="tech-item"><span class="tech-item__dot" aria-hidden="true"></span><div><p class="tech-item__cat">iPhone</p><p class="tech-item__name">En preparación</p><p class="tech-item__desc">Una versión más simple, porque iOS no deja que una app se muestre encima de otra.</p></div></div>
       </div>
     </div>
   </section>
@@ -270,12 +262,24 @@
           <p>Un anillo marca el botón y después AIDA vuelve a mirar para saber si la persona llegó. La idea es acompañar el paso, no solo explicarlo.</p>
         </article>
         <article class="f-card">
-          <h3>Sin dependencias</h3>
-          <p>Menos piezas que puedan fallar, un APK chico y ningún problema de licencias. El costo es escribir a mano cosas que una librería daría hechas.</p>
+          <h3>Lo mínimo indispensable</h3>
+          <p>Menos piezas que puedan fallar y ningún problema de licencias. El costo es escribir a mano cosas que otros darían hechas.</p>
         </article>
         <article class="f-card">
           <h3>Contenido que no depende del modelo</h3>
           <p>Las guías, las palabras y los teléfonos útiles están dentro de la app: se leen aunque no haya internet.</p>
+        </article>
+        <article class="f-card">
+          <h3>Avisar, nunca actuar</h3>
+          <p>Los avisos de estafa solo informan: AIDA no abre, no contesta, no bloquea ni borra el mensaje. La decisión queda siempre en la persona.</p>
+        </article>
+        <article class="f-card">
+          <h3>Marcar solo cuando está segura</h3>
+          <p>Si el botón no coincide o hay dos iguales, AIDA prefiere no marcar nada antes que señalar el lugar equivocado.</p>
+        </article>
+        <article class="f-card">
+          <h3>Llamarla sin tocar la pantalla</h3>
+          <p>«Hola AIDA», mantener Home o un widget en la pantalla de inicio: varias puertas para quien tiene dificultades para tocar.</p>
         </article>
       </div>
     </div>
@@ -293,19 +297,21 @@
           <li>Los avisos de estafa solo ven el texto de las notificaciones: no las fotos ni los audios, ni lo que la persona ocultó en la vista previa. Desde Android 15, el sistema tampoco le muestra los códigos de verificación.</li>
           <li>El reconocimiento de voz es el del teléfono: pierde precisión con ruido de fondo.</li>
           <li>Sin internet AIDA no puede contestar; quedan disponibles las guías y los teléfonos útiles.</li>
+            <li>«Hola AIDA» mantiene el micrófono escuchando, así que gasta más batería.</li>
+            <li>Android no deja que la burbuja vuelva sola al reiniciar el teléfono: se pone de nuevo desde la app o el widget.</li>
+            <li>En teléfonos muy básicos (Android Go) no hay burbuja: queda la charla y la ayuda.</li>
           <li>El asistente depende de servicios externos; si alguno se cae, esa capacidad queda fuera hasta que vuelva.</li>
         </ul>
 
         <div class="prose__note">
           <p>
-            <strong>El repositorio de la app es privado</strong> por ahora, así que no hay código
-            público para revisar. Si te interesa el detalle de la implementación o querés
+            Si te interesa el detalle de la implementación o querés
             conversar sobre el proyecto, escribinos y con gusto lo charlamos.
           </p>
         </div>
 
         <p style="margin-top:var(--sp-4)">
-          <a class="btn btn--dark" href="mailto:aidaassistantbot@gmail.com">
+          <a class="btn btn--dark btn--mail" href="mailto:aidaassistantbot@gmail.com">
             <svg aria-hidden="true"><use href="#i-mail"/></svg>
             aidaassistantbot@gmail.com
           </a>
@@ -326,10 +332,13 @@
           <span>AIDA</span>
         </a>
         <p class="footer__about">
-          Asistente Digital Unificado: un acompañante tecnológico paciente, claro y seguro
-          para personas mayores.
+          El acompañante digital inclusivo, paciente, claro y seguro para que usar el celular
+          ya no sea un problema.
         </p>
-        <p class="footer__award">🏆 1.º puesto — Samsung Innovation Campus Argentina 2025</p>
+        <ul class="footer__award" aria-label="Reconocimientos">
+          <li><b>1.º</b>Samsung Innovation Campus 2025</li>
+          <li><b>3.º</b>Santander X Argentina Award 2026</li>
+        </ul>
         <ul class="footer__social" aria-label="Redes sociales de AIDA">
           <li>
             <a href="https://www.instagram.com/aidaasistente/" target="_blank" rel="noopener" aria-label="Instagram: @aidaasistente">
@@ -341,6 +350,12 @@
             <a href="https://www.facebook.com/AIDAasistente/" target="_blank" rel="noopener" aria-label="Facebook: AIDA asistente">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
               <span>AIDA asistente</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/aidaasistente" target="_blank" rel="noopener" aria-label="LinkedIn: AIDA asistente">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
             </a>
           </li>
         </ul>
@@ -378,7 +393,7 @@
 
     <div class="footer__bottom">
       <p>&copy; <span id="year"></span> AIDA. Hecho en Argentina con paciencia.</p>
-      <p>Samsung, Android, Groq y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
+      <p>Samsung, Android y las demás marcas mencionadas pertenecen a sus respectivos titulares.</p>
     </div>
   </div>
 </footer>

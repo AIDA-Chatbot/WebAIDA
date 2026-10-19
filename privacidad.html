@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css?v=20261002c" />
+  <link rel="stylesheet" href="styles/main.css?v=20261019c" />
 
   <script type="application/ld+json">
   {
@@ -106,9 +106,7 @@
 <!-- ===================== ENCABEZADO ================== -->
 <div class="page-hero">
   <div class="container container--narrow">
-    <a href="index.html" class="member__link" style="margin-bottom:var(--sp-3)">
-      <svg aria-hidden="true"><use href="#i-back"/></svg> Volver al inicio
-    </a>
+    <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
     <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 5 de octubre de 2026</span></p>
@@ -336,10 +334,13 @@
           <span>AIDA</span>
         </a>
         <p class="footer__about">
-          Asistente Digital Unificado: un acompañante tecnológico paciente, claro y seguro
-          para personas mayores.
+          El acompañante digital inclusivo, paciente, claro y seguro para que usar el celular
+          ya no sea un problema.
         </p>
-        <p class="footer__award">🏆 1.º puesto — Samsung Innovation Campus Argentina 2025</p>
+        <ul class="footer__award" aria-label="Reconocimientos">
+          <li><b>1.º</b>Samsung Innovation Campus 2025</li>
+          <li><b>3.º</b>Santander X Argentina Award 2026</li>
+        </ul>
         <ul class="footer__social" aria-label="Redes sociales de AIDA">
           <li>
             <a href="https://www.instagram.com/aidaasistente/" target="_blank" rel="noopener" aria-label="Instagram: @aidaasistente">
@@ -351,6 +352,12 @@
             <a href="https://www.facebook.com/AIDAasistente/" target="_blank" rel="noopener" aria-label="Facebook: AIDA asistente">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.7V13h2.7v8h3.1z"/></svg>
               <span>AIDA asistente</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/aidaasistente" target="_blank" rel="noopener" aria-label="LinkedIn: AIDA asistente">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
             </a>
           </li>
         </ul>

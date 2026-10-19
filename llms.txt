@@ -1,26 +1,28 @@
 # AIDA — Asistente Digital Unificado
 
-> AIDA es una aplicación para Android con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Deja una burbuja sobre la pantalla: la persona la toca, le habla o le escribe, AIDA mira lo que hay en la pantalla y contesta en voz alta, en palabras simples, qué tocar. También ayuda a saber si un mensaje es seguro. Está hecha en Argentina, en castellano rioplatense, y ganó el 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025.
+> AIDA es una aplicación para el celular con inteligencia artificial para adultos mayores con poca experiencia en tecnología. Deja una burbuja sobre la pantalla: la persona la toca, le habla o le escribe, AIDA mira lo que hay en la pantalla y contesta en voz alta, en palabras simples, qué tocar. También ayuda a saber si un mensaje es seguro. Está hecha en Argentina, en castellano rioplatense, ganó el 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025 y el 3.er puesto del Santander X Argentina Award 2026 (Proyectos Universitarios).
 
 ## Datos clave
 
 - Nombre: AIDA (Asistente Digital Unificado).
 - Para quién: adultos mayores con poca experiencia en tecnología, y sus familias y personas cuidadoras.
-- País e idioma: Argentina; castellano rioplatense. Contesta en el idioma que tenga configurado el teléfono.
-- Qué hace: burbuja flotante que se usa encima de cualquier aplicación; escucha y responde en voz alta (o por escrito); mira la pantalla cuando la persona la toca y marca con un anillo dónde tocar; ¿Es seguro? para revisar mensajes; avisos de estafa al momento (opcional: lee las notificaciones que llegan y avisa si algo parece una estafa, revisando casi todo dentro del teléfono); guías cotidianas, palabras del celular, preguntas frecuentes y teléfonos útiles; perfil personalizado; opciones para quien no ve bien.
+- País e idioma: Argentina; castellano rioplatense.
+- Qué hace: burbuja flotante que se usa encima de cualquier aplicación; mira la pantalla cuando la persona la toca y le dice qué tocar; marca con un anillo dorado dónde tocar y se fija si lo tocó; escucha y responde en voz alta (o por escrito); se llama con la voz diciendo «Hola AIDA»; ¿Es seguro? para revisar un mensaje pegado, dictado o en foto; avisos de estafa al momento (opcional: lee las notificaciones que llegan y avisa solo si algo parece una estafa, sin abrir, contestar ni borrar nada); abre o ayuda a instalar la aplicación que la persona nombra; guías cotidianas, palabras del celular y teléfonos útiles; perfil personalizado; opciones para quien no ve bien, compatible con TalkBack. No ve nada en aplicaciones de banco y billeteras.
 - Qué no hace: no da diagnósticos médicos ni asesoramiento financiero, y no reemplaza a un familiar ni a un profesional.
-- Plataforma: solo Android (11 o más nuevo). No hay versión para iPhone, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
-- Estado: la aplicación está en pruebas en teléfonos reales y todavía no está en Google Play.
+- Plataforma: celulares Android 11 o más nuevos. Hay una versión para iPhone en preparación, más simple, porque iOS no permite que una aplicación se muestre encima de otra ni lea lo que muestra otra aplicación.
+- Estado: la aplicación está en pruebas en teléfonos reales y todavía no está en las tiendas.
 - Disponibilidad: todavía no está abierta al público y no hay fecha anunciada. Hay una lista de espera en el sitio.
 - Precio: todavía no está definido. Va a haber una manera de usar AIDA sin pagar, y algunas cosas van a tener un costo.
 - Datos personales: la conversación y el perfil se guardan en el teléfono y se borran desde Ajustes. Para contestar, la pregunta y lo que ve de la pantalla pasan por un servidor de AIDA que los reenvía a Groq (servicio de modelos de IA) y no los guarda; las imágenes no se guardan. No se venden ni se comparten.
 - Equipo: Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial).
-- Reconocimiento: 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025 con la primera versión de AIDA, un asistente en Telegram que funcionó durante un tiempo (hoy el desarrollo es la app para Android), organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
+- Seguridad: Tech del Fuego, firma de ciberseguridad de Río Grande (Tierra del Fuego), audita la seguridad de AIDA y la protección de datos.
+- Reconocimientos: 3.er puesto nacional del Santander X Argentina Award 2026, categoría Proyectos Universitarios, con pase a la instancia internacional (Santander X Global Award). 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025 con la primera versión de AIDA, un asistente en Telegram que funcionó durante un tiempo (hoy el desarrollo es la app), organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
 - Contacto: aidaassistantbot@gmail.com
+- Links: https://aidaasistente.com/links/
 
 ## Páginas
 
-- [Inicio](https://aidaasistente.com/): qué es AIDA, funciones, cómo se empieza, la app para Android, estado del proyecto, equipo y preguntas frecuentes.
+- [Inicio](https://aidaasistente.com/): qué es AIDA, funciones, cómo se empieza, premios, estado del proyecto, equipo y preguntas frecuentes.
 - [Cómo está hecha](https://aidaasistente.com/tecnologia.html): arquitectura de la app Android, modelos de inteligencia artificial, voz, visión y decisiones de diseño.
 - [Privacidad y términos](https://aidaasistente.com/privacidad.html): qué datos usa la app, dónde quedan, qué sale del teléfono y cómo borrarlos.
 

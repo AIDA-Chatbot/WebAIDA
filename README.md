@@ -17,6 +17,7 @@ WebAIDA/
 ├── tecnologia.html             # Detalle técnico (arquitectura, stack, decisiones)
 ├── privacidad.html             # Política de privacidad y términos
 ├── 404.html                    # Página de error
+├── links/index.html            # aidaasistente.com/links: todos los links en una página (reemplaza al Linktree)
 ├── robots.txt · sitemap.xml    # Para buscadores (ver «SEO y visibilidad en IA»)
 ├── llms.txt                    # Resumen de AIDA para asistentes de IA
 ├── assets/
@@ -26,6 +27,8 @@ WebAIDA/
 │   ├── aida-ganadores.jpg      # Banner del premio
 │   ├── equipo-*.png            # Los tres integrantes en versión pingüino
 │   ├── aida-logo.jpg           # Logotipo horizontal original
+│   ├── aida-trofeo.png         # Pingüino con trofeo — tarjeta de Santander X
+│   ├── logos/tech-del-fuego.png # Aliado en ciberseguridad
 │   ├── og-image.jpg            # Imagen para compartir en redes (1200×630)
 │   └── favicon.ico · favicon-32.png · favicon-256.png
 ├── styles/main.css             # Sistema de diseño completo + componentes
@@ -42,15 +45,14 @@ recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
 |---|---|
 | `#inicio` | Hero con demo animada de una conversación real y métricas. En escritorio entra entero en la primera pantalla, incluso en una notebook con escala al 150 % (~1280×600) |
 | `#que-es` | Qué es AIDA y sus cuatro principios |
-| `#funciones` | Las 9 capacidades del asistente |
+| `#funciones` | Las 12 funciones de la app, con el aviso de que todavía no está en las tiendas |
 | `#como-funciona` | Los 4 pasos para empezar |
-| `#android` | Adelanto de la app para Android (todavía sin publicar): la burbuja, con un teléfono de ejemplo animado |
 | `#para-quien` | Personas mayores / familias y cuidadores |
 | `#video` | Video de presentación (se carga recién al hacer clic) |
-| `#premio` | La historia del 1.º puesto en el SIC 2025 |
+| `#premio` | Los dos premios: 1.º puesto en el SIC 2025 y 3.er puesto en el Santander X Argentina Award 2026 |
 | `#tecnologia` | Invitación a la página técnica (el detalle vive en `tecnologia.html`) |
 | `#estado` | Qué está listo, qué está en curso y qué viene |
-| `#equipo` | Integrantes y agradecimientos |
+| `#equipo` | Integrantes, Tech del Fuego (aliado en ciberseguridad) y agradecimientos |
 | `#preguntas` | Preguntas frecuentes |
 | `#lista-de-espera` | Formulario de la lista de espera |
 
