@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planes de AIDA</title>
+  <meta name="description" content="Vista previa de los planes y el pago de AIDA. Todavía no está conectado a ningún medio de pago." />
+  <!-- Vista previa: no se indexa ni se publica (no está en sitemap.xml ni en el workflow). -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#196F77" />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/favicon-256.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css?v=20261019d" />
+
+  <style>
+    /* Estilos propios de la vista previa de pago. Viven acá para no tocar main.css
+       mientras la pasarela no esté conectada. */
+    .preview-bar {
+      background: var(--c-gold-100);
+      border-bottom: 1px solid var(--c-gold);
+      color: var(--c-ink);
+      font-size: var(--text-xs);
+      text-align: center;
+      padding: .6rem var(--gutter);
+    }
+    .preview-bar strong { font-weight: 700; }
+
+    .tag-hypo {
+      display: inline-block;
+      margin-left: .4rem;
+      padding: .1rem .55rem;
+      border-radius: var(--r-pill);
+      background: var(--c-surface-2);
+      color: var(--c-muted);
+      font-size: .75rem; font-weight: 600;
+      vertical-align: middle;
+    }
+
+    /* Planes */
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+      gap: var(--sp-3);
+      margin-top: var(--sp-5);
+    }
+    .plan {
+      position: relative;
+      display: flex; flex-direction: column;
+      background: var(--c-white);
+      border: 2px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-3) var(--sp-3);
+      box-shadow: var(--sh-xs);
+      transition: border-color 200ms var(--ease), box-shadow 200ms var(--ease), transform 200ms var(--ease);
+    }
+    .plan:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+    .plan.is-selected { border-color: var(--c-primary); box-shadow: var(--sh-md); }
+    .plan--featured { border-color: var(--c-teal-300); }
+    .plan__badge {
+      position: absolute; top: -0.85rem; left: var(--sp-3);
+      background: var(--g-gold); color: var(--c-ink);
+      font-size: .78rem; font-weight: 700;
+      padding: .2rem .75rem; border-radius: var(--r-pill);
+      box-shadow: var(--sh-gold);
+    }
+    .plan h3 { font-size: var(--text-xl); margin-bottom: .25rem; }
+    .plan__for { color: var(--c-muted); font-size: var(--text-sm); margin-bottom: var(--sp-2); }
+    .plan__price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .45rem; margin-bottom: var(--sp-2); }
+    .plan__amount { font-family: var(--font-head); font-size: clamp(1.6rem, 1.2vw + 1.2rem, 2.1rem); font-weight: 800; color: var(--c-primary-900); white-space: nowrap; }
+    .plan__period { color: var(--c-muted); font-size: var(--text-sm); }
+    .plan .check-list { margin-top: 0; margin-bottom: var(--sp-3); flex: 1; }
+    .plan .check-list svg { color: var(--c-ok); }
+
+    .billing {
+      display: inline-flex; gap: .25rem;
+      margin-top: var(--sp-3);
+      padding: .3rem;
+      background: var(--c-surface-2);
+      border-radius: var(--r-pill);
+    }
+    .billing button {
+      border: 0; background: transparent; cursor: pointer;
+      font: inherit; font-size: var(--text-sm); font-weight: 600; color: var(--c-muted);
+      padding: .5rem 1.1rem; border-radius: var(--r-pill);
+    }
+    .billing button[aria-pressed="true"] { background: var(--c-white); color: var(--c-primary); box-shadow: var(--sh-xs); }
+    .billing small { color: var(--c-ok); font-weight: 700; }
+
+    /* Checkout */
+    .checkout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: var(--sp-4);
+      align-items: start;
+      margin-top: var(--sp-5);
+    }
+    @media (max-width: 860px) { .checkout { grid-template-columns: 1fr; } }
+
+    .pay-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-3);
+      box-shadow: var(--sh-sm);
+    }
+    .pay-step + .pay-step { margin-top: var(--sp-4); padding-top: var(--sp-4); border-top: 1px solid var(--c-border-soft); }
+    .pay-step h3 { display: flex; align-items: center; gap: .6rem; font-size: var(--text-lg); margin-bottom: var(--sp-2); }
+    .pay-step__n {
+      display: grid; place-items: center; flex: none;
+      width: 1.9rem; height: 1.9rem; border-radius: 50%;
+      background: var(--c-teal-100); color: var(--c-primary);
+      font-size: var(--text-sm); font-weight: 700;
+    }
+
+    .field { display: grid; gap: .35rem; margin-bottom: var(--sp-2); }
+    .field label { font-weight: 600; font-size: var(--text-sm); }
+    .field small { color: var(--c-muted); font-size: var(--text-xs); }
+    .field input {
+      width: 100%;
+      padding: .85rem 1rem;
+      font-size: var(--text-md);
+      color: var(--c-text);
+      background: var(--c-white);
+      border: 1.5px solid var(--c-border);
+      border-radius: var(--r-sm);
+      outline: none;
+      transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+    }
+    .field input:focus { border-color: var(--c-primary); box-shadow: 0 0 0 4px var(--c-teal-100); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); }
+
+    .methods { display: grid; gap: var(--sp-1); margin-bottom: var(--sp-3); }
+    .method {
+      display: flex; align-items: center; gap: .8rem;
+      padding: .9rem 1rem;
+      border: 1.5px solid var(--c-border);
+      border-radius: var(--r-md);
+      cursor: pointer;
+      transition: border-color 160ms var(--ease), background 160ms var(--ease);
+    }
+    .method:has(input:checked) { border-color: var(--c-primary); background: var(--c-teal-50); }
+    .method input { accent-color: var(--c-primary); width: 1.2rem; height: 1.2rem; }
+    .method__text { display: grid; line-height: 1.35; }
+    .method__text b { font-size: var(--text-sm); }
+    .method__text span { color: var(--c-muted); font-size: var(--text-xs); }
+    .method svg { margin-left: auto; width: 28px; height: 28px; color: var(--c-primary); flex: none; }
+
+    .card-fields[hidden], .redirect-note[hidden] { display: none; }
+    .redirect-note {
+      padding: var(--sp-2);
+      border-radius: var(--r-md);
+      background: var(--c-surface);
+      color: var(--c-muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--sp-2);
+    }
+
+    .summary {
+      position: sticky; top: calc(var(--nav-h) + var(--sp-2));
+      background: var(--g-deep);
+      color: var(--c-white);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-3);
+      box-shadow: var(--sh-lg);
+    }
+    .summary h3 { color: var(--c-white); font-size: var(--text-lg); margin-bottom: var(--sp-3); }
+    .summary dl { display: grid; gap: .7rem; }
+    .summary dl div { display: flex; justify-content: space-between; gap: var(--sp-2); font-size: var(--text-sm); }
+    .summary dt { color: rgba(255,255,255,.7); }
+    .summary dd { font-weight: 600; text-align: right; }
+    .summary__total {
+      margin-top: var(--sp-2); padding-top: var(--sp-2);
+      border-top: 1px solid rgba(255,255,255,.18);
+      font-size: var(--text-md) !important;
+    }
+    .summary__total dd { font-family: var(--font-head); font-size: var(--text-xl); color: var(--c-gold); }
+    .summary ul { margin-top: var(--sp-3); display: grid; gap: .5rem; font-size: var(--text-xs); color: rgba(255,255,255,.75); }
+    .summary li { display: flex; gap: .5rem; }
+    .summary li svg { flex: none; width: 18px; height: 18px; color: var(--c-teal-300); margin-top: 2px; }
+
+    .pay-legal { margin-top: var(--sp-2); color: var(--c-muted); font-size: var(--text-xs); }
+    .pay-legal a { color: var(--c-primary); text-decoration: underline; text-underline-offset: 3px; }
+
+    .pay-done {
+      text-align: center;
+      padding: var(--sp-6) var(--sp-3);
+    }
+    .pay-done img { margin: 0 auto var(--sp-3); }
+    .pay-done h3 { font-size: var(--text-xl); margin-bottom: var(--sp-1); }
+    .pay-done p { color: var(--c-muted); max-width: 44ch; margin: 0 auto var(--sp-3); }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-text-size" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 8 6l5 12"/><path d="M4.6 14.5h6.8"/><path d="M15 18l3.5-8 3.5 8"/><path d="M16.1 15.6h4.8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-4a2 2 0 0 0 0 4h4v3a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+</svg>
+
+<div class="preview-bar" role="note">
+  <strong>Vista previa.</strong> La pasarela de pago todavía no está conectada: nada de esta página cobra ni guarda datos. Los precios son de ejemplo.
+</div>
+
+<!-- ===================== NAV ========================= -->
+<header class="nav is-scrolled" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="index.html" aria-label="AIDA — volver al inicio">
+      <img src="assets/aida-mark.png" alt="" width="42" height="42" />
+      <span class="brand__text">
+        <span class="brand__name">AIDA</span>
+        <span class="brand__tag">Asistente Digital</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a class="nav__link" href="index.html#que-es">Qué es</a>
+      <a class="nav__link" href="index.html#funciones">Funciones</a>
+      <a class="nav__link is-active" href="planes.html" aria-current="page">Planes</a>
+      <a class="nav__link" href="tecnologia.html">Tecnología</a>
+      <a class="nav__link" href="index.html#equipo">Equipo</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="a11y-toggle" id="text-size" type="button" aria-pressed="false"
+              title="Agrandar el texto de toda la página">
+        <svg aria-hidden="true"><use href="#i-text-size"/></svg>
+        <span>Texto grande</span>
+        <span class="sr-only">Activar o desactivar el modo de texto grande</span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="#pagar">Suscribirme</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ENCABEZADO ================== -->
+<div class="page-hero">
+  <div class="container">
+    <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
+    <h1>Planes de AIDA</h1>
+    <p style="max-width:62ch">
+      Lo importante es gratis: preguntarle a AIDA «¿Es seguro?» no cuesta nada, nunca.
+      Los planes pagos son para la familia que quiere más tiempo de compañía y estar al
+      tanto de cómo le va a quien cuida.
+    </p>
+    <div class="billing" role="group" aria-label="Forma de cobro">
+      <button type="button" data-billing="mensual" aria-pressed="true">Por mes</button>
+      <button type="button" data-billing="anual" aria-pressed="false">Por año <small>2 meses gratis</small></button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ===================== PLANES ===================== -->
+  <section class="section" aria-labelledby="planes-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Elegí un plan</span>
+        <h2 class="section-title" id="planes-title">Uno para cada familia <span class="tag-hypo">Precios de ejemplo</span></h2>
+        <p class="section-desc">Paga la familia, no la persona mayor. Se puede cancelar cuando quieras, desde acá o desde la app.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan" data-plan="gratis" data-mensual="0" data-anual="0">
+          <h3>Gratis</h3>
+          <p class="plan__for">Para empezar a usar AIDA</p>
+          <p class="plan__price"><span class="plan__amount">USD 0</span><span class="plan__period">para siempre</span></p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>«¿Es seguro?» sin límite</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Avisos de estafa</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Consultas por día con un máximo</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="index.html#lista-de-espera">Anotarme en la lista</a>
+        </article>
+
+        <article class="plan plan--featured is-selected" data-plan="personal" data-mensual="4.99" data-anual="49.90">
+          <span class="plan__badge">El más elegido</span>
+          <h3>Personal</h3>
+          <p class="plan__for">Para una persona mayor</p>
+          <p class="plan__price"><span class="plan__amount" data-amount>USD 4,99</span><span class="plan__period" data-period>por mes</span></p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del plan Gratis</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Muchas más consultas por día</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Una persona de confianza que recibe avisos</li>
+          </ul>
+          <button class="btn btn--dark btn--block" type="button" data-choose>Elegir Personal</button>
+        </article>
+
+        <article class="plan" data-plan="familia" data-mensual="9.99" data-anual="99.90">
+          <h3>Familia</h3>
+          <p class="plan__for">Hasta tres personas mayores</p>
+          <p class="plan__price"><span class="plan__amount" data-amount>USD 9,99</span><span class="plan__period" data-period>por mes</span></p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del plan Personal</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hasta tres teléfonos</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Varias personas de confianza</li>
+          </ul>
+          <button class="btn btn--outline btn--block" type="button" data-choose>Elegir Familia</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PAGO ======================= -->
+  <section class="section section--alt" id="pagar" aria-labelledby="pagar-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Pago</span>
+        <h2 class="section-title" id="pagar-title">Completá tus datos</h2>
+        <p class="section-desc">Tarda un minuto. Antes de confirmar vas a ver exactamente cuánto se cobra y cada cuánto.</p>
+      </div>
+
+      <div class="checkout">
+        <form class="pay-card" id="pay-form" novalidate>
+          <div class="pay-step">
+            <h3><span class="pay-step__n">1</span>Quién paga</h3>
+            <div class="field">
+              <label for="pay-email">Tu correo</label>
+              <input id="pay-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
+              <small>Ahí te mandamos el comprobante y el aviso antes de cada cobro.</small>
+            </div>
+          </div>
+
+          <div class="pay-step">
+            <h3><span class="pay-step__n">2</span>Para quién es</h3>
+            <div class="field">
+              <label for="pay-who">Nombre de la persona que va a usar AIDA</label>
+              <input id="pay-who" type="text" autocomplete="off" placeholder="Por ejemplo: Abuela Marta" />
+              <small>Es opcional. Sirve para que la reconozcas en tu cuenta.</small>
+            </div>
+          </div>
+
+          <div class="pay-step">
+            <h3><span class="pay-step__n">3</span>Cómo pagás</h3>
+            <div class="methods" role="radiogroup" aria-label="Medio de pago">
+              <label class="method">
+                <input type="radio" name="method" value="tarjeta" checked />
+                <span class="method__text"><b>Tarjeta de crédito o débito</b><span>Visa, Mastercard, American Express</span></span>
+                <svg aria-hidden="true"><use href="#i-card"/></svg>
+              </label>
+              <label class="method">
+                <input type="radio" name="method" value="billetera" />
+                <span class="method__text"><b>Billetera virtual</b><span>Te llevamos a la página de pago y volvés acá</span></span>
+                <svg aria-hidden="true"><use href="#i-wallet"/></svg>
+              </label>
+            </div>
+
+            <div class="card-fields" id="card-fields">
+              <div class="field">
+                <label for="card-number">Número de la tarjeta</label>
+                <input id="card-number" inputmode="numeric" autocomplete="off" placeholder="0000 0000 0000 0000" maxlength="19" />
+              </div>
+              <div class="field">
+                <label for="card-name">Nombre como figura en la tarjeta</label>
+                <input id="card-name" type="text" autocomplete="off" />
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="card-exp">Vencimiento</label>
+                  <input id="card-exp" inputmode="numeric" autocomplete="off" placeholder="MM/AA" maxlength="5" />
+                </div>
+                <div class="field">
+                  <label for="card-cvc">Código de seguridad</label>
+                  <input id="card-cvc" inputmode="numeric" autocomplete="off" placeholder="3 o 4 números" maxlength="4" />
+                </div>
+              </div>
+            </div>
+            <p class="redirect-note" id="redirect-note" hidden>
+              Al tocar «Pagar» te llevamos a la página segura de la billetera para confirmar el pago.
+              Cuando termines, volvés solo a esta página.
+            </p>
+
+            <button class="btn btn--primary btn--block" type="submit" id="pay-submit">
+              <svg aria-hidden="true"><use href="#i-lock"/></svg>
+              <span>Pagar <span data-total>USD 4,99</span></span>
+            </button>
+            <p class="pay-legal">
+              Al pagar aceptás los <a href="privacidad.html">términos y la política de privacidad</a>.
+              Los datos de la tarjeta los procesa el proveedor de pago: AIDA no los ve ni los guarda.
+            </p>
+          </div>
+        </form>
+
+        <aside class="summary" aria-labelledby="summary-title">
+          <h3 id="summary-title">Tu resumen</h3>
+          <dl>
+            <div><dt>Plan</dt><dd data-sum-plan>Personal</dd></div>
+            <div><dt>Cobro</dt><dd data-sum-billing>Todos los meses</dd></div>
+            <div><dt>Primer cobro</dt><dd>Hoy</dd></div>
+            <div class="summary__total"><dt>Total</dt><dd data-total>USD 4,99</dd></div>
+          </dl>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Te avisamos por correo 3 días antes de cada cobro.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cancelás cuando quieras, sin llamar a nadie.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>«¿Es seguro?» sigue siendo gratis aunque canceles.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> AIDA. Hecho en Argentina con paciencia.</p>
+      <p><a href="privacidad.html" style="color:inherit">Privacidad y términos</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/main.js?v=20261002c" defer></script>
+<script>
+  // Vista previa: simula la elección de plan y el pago. No se conecta a ningún proveedor.
+  (function () {
+    var billing = 'mensual';
+    var selected = document.querySelector('.plan.is-selected');
+    var fmt = function (n) { return 'USD ' + n.toFixed(2).replace('.', ','); };
+
+    function render() {
+      document.querySelectorAll('.plan').forEach(function (plan) {
+        var amount = plan.querySelector('[data-amount]');
+        if (!amount) return;
+        amount.textContent = fmt(parseFloat(plan.dataset[billing]));
+        plan.querySelector('[data-period]').textContent = billing === 'mensual' ? 'por mes' : 'por año';
+      });
+      var total = fmt(parseFloat(selected.dataset[billing]));
+      document.querySelectorAll('[data-total]').forEach(function (el) { el.textContent = total; });
+      document.querySelector('[data-sum-plan]').textContent = selected.querySelector('h3').textContent;
+      document.querySelector('[data-sum-billing]').textContent = billing === 'mensual' ? 'Todos los meses' : 'Una vez por año';
+    }
+
+    document.querySelectorAll('[data-billing]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        billing = btn.dataset.billing;
+        document.querySelectorAll('[data-billing]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        render();
+      });
+    });
+
+    document.querySelectorAll('[data-choose]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selected.classList.remove('is-selected');
+        selected.querySelector('[data-choose]').className = 'btn btn--outline btn--block';
+        selected = btn.closest('.plan');
+        selected.classList.add('is-selected');
+        btn.className = 'btn btn--dark btn--block';
+        render();
+        document.getElementById('pagar').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    document.querySelectorAll('input[name="method"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        var card = r.value === 'tarjeta' && r.checked;
+        document.getElementById('card-fields').hidden = !card;
+        document.getElementById('redirect-note').hidden = card;
+      });
+    });
+
+    document.getElementById('card-number').addEventListener('input', function (e) {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 ');
+    });
+    document.getElementById('card-exp').addEventListener('input', function (e) {
+      var v = e.target.value.replace(/\D/g, '').slice(0, 4);
+      e.target.value = v.length > 2 ? v.slice(0, 2) + '/' + v.slice(2) : v;
+    });
+    document.getElementById('card-cvc').addEventListener('input', function (e) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    });
+
+    var form = document.getElementById('pay-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('pay-email');
+      if (!email.checkValidity()) { email.focus(); email.reportValidity(); return; }
+      var submit = document.getElementById('pay-submit');
+      submit.setAttribute('data-loading', '');
+      setTimeout(function () {
+        form.innerHTML =
+          '<div class="pay-done" role="status">' +
+            '<img src="assets/aida-wave.png" alt="" width="120" height="120" />' +
+            '<h3>¡Listo! (es una vista previa)</h3>' +
+            '<p>Acá vería el comprobante quien pague. No se cobró nada y no se guardó ningún dato: ' +
+            'la pasarela todavía no está conectada.</p>' +
+            '<a class="btn btn--outline" href="planes.html">Volver a empezar</a>' +
+          '</div>';
+      }, 1200);
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
