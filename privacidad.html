@@ -42,7 +42,7 @@
         "publisher": {
           "@id": "https://aidaasistente.com/#organizacion"
         },
-        "dateModified": "2026-10-05"
+        "dateModified": "2026-10-20"
       },
       {
         "@type": "BreadcrumbList",
@@ -109,7 +109,7 @@
     <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
-    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 5 de octubre de 2026</span></p>
+    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 20 de octubre de 2026</span></p>
   </div>
 </div>
 
@@ -133,7 +133,7 @@
         <h2 id="resumen-title">Resumen en tres líneas</h2>
         <div class="prose__note">
           <p><strong>1.</strong> La conversación, tu perfil (nombre, preferencias) y lo que AIDA revisó por estafas se guardan en tu teléfono; el servidor de AIDA no los guarda.</p>
-          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo (Groq). Ni ese servidor ni las imágenes guardan nada. No vendemos ni compartimos nada.</p>
+          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo (Groq). Ni ese servidor ni las imágenes guardan lo que preguntaste. Lo que sí cuenta, sin tu nombre, es cuántas veces y de qué manera se usa AIDA, para mejorarla. No vendemos ni compartimos nada.</p>
           <p><strong>3.</strong> Borrás todo desde Ajustes. Para sacar tu correo de la lista de espera, escribinos a <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a>.</p>
         </div>
         <p>
@@ -159,7 +159,7 @@
           <li>Lo que muestra la pantalla, solo cuando la persona toca la burbuja, y las fotos que elija mostrarle.</li>
           <li>Lo que la persona dice, que lo transforma en texto el reconocimiento de voz del propio teléfono (que puede ser el de Google, con su propia política). AIDA no graba ni guarda el audio.</li>
           <li>Si la persona toca «Esto está mal» en una respuesta, esa respuesta, la pregunta (que puede incluir el texto de un mensaje que recibió) y el motivo elegido. Se guardan 90 días y después se borran.</li>
-          <li>En los planes pagos, si la persona elige avisar a una persona de confianza: el nombre y el número de WhatsApp de esa persona y lo que se le mandó.</li>
+          <li>Si la persona elige a alguien de su familia para que reciba sus avisos en la app <strong>AIDA Familia</strong>: su propio nombre (el que va en el aviso), el nombre de esa persona, los avisos que se le mandaron y lo que contestó («Ya te llamo»). A la familia solo le llega lo que la persona toca («Pedir ayuda» o «Avisale» cuando algo no le sale), nunca algo automático. Una vez por día la aplicación avisa al servidor que sigue funcionando; ese dato no se le muestra a la familia. De quien usa AIDA Familia se guarda el nombre que eligió y el código de su teléfono para las notificaciones (de Google Firebase), sin número de teléfono.</li>
           <li>Si la persona prende los <strong>avisos de estafa</strong> (vienen apagados), las notificaciones que le llegan al teléfono: los mensajes, los correos y los avisos de páginas y aplicaciones. AIDA las lee para avisarle en el momento si algo parece una estafa, pero nunca las abre, las contesta ni las borra.</li>
         </ul>
 
@@ -181,7 +181,7 @@
         <h3>Qué sale del teléfono</h3>
         <p>
           Para contestar, AIDA manda el texto de la pregunta, lo que ve de la pantalla (o la foto
-          elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo único que registra es un identificador al azar por instalación (sin nombre ni teléfono) y cuántas consultas hace, para ponerles un límite. Si tocás «Esto está mal», esa respuesta y tu pregunta sí llegan al equipo de AIDA, que las guarda hasta 90 días para corregirla; es la única excepción. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
+          elegida) y el perfil a un servidor de AIDA. Ese servidor solo reenvía la consulta al servicio externo que genera la respuesta (ver <a href="#terceros">Servicios de terceros</a>) y devuelve la respuesta: no guarda la conversación, las capturas ni las fotos. Lo que sí registra son las estadísticas de uso que se explican abajo, sin nada de lo que dijiste. Si tocás «Esto está mal», esa respuesta y tu pregunta sí llegan al equipo de AIDA, que las guarda hasta 90 días para corregirla; es la única excepción. El servidor existe para que la clave del servicio externo no viaje dentro de la app.
         </p>
         <p>
           Con los avisos de estafa prendidos, casi todas las notificaciones se revisan dentro del
@@ -190,10 +190,48 @@
           la mandó, por el mismo camino que una pregunta, para que el modelo diga si es una estafa. Se
           trata igual que una pregunta: el servidor no lo guarda.
         </p>
+        <p>
+          Con cada pedido, la aplicación también manda su número de versión. Si es una versión que ya no
+          se atiende, el servidor no contesta y la aplicación pide que la actualices.
+        </p>
+
+        <h3 id="estadisticas">Estadísticas de uso</h3>
+        <p>
+          Para saber si AIDA sirve, qué hay que mejorar y cuánto cuesta mantenerla, el servidor lleva
+          estas cuentas. <strong>Ninguna incluye lo que preguntaste, lo que AIDA contestó ni lo que había
+          en tu pantalla</strong>, ni tu nombre, tu teléfono, tu correo o tu ubicación:
+        </p>
+        <ul>
+          <li><strong>Por instalación</strong>, con un identificador al azar que crea la aplicación (no dice quién sos): el día en que se instaló, la versión de la aplicación, el plan, y cuántas consultas hizo cada día y cuánto costó contestarlas.</li>
+          <li><strong>Sin identificador</strong>, sumado entre todas las personas y por día: cuántas consultas hubo de cada tipo (por voz o escritas, mirando la pantalla o en la charla, con foto, revisando si algo es una estafa), en qué idioma, cuánto se tardó en contestar, cuántas fallaron y por qué, y cuántos reportes «Esto está mal» hubo de cada motivo. También cuántas consultas vinieron de personas que en su perfil eligieron cada nivel de experiencia con el teléfono, o que usan un lector de pantalla, sin guardar el perfil.</li>
+        </ul>
+        <p>
+          Con eso calculamos cuántas personas usan AIDA por día, por semana y por mes, cuántas vuelven,
+          qué funciones se usan y dónde falla.
+        </p>
 
         <h3>Para qué usamos esta información</h3>
-        <p>Exclusivamente para contestar la pregunta y para personalizar cómo te habla AIDA.</p>
+        <p>Para contestar la pregunta, para personalizar cómo te habla AIDA y, con las estadísticas de uso, para mejorar el servicio.</p>
+        <p>
+          Podemos mostrar números generales, como «AIDA respondió 10.000 preguntas este mes», en
+          presentaciones o en este sitio. Nunca datos de una persona.
+        </p>
         <p><strong>No vendemos ni compartimos datos con terceros con fines comerciales.</strong></p>
+
+        <h3 id="plazos">Dónde está el servidor y cuánto tiempo se guarda</h3>
+        <p>
+          El servidor de AIDA funciona en <strong>Amazon Web Services, en los Estados Unidos</strong>, y el
+          servicio que arma las respuestas (Groq) también. Al aceptar «Antes de empezar» en la aplicación
+          aceptás que tus consultas se procesen allí. Si el servidor se muda, lo decimos en esta página.
+        </p>
+        <ul>
+          <li><strong>Tu pregunta, lo que había en la pantalla y la respuesta:</strong> no se guardan.</li>
+          <li><strong>Los reportes «Esto está mal»:</strong> 90 días.</li>
+          <li><strong>Las consultas por día de tu instalación:</strong> 400 días (un año y un mes, para poder comparar con el año anterior). Después solo quedan sumadas con las de todos, sin identificador.</li>
+          <li><strong>El identificador, la fecha de instalación, la versión y el plan:</strong> mientras la aplicación siga en uso, o hasta que los borres.</li>
+          <li><strong>Las cuentas sin identificador:</strong> sin plazo, porque no se pueden asociar a nadie.</li>
+          <li><strong>Copias de seguridad</strong> de todo lo anterior: 14 días. Lo que borres desaparece también de las copias en ese plazo.</li>
+        </ul>
 
         <h3>La lista de espera</h3>
         <p>
@@ -206,7 +244,8 @@
         <ul>
           <li>Borrar la conversación y el perfil desde Ajustes, sin pedirle permiso a nadie.</li>
           <li>Apagar los avisos de estafa desde Ajustes («Avisarme si me llega una estafa»), sacarle a AIDA el acceso a las notificaciones en los ajustes del teléfono, y borrar lo que AIDA revisó.</li>
-          <li>Borrar del servidor lo que AIDA tiene de tu instalación (el identificador, el conteo y los reportes), con el botón «Borrar lo que AIDA tiene de mí» en Ajustes.</li>
+          <li>Borrar del servidor lo que AIDA tiene de tu instalación (el identificador, el conteo y los reportes), con el botón «Borrar lo que AIDA tiene de mí» en Ajustes. Las cuentas que ya están sumadas sin identificador no se pueden separar, porque no dicen de quién son.</li>
+          <li>Pedirnos gratis, cada seis meses, qué datos tenemos de tu instalación (Ley 25.326, art. 14).</li>
           <li>Retirar el permiso para mandar tus consultas desde Ajustes («Tus datos»). Sin ese permiso AIDA no puede contestarte.</li>
           <li>Pedirnos que borremos tu correo de la lista de espera.</li>
           <li>Consultarnos cómo se usa tu información.</li>
@@ -215,11 +254,18 @@
           Para ejercer estos derechos, escribinos a
           <a href="mailto:aidaassistantbot@gmail.com">aidaassistantbot@gmail.com</a>.
         </p>
+        <p>
+          La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley
+          N.º 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes
+          resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de
+          protección de datos personales.
+        </p>
 
         <h3>Seguridad</h3>
         <p>
-          Tomamos medidas razonables para proteger la información: los datos quedan en el teléfono y la
-          conexión con el servicio externo va cifrada. Ningún sistema es
+          Tomamos medidas razonables para proteger la información: los datos quedan en el teléfono, la
+          conexión con el servidor de AIDA y la del servidor con el servicio externo van cifradas, y las
+          estadísticas solo las ve el equipo de AIDA, con una clave. Ningún sistema es
           completamente infalible, por lo que recomendamos <strong>no compartir datos extremadamente
           sensibles</strong>, como información bancaria, contraseñas o datos de salud detallados.
         </p>
@@ -239,8 +285,9 @@
           contenido se procesa en esa plataforma, con sus propias políticas:
         </p>
         <ul>
-          <li><strong>Servidor de AIDA</strong> — recibe la consulta, la reenvía a Groq con la clave de AIDA y te devuelve la respuesta, sin guardarla.</li>
+          <li><strong>Servidor de AIDA</strong> — recibe la consulta, la reenvía a Groq con la clave de AIDA y te devuelve la respuesta, sin guardarla. Funciona en <strong>Amazon Web Services</strong> (Estados Unidos), que lo aloja y no usa los datos para nada propio.</li>
           <li><strong>Groq</strong> — procesamiento de los modelos de lenguaje y de visión que generan la respuesta.</li>
+          <li><strong>Google Firebase Cloud Messaging</strong> — lleva las notificaciones a la app AIDA Familia. Solo transporta un aviso de que hay novedades, sin su contenido: la app lo busca después en el servidor de AIDA.</li>
         </ul>
         <h3 id="medicion">Este sitio web</h3>
         <p>
@@ -289,6 +336,19 @@
           <li>No compartir contenido ofensivo, discriminatorio o inapropiado.</li>
         </ul>
 
+        <h3>Cuánto se puede usar</h3>
+        <p>
+          AIDA es gratis. Para que alcance para todos, cada instalación tiene un máximo de consultas por
+          día; al llegar, AIDA avisa y se puede seguir al día siguiente. Si algún día hay planes pagos,
+          su precio y lo que incluyen se muestran antes de pagar.
+        </p>
+
+        <h3>Actualizaciones</h3>
+        <p>
+          Para corregir errores o proteger a quienes la usan, podemos dejar de atender versiones viejas
+          de la aplicación. En ese caso AIDA lo avisa y pide actualizarla desde Google Play, sin costo.
+        </p>
+
         <h3>Límites de responsabilidad</h3>
         <p>
           Aunque buscamos que AIDA sea preciso y útil, puede cometer errores. Las respuestas del
@@ -306,7 +366,14 @@
         <h3>Modificaciones</h3>
         <p>
           Nos reservamos el derecho de actualizar o modificar estas condiciones cuando sea necesario.
-          Los cambios se comunican a través de este mismo sitio.
+          Los cambios se comunican a través de este mismo sitio y, si cambian qué datos se usan, también
+          dentro de la aplicación.
+        </p>
+
+        <h3>Ley aplicable</h3>
+        <p>
+          Estas condiciones se rigen por las leyes de la República Argentina, incluidas la Ley 24.240 de
+          Defensa del Consumidor y la Ley 25.326 de Protección de los Datos Personales.
         </p>
       </section>
 
