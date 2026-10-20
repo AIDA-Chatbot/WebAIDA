@@ -45,7 +45,7 @@
     /* Planes */
     .plans {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(16.5rem, 22rem));
       gap: var(--sp-3);
       margin-top: var(--sp-5);
     }
@@ -76,21 +76,6 @@
     .plan__period { color: var(--c-muted); font-size: var(--text-sm); }
     .plan .check-list { margin-top: 0; margin-bottom: var(--sp-3); flex: 1; }
     .plan .check-list svg { color: var(--c-ok); }
-
-    .billing {
-      display: inline-flex; gap: .25rem;
-      margin-top: var(--sp-3);
-      padding: .3rem;
-      background: var(--c-surface-2);
-      border-radius: var(--r-pill);
-    }
-    .billing button {
-      border: 0; background: transparent; cursor: pointer;
-      font: inherit; font-size: var(--text-sm); font-weight: 600; color: var(--c-muted);
-      padding: .5rem 1.1rem; border-radius: var(--r-pill);
-    }
-    .billing button[aria-pressed="true"] { background: var(--c-white); color: var(--c-primary); box-shadow: var(--sh-xs); }
-    .billing small { color: var(--c-ok); font-weight: 700; }
 
     /* Checkout */
     .checkout {
@@ -250,14 +235,10 @@
     <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Planes de AIDA</h1>
     <p style="max-width:62ch">
-      Lo importante es gratis: preguntarle a AIDA «¿Es seguro?» no cuesta nada, nunca.
-      Los planes pagos son para la familia que quiere más tiempo de compañía y estar al
-      tanto de cómo le va a quien cuida.
+      Con el plan Personal, AIDA acompaña a tu familiar todos los días, sin quedarse corta:
+      le explica con paciencia, lo guía paso a paso en el celular y te avisa a vos cuando
+      necesita una mano.
     </p>
-    <div class="billing" role="group" aria-label="Forma de cobro">
-      <button type="button" data-billing="mensual" aria-pressed="true">Por mes</button>
-      <button type="button" data-billing="anual" aria-pressed="false">Por año <small>2 meses gratis</small></button>
-    </div>
   </div>
 </div>
 
@@ -268,7 +249,7 @@
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Elegí un plan</span>
-        <h2 class="section-title" id="planes-title">Uno para cada familia <span class="tag-hypo">Precios de ejemplo</span></h2>
+        <h2 class="section-title" id="planes-title">Más AIDA para quien cuidás <span class="tag-hypo">Precios de ejemplo</span></h2>
         <p class="section-desc">Paga la familia, no la persona mayor. Se puede cancelar cuando quieras, desde acá o desde la app.</p>
       </div>
 
@@ -285,29 +266,17 @@
           <a class="btn btn--outline btn--block" href="index.html#lista-de-espera">Anotarme en la lista</a>
         </article>
 
-        <article class="plan plan--featured is-selected" data-plan="personal" data-mensual="4.99" data-anual="49.90">
-          <span class="plan__badge">El más elegido</span>
+        <article class="plan plan--featured is-selected">
+          <span class="plan__badge">Recomendado</span>
           <h3>Personal</h3>
           <p class="plan__for">Para una persona mayor</p>
-          <p class="plan__price"><span class="plan__amount" data-amount>USD 4,99</span><span class="plan__period" data-period>por mes</span></p>
+          <p class="plan__price"><span class="plan__amount">USD 4,99</span><span class="plan__period">por mes</span></p>
           <ul class="check-list">
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del plan Gratis</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Muchas más consultas por día</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Una persona de confianza que recibe avisos</li>
           </ul>
-          <button class="btn btn--dark btn--block" type="button" data-choose>Elegir Personal</button>
-        </article>
-
-        <article class="plan" data-plan="familia" data-mensual="9.99" data-anual="99.90">
-          <h3>Familia</h3>
-          <p class="plan__for">Hasta tres personas mayores</p>
-          <p class="plan__price"><span class="plan__amount" data-amount>USD 9,99</span><span class="plan__period" data-period>por mes</span></p>
-          <ul class="check-list">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del plan Personal</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hasta tres teléfonos</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Varias personas de confianza</li>
-          </ul>
-          <button class="btn btn--outline btn--block" type="button" data-choose>Elegir Familia</button>
+          <a class="btn btn--dark btn--block" href="#pagar">Elegir Personal</a>
         </article>
       </div>
     </div>
@@ -329,7 +298,7 @@
             <div class="field">
               <label for="pay-email">Tu correo</label>
               <input id="pay-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
-              <small>Ahí te mandamos el comprobante y el aviso antes de cada cobro.</small>
+              <small>Ahí te llega el comprobante de cada pago.</small>
             </div>
           </div>
 
@@ -384,7 +353,7 @@
 
             <button class="btn btn--primary btn--block" type="submit" id="pay-submit">
               <svg aria-hidden="true"><use href="#i-lock"/></svg>
-              <span>Pagar <span data-total>USD 4,99</span></span>
+              <span>Pagar USD 4,99</span>
             </button>
             <p class="pay-legal">
               Al pagar aceptás los <a href="privacidad.html">términos y la política de privacidad</a>.
@@ -396,15 +365,13 @@
         <aside class="summary" aria-labelledby="summary-title">
           <h3 id="summary-title">Tu resumen</h3>
           <dl>
-            <div><dt>Plan</dt><dd data-sum-plan>Personal</dd></div>
-            <div><dt>Cobro</dt><dd data-sum-billing>Todos los meses</dd></div>
+            <div><dt>Plan</dt><dd>Personal</dd></div>
+            <div><dt>Cobro</dt><dd>Mensual</dd></div>
             <div><dt>Primer cobro</dt><dd>Hoy</dd></div>
-            <div class="summary__total"><dt>Total</dt><dd data-total>USD 4,99</dd></div>
+            <div class="summary__total"><dt>Total</dt><dd>USD 4,99</dd></div>
           </dl>
           <ul>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Te avisamos por correo 3 días antes de cada cobro.</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cancelás cuando quieras, sin llamar a nadie.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>«¿Es seguro?» sigue siendo gratis aunque canceles.</li>
           </ul>
         </aside>
       </div>
@@ -427,43 +394,6 @@
 <script>
   // Vista previa: simula la elección de plan y el pago. No se conecta a ningún proveedor.
   (function () {
-    var billing = 'mensual';
-    var selected = document.querySelector('.plan.is-selected');
-    var fmt = function (n) { return 'USD ' + n.toFixed(2).replace('.', ','); };
-
-    function render() {
-      document.querySelectorAll('.plan').forEach(function (plan) {
-        var amount = plan.querySelector('[data-amount]');
-        if (!amount) return;
-        amount.textContent = fmt(parseFloat(plan.dataset[billing]));
-        plan.querySelector('[data-period]').textContent = billing === 'mensual' ? 'por mes' : 'por año';
-      });
-      var total = fmt(parseFloat(selected.dataset[billing]));
-      document.querySelectorAll('[data-total]').forEach(function (el) { el.textContent = total; });
-      document.querySelector('[data-sum-plan]').textContent = selected.querySelector('h3').textContent;
-      document.querySelector('[data-sum-billing]').textContent = billing === 'mensual' ? 'Todos los meses' : 'Una vez por año';
-    }
-
-    document.querySelectorAll('[data-billing]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        billing = btn.dataset.billing;
-        document.querySelectorAll('[data-billing]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-        render();
-      });
-    });
-
-    document.querySelectorAll('[data-choose]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        selected.classList.remove('is-selected');
-        selected.querySelector('[data-choose]').className = 'btn btn--outline btn--block';
-        selected = btn.closest('.plan');
-        selected.classList.add('is-selected');
-        btn.className = 'btn btn--dark btn--block';
-        render();
-        document.getElementById('pagar').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
     document.querySelectorAll('input[name="method"]').forEach(function (r) {
       r.addEventListener('change', function () {
         var card = r.value === 'tarjeta' && r.checked;
@@ -501,8 +431,6 @@
           '</div>';
       }, 1200);
     });
-
-    render();
   })();
 </script>
 </body>
