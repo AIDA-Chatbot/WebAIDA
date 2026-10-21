@@ -692,20 +692,27 @@ p { text-wrap: pretty; }
 .f-card p { font-size: var(--text-sm); color: var(--c-muted); }
 
 .peek-hint { margin-top: var(--sp-2); font-size: var(--text-xs); color: var(--c-muted-2); }
-.f-card--peek {
-  min-height: 210px;
-  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+/* Chatas: ícono al lado del título. El texto ocupa la misma celda de la grilla,
+   así la tarjeta mide lo justo para él y no queda espacio de sobra. */
+.f-card--peek,
+.grid-cards--4 .f-card.f-card--peek {
+  display: grid; grid-template-columns: calc(48px + var(--sp-3)) minmax(0, 1fr); align-items: center; column-gap: var(--sp-2);
+  padding: 0;
   cursor: default; overflow: hidden;
 }
 .f-card--peek:focus-visible { outline: 3px solid var(--c-gold); outline-offset: 3px; }
-.f-card--peek h3 { margin-bottom: 0; }
+.f-card--peek .f-card__icon {
+  grid-area: 1 / 1; margin: var(--sp-3) 0 var(--sp-3) var(--sp-3);
+  width: 48px; height: 48px; border-radius: 16px;
+}
+.f-card--peek h3 { grid-area: 1 / 2; margin: 0 var(--sp-3) 0 0; font-size: var(--text-md); line-height: 1.35; }
 .f-card--peek .f-card__more {
-  position: absolute; inset: 0;
+  grid-area: 1 / 1 / 2 / 3; align-self: stretch; z-index: 1;
   display: flex; align-items: center;
-  padding: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
   background: var(--c-white);
   color: var(--c-text);
-  font-size: var(--text-xs); line-height: 1.6;
+  font-size: var(--text-xs); line-height: 1.55;
   opacity: 0; transform: translateY(12px);
   transition: opacity 240ms var(--ease), transform 300ms var(--ease-out);
   pointer-events: none;
