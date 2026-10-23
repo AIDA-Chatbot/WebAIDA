@@ -17,7 +17,7 @@
 - Equipo: Santiago Oroz, Renata Berho y Milagros Argañin, como trabajo final del Samsung Innovation Campus Argentina 2025 (edición Inteligencia Artificial).
 - Seguridad: Tech del Fuego, firma de ciberseguridad de Río Grande (Tierra del Fuego), audita la seguridad de AIDA y la protección de datos.
 - Reconocimientos: 3.er puesto nacional del Santander X Argentina Award 2026, categoría Proyectos Universitarios, con pase a la instancia internacional (Santander X Global Award). 1.º puesto del Capstone Project del Samsung Innovation Campus Argentina 2025 con la primera versión de AIDA, un asistente en Telegram que funcionó durante un tiempo (hoy el desarrollo es la app), organizado por Samsung Argentina, Grupo Mirgor y Asociación Conciencia.
-- Contacto: aidaassistantbot@gmail.com
+- Contacto: soporte@aidaasistente.com
 - Links: https://aidaasistente.com/links/
 
 ## Páginas

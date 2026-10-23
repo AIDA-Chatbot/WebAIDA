@@ -12,7 +12,7 @@
   // diseño; para recibir los correos en otra casilla, se cambia W3F_KEY.
   var W3F_ENDPOINT = 'https://api.web3forms.com/submit';
   var W3F_KEY = '1eacf71b-14ad-495f-a0cc-39f3472fa544';
-  var CONTACT_EMAIL = 'aidaassistantbot@gmail.com';
+  var CONTACT_EMAIL = 'soporte@aidaasistente.com';
   // Medición: Analytics y Clarity cargan solo si el visitante acepta el aviso.
   var GA_ID = 'G-GR7W7YFHN5';
   var CLARITY_ID = 'yqht5qdhtm';

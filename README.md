@@ -163,6 +163,6 @@ La paleta se muestreó del arte original del isotipo y respeta el
 
 Los tres trabajamos en todo el proyecto, sin roles separados.
 
-Contacto: **aidaassistantbot@gmail.com** · [Video de presentación](https://youtu.be/Sl-CFzgz-u0)
+Contacto: **soporte@aidaasistente.com** · [Video de presentación](https://youtu.be/Sl-CFzgz-u0)
 
 > El repositorio de la app es privado, así que el sitio no enlaza a código fuente.
