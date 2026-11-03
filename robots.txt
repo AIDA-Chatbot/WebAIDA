@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aidaasistente.com/sitemap.xml
+
+Sitemap: https://aidaasistente.com/sitemap-index.xml

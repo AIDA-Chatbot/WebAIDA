@@ -40,7 +40,7 @@ jobs:
         run: |
           mkdir _site
           cp -r index.html tecnologia.html privacidad.html 404.html _site/
-          cp -r robots.txt sitemap.xml llms.txt _site/
+          cp -r robots.txt sitemap.xml sitemap-index.xml llms.txt _site/
           cp -r assets styles scripts links _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
