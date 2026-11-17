@@ -109,7 +109,7 @@
     <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
-    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 28 de octubre de 2026</span></p>
+    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 17 de noviembre de 2026</span></p>
   </div>
 </div>
 
@@ -161,6 +161,7 @@
           <li>Si la persona toca «Esto está mal» en una respuesta, esa respuesta, la pregunta (que puede incluir el texto de un mensaje que recibió) y el motivo elegido. Se guardan 90 días y después se borran.</li>
           <li>Si la persona elige a alguien de su familia para que reciba sus avisos en la app <strong>AIDA Familia</strong>: su propio nombre (el que va en el aviso), el nombre de esa persona, los avisos que se le mandaron y lo que contestó («Ya te llamo»). A la familia solo le llega lo que la persona toca («Pedir ayuda» o «Avisale» cuando algo no le sale), nunca algo automático en esta versión: los avisos que el teléfono podría mandar solos (por ejemplo, un posible engaño) no están activos. Estos avisos y las respuestas se borran a los 90 días. Una vez por día la aplicación avisa al servidor que sigue funcionando y manda datos generales de uso, sin lo que se dijo; esos datos no se le muestran a la familia salvo que se avise de otra manera. De quien usa AIDA Familia se guarda el nombre que eligió y el código de su teléfono para las notificaciones (de Google Firebase), sin número de teléfono. Se guardan mientras use la app. Si deja de estar vinculado con alguien y pasan 90 días sin usarla, se borran solos; también podés pedirnos que los borremos escribiendo a hola@aidaasistente.com.</li>
           <li>Si la persona prende los <strong>avisos de estafa</strong> (vienen apagados), las notificaciones que le llegan al teléfono: los mensajes, los correos y los avisos de páginas y aplicaciones. AIDA las lee para avisarle en el momento si algo parece una estafa, pero nunca las abre, las contesta ni las borra.</li>
+          <li>Si la persona prende los <strong>avisos de llamadas</strong> (vienen apagados): el número de quien la llama cuando no lo tiene agendado, y el momento en que atiende y corta. Con eso AIDA le avisa si la llama un número que ella marcó como estafa, o uno de otro país, y al cortar le ofrece revisar la llamada con unas preguntas. AIDA <strong>no escucha ni graba</strong> las llamadas, no lee la lista de llamadas ni los contactos, y nunca corta ni bloquea una llamada.</li>
         </ul>
 
         <h3>Dónde quedan los datos</h3>
@@ -177,6 +178,13 @@
           se borra desde «Lo que AIDA revisó». Las notificaciones sin señales de estafa no se guardan en
           ningún lado.
         </p>
+        <p>
+          Con los avisos de llamadas prendidos, los números que llamaron (las últimas 30 llamadas de
+          números no agendados) y los que la persona marcó como estafa o como conocidos quedan
+          <strong>solo en el teléfono</strong>. No se mandan al servidor ni al servicio externo, y se
+          borran desde Ajustes, con «Borrar las llamadas anotadas y los números marcados», o al
+          desinstalar la aplicación.
+        </p>
 
         <h3>Qué sale del teléfono</h3>
         <p>
@@ -189,6 +197,12 @@
           de códigos, un premio, un aviso de virus), AIDA manda su texto, de qué aplicación vino y quién
           la mandó, por el mismo camino que una pregunta, para que el modelo diga si es una estafa. Se
           trata igual que una pregunta: el servidor no lo guarda.
+        </p>
+        <p>
+          Si la persona revisa una llamada, lo que contesta (quién dijo ser el que llamó, qué le pidió,
+          si lo llegó a hacer, y lo que quiera contar con sus palabras) viaja por el mismo camino que una
+          pregunta, para que el modelo explique si parece una estafa y qué hacer. El número de quien
+          llamó no se manda. El servidor no lo guarda.
         </p>
         <p>
           Con cada pedido, la aplicación también manda su número de versión. Si es una versión que ya no
@@ -248,6 +262,7 @@
         <ul>
           <li>Borrar la conversación y el perfil desde Ajustes, sin pedirle permiso a nadie.</li>
           <li>Apagar los avisos de estafa desde Ajustes («Avisarme si me llega una estafa»), sacarle a AIDA el acceso a las notificaciones en los ajustes del teléfono, y borrar lo que AIDA revisó.</li>
+          <li>Apagar los avisos de llamadas desde Ajustes («Avisarme de las llamadas raras»), sacarle a AIDA el permiso de Teléfono y el lugar de aplicación de identificación de llamadas en los ajustes del teléfono, y borrar las llamadas anotadas y los números marcados.</li>
           <li>Borrar del servidor lo que AIDA tiene de tu instalación (el identificador, el conteo y los reportes), con el botón «Borrar lo que AIDA tiene de mí» en Ajustes. Las cuentas que ya están sumadas sin identificador no se pueden separar, porque no dicen de quién son.</li>
           <li>Pedirnos gratis, cada seis meses, qué datos tenemos de tu instalación (Ley 25.326, art. 14).</li>
           <li>Retirar el permiso para mandar tus consultas desde Ajustes («Tus datos»). Sin ese permiso AIDA no puede contestarte.</li>
