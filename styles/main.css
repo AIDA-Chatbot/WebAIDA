@@ -544,7 +544,7 @@ p { text-wrap: pretty; }
 .award__head p { font-size: var(--text-lg); }
 
 .awards {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sp-4); margin-top: var(--sp-6);
 }
 .award-card {
