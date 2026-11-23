@@ -187,37 +187,39 @@
     }
   }
 
-  /* --- Video: se carga recién al hacer clic --------------- */
-  var facade = $('#video-facade');
-  var videoWrap = $('#video-wrap');
-  if (facade && videoWrap) {
+  /* --- Videos: se cargan recién al hacer clic ------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.video-wrap[data-video]'), function (videoWrap) {
+    var facade = videoWrap.querySelector('.video-facade');
     var videoId = videoWrap.getAttribute('data-video');
+    if (!facade) return;
 
     // YouTube devuelve un gris de 120x90 cuando el video no tiene versión
     // maxres, y con estado 200: por eso no alcanza con 'onerror'.
-    var thumb = $('#video-thumb');
+    var thumb = videoWrap.querySelector('.video-thumb');
     if (thumb) {
       var checkThumb = function () {
         if (thumb.naturalWidth && thumb.naturalWidth < 200) {
           thumb.src = 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg';
         }
       };
+      thumb.addEventListener('error', function () {
+        thumb.src = 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg';
+      }, { once: true });
       if (thumb.complete) checkThumb();
       else thumb.addEventListener('load', checkThumb, { once: true });
     }
 
     facade.addEventListener('click', function () {
-      var id = videoId;
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&hl=es';
-      iframe.title = 'Video de presentación de AIDA — Samsung Innovation Campus 2025';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&hl=es';
+      iframe.title = videoWrap.getAttribute('data-title') || 'Video de AIDA';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
       iframe.loading = 'lazy';
       videoWrap.appendChild(iframe);
       facade.remove();
     });
-  }
+  });
 
   /* --- Lista de espera ------------------------------------ */
   // Hay dos formularios (el del hero y el del cierre); comparten el envío.

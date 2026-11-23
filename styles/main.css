@@ -854,6 +854,22 @@ p { text-wrap: pretty; }
   font-size: var(--text-sm); text-align: center; padding-inline: 1rem;
 }
 
+.videos {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4); margin-top: var(--sp-6);
+}
+.videos .video-wrap { margin-top: 0; }
+.video-card { margin: 0; }
+.video-card figcaption {
+  margin-top: var(--sp-2); font-size: var(--text-sm); color: var(--c-muted);
+}
+.video-card figcaption strong {
+  display: block; color: var(--c-ink); font-family: var(--font-head); font-size: var(--text-md);
+}
+.videos .video-facade__play { width: 64px; height: 64px; }
+.videos .video-facade__play svg { width: 24px; height: 24px; }
+@media (max-width: 760px) { .videos { grid-template-columns: 1fr; } }
+
 /* ---------- 16. Tecnología -------------------------------- */
 .tech-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
