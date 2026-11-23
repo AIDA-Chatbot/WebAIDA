@@ -855,9 +855,10 @@ p { text-wrap: pretty; }
 }
 
 .videos {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--sp-4); margin-top: var(--sp-6);
+  display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: var(--sp-4); margin-top: var(--sp-6); align-items: start;
 }
+.video-wrap--vertical { aspect-ratio: 9 / 16; }
 .videos .video-wrap { margin-top: 0; }
 .video-card { margin: 0; }
 .video-card figcaption {
@@ -868,7 +869,10 @@ p { text-wrap: pretty; }
 }
 .videos .video-facade__play { width: 64px; height: 64px; }
 .videos .video-facade__play svg { width: 24px; height: 24px; }
-@media (max-width: 760px) { .videos { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .videos { grid-template-columns: 1fr; }
+  .video-card--vertical { max-width: 300px; margin-inline: auto; }
+}
 
 /* ---------- 16. Tecnología -------------------------------- */
 .tech-grid {
