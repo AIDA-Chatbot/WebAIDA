@@ -559,13 +559,19 @@ p { text-wrap: pretty; }
   position: relative;
   aspect-ratio: 16 / 9;
   border-radius: calc(var(--r-lg) - 1px) calc(var(--r-lg) - 1px) 0 0;
-  background: rgba(255,255,255,.95);
+  background: #fff;
 }
 .award-card__media img {
   width: 100%; height: 100%; object-fit: cover;
   border-radius: inherit;
 }
 /* Santander X: el pingüino junto al logo, entero, sobre blanco */
+.award-card--coop .award-card__mascot {
+  position: absolute; right: 4%; bottom: -14px; width: 24%; height: auto;
+  object-fit: contain; border-radius: 0; filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
+  transition: transform 340ms var(--ease-spring);
+}
+.award-card--coop:hover .award-card__mascot { transform: rotate(-4deg) scale(1.05); }
 .award-card__media--logo { display: grid; place-items: center; padding: var(--sp-4); }
 .award-card__media--logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 0; transition: transform 340ms var(--ease-spring); }
 .award-card:hover .award-card__media--logo img { transform: scale(1.04); }
