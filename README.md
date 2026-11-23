@@ -9,17 +9,21 @@ que acompaña a personas mayores en el uso de la tecnología.
 En línea: **https://aidaasistente.com/**
 Se publica automáticamente en GitHub Pages con cada push a `main`.
 
-## Estructura
+## Estructura de carpetas
+
+*Revisado 21/11/2026.*
 
 ```
 WebAIDA/
 ├── index.html                  # Página principal (una sola página, con anclas)
 ├── tecnologia.html             # Detalle técnico (arquitectura, stack, decisiones)
+├── planes.html                 # Vista previa de los planes (todavía no cobra)
 ├── privacidad.html             # Política de privacidad y términos
 ├── 404.html                    # Página de error
 ├── links/index.html            # aidaasistente.com/links: todos los links en una página (reemplaza al Linktree)
-├── robots.txt · sitemap.xml    # Para buscadores (ver «SEO y visibilidad en IA»)
+├── robots.txt · sitemap.xml · sitemap-index.xml    # Para buscadores (ver «SEO y visibilidad en IA»)
 ├── llms.txt                    # Resumen de AIDA para asistentes de IA
+├── manual-de-identidad-visual.md  # Manual de marca (vale para todo el proyecto)
 ├── assets/
 │   ├── aida-mark.png           # Isotipo recortado (fondo transparente) — nav, footer, avatar
 │   ├── aida-wave.png           # Pingüino saludando — hero y CTA
@@ -28,11 +32,14 @@ WebAIDA/
 │   ├── equipo-*.png            # Los tres integrantes en versión pingüino
 │   ├── aida-logo.jpg           # Logotipo horizontal original
 │   ├── aida-trofeo.png         # Pingüino con trofeo — tarjeta de Santander X
+│   ├── aida-saludo.png · aida-santander-x.png · red-*.jpg  # Saludo, Santander X e íconos de redes
 │   ├── logos/tech-del-fuego.png # Aliado en ciberseguridad
 │   ├── og-image.jpg            # Imagen para compartir en redes (1200×630)
 │   └── favicon.ico · favicon-32.png · favicon-256.png
 ├── styles/main.css             # Sistema de diseño completo + componentes
 ├── scripts/main.js             # Interactividad, sin dependencias
+├── pinguinoAIDA.ico · pinguinoAIDA.jpg  # Pingüino original (ícono y JPG)
+├── .claude/launch.json         # Vista previa local (no se publica)
 └── .github/workflows/static.yml
 ```
 

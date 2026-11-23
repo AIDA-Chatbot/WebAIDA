@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css?v=20261020a" />
+  <link rel="stylesheet" href="styles/main.css?v=20261123a" />
 
   <script type="application/ld+json">
   {
@@ -109,7 +109,7 @@
     <a href="index.html" class="back-link"><svg aria-hidden="true"><use href="#i-back"/></svg>Volver al inicio</a>
     <h1>Privacidad y términos</h1>
     <p>Qué datos guardamos, para qué los usamos y cuáles son las condiciones de uso de AIDA. En castellano simple.</p>
-    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 28 de octubre de 2026</span></p>
+    <p style="margin-top:var(--sp-3)"><span class="updated">Última actualización: 21 de noviembre de 2026</span></p>
   </div>
 </div>
 
@@ -133,7 +133,7 @@
         <h2 id="resumen-title">Resumen en tres líneas</h2>
         <div class="prose__note">
           <p><strong>1.</strong> La conversación, tu perfil (nombre, preferencias) y lo que AIDA revisó por estafas se guardan en tu teléfono; el servidor de AIDA no los guarda.</p>
-          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo (Groq). Ese servidor no guarda lo que preguntaste ni lo que se veía en tu pantalla. Lo que sí cuenta, sin tu nombre, es cuántas veces y de qué manera se usa AIDA, para mejorarla. No vendemos ni compartimos nada.</p>
+          <p><strong>2.</strong> Para contestar, la pregunta y lo que ve de tu pantalla pasan por un servidor de AIDA, que las reenvía a un servicio externo de inteligencia artificial (la lista está en «Servicios de terceros»). Ese servidor no guarda lo que preguntaste ni lo que se veía en tu pantalla. Lo que sí cuenta, sin tu nombre, es cuántas veces y de qué manera se usa AIDA, para mejorarla. No vendemos ni compartimos nada.</p>
           <p><strong>3.</strong> Borrás todo desde Ajustes. Para sacar tu correo de la lista de espera, escribinos a <a href="mailto:hola@aidaasistente.com">hola@aidaasistente.com</a>.</p>
         </div>
         <p>
@@ -224,8 +224,8 @@
 
         <h3 id="plazos">Dónde está el servidor y cuánto tiempo se guarda</h3>
         <p>
-          El servidor de AIDA funciona en <strong>Amazon Web Services, en los Estados Unidos</strong>, y el
-          servicio que arma las respuestas (Groq) también. Al aceptar «Antes de empezar» en la aplicación
+          El servidor de AIDA funciona en <strong>Amazon Web Services, en los Estados Unidos</strong>, y las
+          empresas que arman las respuestas también procesan las consultas ahí. Al aceptar «Antes de empezar» en la aplicación
           aceptás que tus consultas se procesen allí. Si el servidor se muda, lo decimos en esta página.
         </p>
         <ul>
@@ -285,13 +285,27 @@
       <section id="terceros" aria-labelledby="terceros-title">
         <h2 id="terceros-title">Servicios de terceros</h2>
         <p>
-          Para contestar, AIDA se apoya en un servicio externo. Cuando hacés una pregunta, parte del
-          contenido se procesa en esa plataforma, con sus propias políticas:
+          Para contestar, AIDA se apoya en servicios externos. Cuando hacés una pregunta, parte del
+          contenido se procesa en esas plataformas, con sus propias políticas:
         </p>
         <ul>
-          <li><strong>Servidor de AIDA</strong> — recibe la consulta, la reenvía a Groq con la clave de AIDA y te devuelve la respuesta, sin guardarla. Funciona en <strong>Amazon Web Services</strong> (Estados Unidos), que lo aloja y no usa los datos para nada propio.</li>
+          <li><strong>Servidor de AIDA</strong> — recibe la consulta, la reenvía al servicio de modelos con la clave de AIDA y te devuelve la respuesta, sin guardarla. Funciona en <strong>Amazon Web Services</strong> (Estados Unidos), que lo aloja y no usa los datos para nada propio.</li>
           <li><strong>Cloudflare</strong> — todo lo que manda la aplicación pasa por Cloudflare, que abre la conexión cifrada y la vuelve a cifrar hacia el servidor de AIDA, sin guardar su contenido. Cloudflare también guarda las copias de seguridad de la base del servidor (lo que se explica en «Dónde está el servidor»), en un bucket privado de AIDA.</li>
-          <li><strong>Groq</strong> — procesamiento de los modelos de lenguaje y de visión que generan la respuesta.</li>
+          <li><strong>Servicios de modelos de lenguaje y de visión</strong> — generan la respuesta. Cada consulta va a <strong>una</strong> de estas empresas, según cuál esté disponible y responda mejor en ese momento; si una falla, el servidor prueba con la siguiente. Los modelos que usa cada una pueden cambiar con el tiempo; la empresa que recibe los datos es siempre una de esta lista:
+            <ul>
+              <li><strong>Amazon Web Services</strong></li>
+              <li><strong>Groq</strong></li>
+              <li><strong>Google Cloud</strong></li>
+              <li><strong>Microsoft Azure</strong></li>
+              <li><strong>OpenAI</strong></li>
+              <li><strong>Anthropic</strong></li>
+              <li><strong>Cloudflare</strong></li>
+              <li><strong>Cerebras</strong></li>
+              <li><strong>Together AI</strong></li>
+              <li><strong>Fireworks AI</strong></li>
+            </ul>
+            Solo usamos empresas que, por contrato, no usan las consultas para entrenar sus modelos. Procesan los datos en los Estados Unidos o, si el servidor se muda, en la región donde esté. Si sumamos una empresa que no está en esta lista, la agregamos acá antes de usarla.
+          </li>
           <li><strong>Google Firebase Cloud Messaging</strong> — lleva las notificaciones a la app AIDA Familia. Solo transporta un aviso de que hay novedades, sin su contenido: la app lo busca después en el servidor de AIDA.</li>
         </ul>
         <h3 id="medicion">Este sitio web</h3>
