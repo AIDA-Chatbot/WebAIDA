@@ -1788,6 +1788,10 @@ p { text-wrap: pretty; }
   .section { padding-block: 1.5rem; }
 }
 
+/* La invitación al juego va pegada a lo de arriba y a lo de abajo. */
+.section--junta { padding-block: 1.5rem; }
+.section--pegada { padding-top: 1.5rem; }
+
 /* La sección de Android quedó solo con texto */
 .split--single { grid-template-columns: minmax(0, 46rem); justify-content: center; }
 

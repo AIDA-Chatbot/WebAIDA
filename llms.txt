@@ -20,7 +20,7 @@
 - Contacto: hola@aidaasistente.com
 - Links: https://aidaasistente.com/links/
 
-## Juego de ciberseguridad
+## Juego para aprender a reconocer estafas
 
 [¿Es seguro?](https://aidaasistente.com/juego/) es un juego gratuito de AIDA para concientización básica en ciberseguridad. Se juega en el navegador, sin registrarse. En cinco días con cuatro casos cada uno, la persona decide si un mensaje, una llamada o una aplicación es segura o es una trampa: falsos avisos del banco, números nuevos que piden plata, comprobantes falsos al vender algo, llamadas urgentes y ofertas demasiado buenas. Las marcas que aparecen son inventadas.
 

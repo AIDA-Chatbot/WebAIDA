@@ -58,7 +58,7 @@ recortando el fondo, para que el pingüino se vea bien sobre fondos oscuros.
 | `#para-quien` | Personas mayores / familias y cuidadores |
 | `#video` | Video de presentación (se carga recién al hacer clic) |
 | `#premio` | Los dos premios: 1.º puesto en el SIC 2025 y 3.er puesto en el Santander X Argentina Award 2026 |
-| `#tecnologia` | Invitación a la página técnica (el detalle vive en `tecnologia.html`) |
+| `#juego` | Invitación al juego «¿Es seguro?» (a la página técnica se llega desde el pie) |
 | `#estado` | Qué está listo, qué está en curso y qué viene |
 | `#equipo` | Integrantes, Tech del Fuego (aliado en ciberseguridad) y agradecimientos |
 | `#preguntas` | Preguntas frecuentes |
