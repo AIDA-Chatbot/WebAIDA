@@ -38,3 +38,6 @@ Trae casos, consejos, animaciones, arte y sonidos. Un cambio en `juego.gd`
 - AIDA corriendo aparece entre días y al final; no en celulares ni si el sistema
   pide menos movimiento.
 - No están las opciones de desarrollo (`--demo`, `--capturas`, `--dia`).
+
+Al cambiar un `.js` o `estilos.css`, subir el número `?v=` en `index.html`: el sitio
+guarda esos archivos en caché varias horas.
