@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; object-src 'none'; base-uri 'none'">
+<meta name="theme-color" content="#ffffff">
+<title>¿Es seguro? Juego de concientización en ciberseguridad · AIDA</title>
+<meta name="description" content="Juego gratuito de concientización básica en ciberseguridad: aprendé a reconocer estafas y engaños en mensajes, llamadas y aplicaciones del celular. Pensado para adultos mayores, se juega en el navegador.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://aidaasistente.com/juego/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="AIDA">
+<meta property="og:url" content="https://aidaasistente.com/juego/">
+<meta property="og:title" content="¿Es seguro? Juego de concientización en ciberseguridad · AIDA">
+<meta property="og:description" content="Juego gratuito de concientización básica en ciberseguridad: aprendé a reconocer estafas y engaños en mensajes, llamadas y aplicaciones del celular. Pensado para adultos mayores, se juega en el navegador.">
+<meta property="og:image" content="https://aidaasistente.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "VideoGame",
+    "LearningResource"
+  ],
+  "@id": "https://aidaasistente.com/juego/#juego",
+  "name": "¿Es seguro? — El juego de AIDA",
+  "url": "https://aidaasistente.com/juego/",
+  "description": "Juego gratuito de concientización básica en ciberseguridad: aprendé a reconocer estafas y engaños en mensajes, llamadas y aplicaciones del celular. Pensado para adultos mayores, se juega en el navegador.",
+  "inLanguage": "es-AR",
+  "genre": "Educativo",
+  "gamePlatform": "Navegador web",
+  "applicationCategory": "Game",
+  "operatingSystem": "Cualquiera con navegador",
+  "playMode": "SinglePlayer",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Juego educativo",
+  "educationalLevel": "Básico",
+  "teaches": "Concientización básica en ciberseguridad: reconocer estafas, phishing y suplantación de identidad",
+  "about": [
+    "Ciberseguridad",
+    "Prevención de estafas digitales",
+    "Phishing"
+  ],
+  "image": "https://aidaasistente.com/assets/og-image.jpg",
+  "publisher": {
+    "@id": "https://aidaasistente.com/#organizacion",
+    "@type": "Organization",
+    "name": "AIDA",
+    "url": "https://aidaasistente.com/"
+  }
+}
+</script>
+<link rel="icon" href="arte/icono.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;display=swap">
+<link rel="stylesheet" href="estilos.css">
+<script src="datos/casos.js" defer></script>
+<script src="datos/animaciones.js" defer></script>
+<script src="datos/arte.js" defer></script>
+<script src="aida.js" defer></script>
+<script src="juego.js" defer></script>
+</head>
+<body>
+<noscript>
+  <h1>¿Es seguro? — El juego de AIDA</h1>
+  <p>Juego de concientización básica en ciberseguridad: aprendé a reconocer estafas y engaños en mensajes,
+  llamadas y aplicaciones del celular. Para jugarlo hace falta activar JavaScript.</p>
+</noscript>
+<header id="barra">
+  <a id="volver" href="https://aidaasistente.com/">←&nbsp;aidaasistente.com</a>
+  <div id="marcador" hidden><span id="lbl-dia"></span><span id="lbl-mensaje"></span></div>
+</header>
+
+<main id="mesa" hidden>
+  <section id="zona-telefono">
+    <div id="telefono">
+      <div id="pantalla">
+        <button type="button" id="cabecera">
+          <img id="avatar" alt="">
+          <span class="nombres"><span id="nombre"></span><span id="numero"></span></span>
+          <span id="icono" aria-hidden="true"></span>
+        </button>
+        <div id="cuerpo"></div>
+        <div id="menu-banco" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="activo"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18M6 15h4"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </div>
+      </div>
+    </div>
+    <div id="sello" role="status" hidden></div>
+  </section>
+
+  <div id="globo" aria-live="polite" hidden><div id="globo-texto"></div></div>
+  <div id="acciones">
+    <img id="aida" src="arte/aida_normal.png" alt="AIDA">
+    <button type="button" id="btn-ayuda" class="boton">🔍&nbsp; AIDA, ayudame</button>
+  </div>
+  <div id="botones">
+    <button type="button" id="btn-seguro" class="boton">✓&nbsp; Es seguro</button>
+    <button type="button" id="btn-trampa" class="boton">✗&nbsp; Es trampa</button>
+    <button type="button" id="btn-siguiente" class="boton turquesa" hidden>Seguir&nbsp; ▸</button>
+  </div>
+  <img id="escua-asoma" alt="" hidden>
+</main>
+
+<main id="capa" hidden></main>
+</body>
+</html>

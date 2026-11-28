@@ -20,6 +20,7 @@ WebAIDA/
 ├── planes.html                 # Vista previa de los planes (todavía no cobra)
 ├── privacidad.html             # Política de privacidad y términos
 ├── 404.html                    # Página de error
+├── juego/                      # aidaasistente.com/juego: «¿Es seguro?», concientización en ciberseguridad (ver juego/README.md)
 ├── links/index.html            # aidaasistente.com/links: todos los links en una página (reemplaza al Linktree)
 ├── robots.txt · sitemap.xml · sitemap-index.xml    # Para buscadores (ver «SEO y visibilidad en IA»)
 ├── llms.txt                    # Resumen de AIDA para asistentes de IA

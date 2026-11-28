@@ -41,7 +41,8 @@ jobs:
           mkdir _site
           cp -r index.html tecnologia.html privacidad.html 404.html _site/
           cp -r robots.txt sitemap.xml sitemap-index.xml llms.txt _site/
-          cp -r assets styles scripts links familia _site/
+          cp -r assets styles scripts links familia juego _site/
+          rm -rf _site/juego/herramientas _site/juego/README.md
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

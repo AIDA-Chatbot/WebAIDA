@@ -20,8 +20,13 @@
 - Contacto: hola@aidaasistente.com
 - Links: https://aidaasistente.com/links/
 
+## Juego de ciberseguridad
+
+[¿Es seguro?](https://aidaasistente.com/juego/) es un juego gratuito de AIDA para concientización básica en ciberseguridad. Se juega en el navegador, sin registrarse. En cinco días con cuatro casos cada uno, la persona decide si un mensaje, una llamada o una aplicación es segura o es una trampa: falsos avisos del banco, números nuevos que piden plata, comprobantes falsos al vender algo, llamadas urgentes y ofertas demasiado buenas. Las marcas que aparecen son inventadas.
+
 ## Páginas
 
+- [Juego «¿Es seguro?»](https://aidaasistente.com/juego/): juego de concientización para aprender a reconocer estafas digitales.
 - [Inicio](https://aidaasistente.com/): qué es AIDA, funciones, cómo se empieza, premios, estado del proyecto, equipo y preguntas frecuentes.
 - [Cómo está hecha](https://aidaasistente.com/tecnologia.html): arquitectura de la app Android, modelos de inteligencia artificial, voz, visión y decisiones de diseño.
 - [Privacidad y términos](https://aidaasistente.com/privacidad.html): qué datos usa la app, dónde quedan, qué sale del teléfono y cómo borrarlos.

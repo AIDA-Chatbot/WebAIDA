@@ -9,6 +9,10 @@
     <image:image><image:loc>https://aidaasistente.com/assets/aida-penguin.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://aidaasistente.com/juego/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://aidaasistente.com/links/</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
